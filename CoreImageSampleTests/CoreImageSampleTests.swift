@@ -109,12 +109,20 @@ class CoreImageSampleTests: XCTestCase {
         }
     }
     
-    // 0.032 sec
-    func testPerformanceCircle2() {
+    func testPerformanceEmptyCI() {
         let imageSize = CGSize(width: 256, height: 256)
         self.measure {
-            for _ in 0..<10 {
-                print(UIImage.circle2(size: imageSize, color: .white)?.size)
+            for _ in 0..<100 {
+                print(UIImage.empty(size: imageSize, color: .white)?.size)
+            }
+        }
+    }
+    
+    func testPerformanceEmptyCG() {
+        let imageSize = CGSize(width: 256, height: 256)
+        self.measure {
+            for _ in 0..<100 {
+                print(UIImage.emptyUsingCoreGraphics(size: imageSize, color: .white)?.size)
             }
         }
     }

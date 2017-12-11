@@ -9,13 +9,12 @@
 import UIKit
 
 extension UIImage {
-    func resized(to size: CGSize) -> UIImage? {
-        let scale = self.scale
+    func resized(to size: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
         let scaledSize = size.uniformlyScaled(by: scale)
         guard let ciImage = CIImage.extractOrGenerate(from: self)?.resized(to: scaledSize) else {
             return nil
         }
-        return UIImage(ciImage: ciImage, scale: scale, orientation: imageOrientation)
+        return UIImage(ciImage: ciImage, scale: scale, orientation: .up)
     }
     
     /// Create UIImage by drawing current image on colored context.
@@ -94,7 +93,21 @@ extension UIImage {
     /// - parameter color: Color to fill
     ///
     /// - returns: The created image. Nil on error.
-    static func empty(size: CGSize, color: UIColor = .clear) -> UIImage? {
+    static func empty(size: CGSize, color: UIColor = .clear, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+        let scaledSize = size.uniformlyScaled(by: scale)
+        let ciImage = CIFilter.constantColorGenerator(inputColor: CIColor(color: color))?
+            .outputImage?
+            .cropped(to: CGRect(origin: .zero, size: scaledSize))
+        return ciImage.map { UIImage(ciImage: $0, scale: scale, orientation: .up) }
+    }
+    
+    /// Create UIImage filled with a color.
+    ///
+    /// - parameter size: Size of output image
+    /// - parameter color: Color to fill
+    ///
+    /// - returns: The created image. Nil on error.
+    static func emptyUsingCoreGraphics(size: CGSize, color: UIColor = .clear) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
         defer {
             UIGraphicsEndImageContext()
@@ -116,7 +129,7 @@ extension UIImage {
     /// - parameter backgroundColor: Background color of the image
     ///
     /// - returns: The created image. Nil on error.
-    static func circle2(size: CGSize, color: UIColor, backgroundColor: UIColor = .clear) -> UIImage? {
+    static func circle(size: CGSize, color: UIColor, backgroundColor: UIColor = .clear) -> UIImage? {
         let frame = CGRect(origin: .zero, size: size)
         return UIGraphicsImageRenderer(size: size).image { context in
             let cgContext = context.cgContext

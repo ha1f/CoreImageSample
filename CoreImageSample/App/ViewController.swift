@@ -31,6 +31,9 @@ class ViewController: UIViewController {
         imageView.image = QrCodeGenerator()
             .generate(fromString: "https://ha1f.net", imageWidth: 256, scale: UIScreen.main.scale)
             .map { UIImage(ciImage: $0, scale: UIScreen.main.scale, orientation: .up) }
+        
+        
+        print(CIFilter.constantColorGenerator(inputColor: CIColor(color: UIColor.orange))!.outputImage.map { UIImage(ciImage: $0, scale: UIScreen.main.scale, orientation: .up).size })
     }
 }
 
