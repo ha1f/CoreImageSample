@@ -29,9 +29,8 @@ class ViewController: UIViewController {
             ])
         
         imageView.image = QrCodeGenerator()
-            .generate(fromString: "https://ha1f.net", imageWidth: 256)
-            .map { UIImage(ciImage: $0) }
+            .generate(fromString: "https://ha1f.net", imageWidth: 256, scale: UIScreen.main.scale)
+            .map { UIImage(ciImage: $0, scale: UIScreen.main.scale, orientation: .up) }
     }
-
 }
 

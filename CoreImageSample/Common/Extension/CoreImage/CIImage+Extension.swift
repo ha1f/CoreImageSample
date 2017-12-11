@@ -6,9 +6,7 @@
 //  Copyright © 2017年 ha1f. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import CoreImage
 
 extension CIImage {
     /// Extract or generate CIImage
@@ -21,5 +19,11 @@ extension CIImage {
     /// - returns: Generated CIImage
     static func extractOrGenerate(from image: UIImage) -> CIImage? {
         return image.ciImage ?? CIImage(image: image)
+    }
+    
+    func resized(to size: CGSize) -> CIImage? {
+        let xScale = size.width / extent.width
+        let yScale = size.height / extent.height
+        return transformed(by: CGAffineTransform(scaleX: xScale, y: yScale))
     }
 }

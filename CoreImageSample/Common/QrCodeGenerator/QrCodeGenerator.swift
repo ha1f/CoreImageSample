@@ -30,16 +30,16 @@ struct QrCodeGenerator {
         return filter?.outputImage
     }
     
-    func generate(fromData data: Data, imageWidth: CGFloat) -> CIImage? {
+    func generate(fromData data: Data, imageWidth: CGFloat, scale: CGFloat = 1.0) -> CIImage? {
         guard let image = generate(fromData: data) else {
             return nil
         }
-        let scale = imageWidth / image.extent.size.width
+        let scale = (imageWidth * scale) / image.extent.size.width
         return image.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
     }
     
-    func generate(fromString string: String, imageWidth: CGFloat) -> CIImage? {
+    func generate(fromString string: String, imageWidth: CGFloat, scale: CGFloat = 1.0) -> CIImage? {
         let data = string.data(using: .isoLatin1)
-        return data.flatMap { self.generate(fromData: $0, imageWidth: imageWidth) }
+        return data.flatMap { self.generate(fromData: $0, imageWidth: imageWidth, scale: scale) }
     }
 }

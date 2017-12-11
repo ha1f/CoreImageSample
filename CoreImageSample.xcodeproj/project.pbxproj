@@ -128,16 +128,10 @@
 		56689E7A1FDE1C860016D6A0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				56689E7D1FDE1CC90016D6A0 /* CGPoint+Extension.swift */,
-				56689E7E1FDE1CC90016D6A0 /* CGSize+Extension.swift */,
-				56689E7F1FDE1CC90016D6A0 /* Comparable+Extension.swift */,
-				56689E801FDE1CC90016D6A0 /* UIBezierPath+Extension.swift */,
-				56689E811FDE1CC90016D6A0 /* UIImage+Extension.swift */,
-				56689E7C1FDE1CC90016D6A0 /* UIView+Extension.swift */,
-				56689E8A1FDE23D80016D6A0 /* CIImage+Extension.swift */,
-				56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */,
-				56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */,
-				56D3F9171FDE97800028344C /* CGImage+Extension.swift */,
+				56D3F91C1FDE987A0028344C /* Foundation */,
+				56D3F91B1FDE98690028344C /* UIKit */,
+				56D3F91A1FDE98520028344C /* CoreGraphics */,
+				56D3F9191FDE98380028344C /* CoreImage */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -178,6 +172,44 @@
 				56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */,
 			);
 			path = QrCodeGenerator;
+			sourceTree = "<group>";
+		};
+		56D3F9191FDE98380028344C /* CoreImage */ = {
+			isa = PBXGroup;
+			children = (
+				56689E8A1FDE23D80016D6A0 /* CIImage+Extension.swift */,
+				56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */,
+				56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */,
+			);
+			path = CoreImage;
+			sourceTree = "<group>";
+		};
+		56D3F91A1FDE98520028344C /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				56D3F9171FDE97800028344C /* CGImage+Extension.swift */,
+				56689E7E1FDE1CC90016D6A0 /* CGSize+Extension.swift */,
+				56689E7D1FDE1CC90016D6A0 /* CGPoint+Extension.swift */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		56D3F91B1FDE98690028344C /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				56689E7C1FDE1CC90016D6A0 /* UIView+Extension.swift */,
+				56689E811FDE1CC90016D6A0 /* UIImage+Extension.swift */,
+				56689E801FDE1CC90016D6A0 /* UIBezierPath+Extension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		56D3F91C1FDE987A0028344C /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				56689E7F1FDE1CC90016D6A0 /* Comparable+Extension.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

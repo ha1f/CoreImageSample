@@ -9,6 +9,15 @@
 import UIKit
 
 extension UIImage {
+    func resized(to size: CGSize) -> UIImage? {
+        let scale = self.scale
+        let scaledSize = size.uniformlyScaled(by: scale)
+        guard let ciImage = CIImage.extractOrGenerate(from: self)?.resized(to: scaledSize) else {
+            return nil
+        }
+        return UIImage(ciImage: ciImage, scale: scale, orientation: imageOrientation)
+    }
+    
     /// Create UIImage by drawing current image on colored context.
     ///
     /// - parameter color: Color of the background context
