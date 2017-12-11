@@ -2,28 +2,13 @@
 //  UIImage+Extension.swift
 //  RotatableImageView
 //
-//  Created by ST20591 on 2017/10/27.
+//  Created by はるふ on 2017/10/27.
 //  Copyright © 2017年 ha1f. All rights reserved.
 //
 
 import UIKit
 
 extension UIImage {
-    /// Get as CGImage
-    /// If the UIImage is build from CIImage, cgImage is nil.
-    /// https://developer.apple.com/documentation/uikit/uiimage/1624147-cgimage
-    /// If so, we must build with CIContext
-    var safeCgImage: CGImage? {
-        if let cgImge = self.cgImage {
-            return cgImge
-        }
-        if let ciImage = CIImage.extractOrGenerate(from: self) {
-            let context = CIContext(options: nil)
-            return context.createCGImage(ciImage, from: ciImage.extent)
-        }
-        return nil
-    }
-    
     /// Create UIImage by drawing current image on colored context.
     ///
     /// - parameter color: Color of the background context
@@ -37,7 +22,7 @@ extension UIImage {
         guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
-        guard let cgImage = safeCgImage else {
+        guard let cgImage = CGImage.extractOrGenerate(from: self) else {
             return nil
         }
         let frame = CGRect(origin: .zero, size: size)
@@ -75,8 +60,8 @@ extension UIImage {
     ///
     /// - returns: The created image. Nil on error.
     func masked(with image: UIImage) -> UIImage? {
-        guard let maskRef = image.safeCgImage,
-            let ref = safeCgImage,
+        guard let maskRef = CGImage.extractOrGenerate(from: image),
+            let ref = CGImage.extractOrGenerate(from: self),
             let dataProvider = maskRef.dataProvider else {
                 return nil
         }

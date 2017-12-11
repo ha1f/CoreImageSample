@@ -23,6 +23,8 @@
 		56689E8F1FDE416E0016D6A0 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 56689E8E1FDE416E0016D6A0 /* Lenna.png */; };
 		56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */; };
 		56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */; };
+		56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */; };
+		56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9171FDE97800028344C /* CGImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		56689E8E1FDE416E0016D6A0 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
 		56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension.swift"; sourceTree = "<group>"; };
 		56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeGenerator.swift; sourceTree = "<group>"; };
+		56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension_generated.swift"; sourceTree = "<group>"; };
+		56D3F9171FDE97800028344C /* CGImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 				56689E7C1FDE1CC90016D6A0 /* UIView+Extension.swift */,
 				56689E8A1FDE23D80016D6A0 /* CIImage+Extension.swift */,
 				56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */,
+				56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */,
+				56D3F9171FDE97800028344C /* CGImage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -283,10 +289,12 @@
 				56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */,
 				56689E851FDE1CC90016D6A0 /* CGSize+Extension.swift in Sources */,
 				56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */,
+				56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */,
 				56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */,
 				56689E881FDE1CC90016D6A0 /* UIImage+Extension.swift in Sources */,
 				56689E841FDE1CC90016D6A0 /* CGPoint+Extension.swift in Sources */,
 				56689E5A1FDE1C750016D6A0 /* AppDelegate.swift in Sources */,
+				56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */,
 				56689E861FDE1CC90016D6A0 /* Comparable+Extension.swift in Sources */,
 				56689E871FDE1CC90016D6A0 /* UIBezierPath+Extension.swift in Sources */,
 			);
