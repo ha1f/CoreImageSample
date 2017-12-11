@@ -11,25 +11,111 @@ import XCTest
 
 class CoreImageSampleTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    let uiImage = #imageLiteral(resourceName: "Lenna.png")
+    let scaledSize = #imageLiteral(resourceName: "Lenna.png").size.uniformlyScaled(by: 5)
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    // 0.003 sec
+    func testPerformanceCI() {
         self.measure {
-            // Put the code you want to measure the time of here.
+            let ciImage = CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!
+            for _ in 0..<1000 {
+                XCTAssertEqual(UIImage(ciImage: ciImage.transformed(by: CGAffineTransform(scaleX: 5, y: 5))).size, scaledSize)
+            }
+        }
+    }
+    
+    // 0.031 sec
+    func testPerformanceCI2() {
+        self.measure {
+            for _ in 0..<1000 {
+                XCTAssertEqual(UIImage(ciImage: CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!.transformed(by: CGAffineTransform(scaleX: 5, y: 5))).size, scaledSize)
+            }
+        }
+    }
+    
+    // 0.013 sec
+    func testPerformanceCI3() {
+        self.measure {
+            let ciImage = CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!
+            for _ in 0..<1000 {
+                XCTAssertEqual(UIImage(ciImage: CIFilter.lanczosScaleTransform(inputImage: ciImage, inputScale: 5, inputAspectRatio: 1)!.outputImage!).size, scaledSize)
+            }
+        }
+    }
+    
+    // 0.014 sec
+    func testPerformanceCI4() {
+        self.measure {
+            let ciImage = CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!
+            for _ in 0..<1000 {
+                XCTAssertEqual(UIImage(ciImage: ciImage.applyingFilter("CILanczosScaleTransform", parameters: ["inputScale": 5])).size, scaledSize)
+            }
+        }
+    }
+    
+    // 5.452 sec
+    func testPerformanceRenderer() {
+        let imageSize = uiImage.size.uniformlyScaled(by: 5)
+        let imageRect = CGRect(origin: .zero, size: imageSize)
+        self.measure {
+            for _ in 0..<5 {
+                let image = UIGraphicsImageRenderer(size: imageSize).image { context in uiImage.draw(in: imageRect) }
+                XCTAssertEqual(image.size, scaledSize)
+                XCTAssertEqual(image.scale, UIScreen.main.scale)
+            }
+        }
+    }
+    
+    func testPerformanceRenderer2() {
+        let imageSize = uiImage.size.uniformlyScaled(by: 5)
+        let imageRect = CGRect(origin: .zero, size: imageSize)
+        let rendererFormat = UIGraphicsImageRendererFormat.default()
+        rendererFormat.prefersExtendedRange = false
+        self.measure {
+            for _ in 0..<5 {
+                let renderer = UIGraphicsImageRenderer(size: imageSize, format: rendererFormat)
+                let image = renderer.image { context in uiImage.draw(in: imageRect) }
+                XCTAssertEqual(image.size, scaledSize)
+                XCTAssertEqual(image.scale, UIScreen.main.scale)
+            }
+        }
+    }
+    
+    // 0.660 sec
+    func testPerformanceCG() {
+        let imageSize = uiImage.size.uniformlyScaled(by: 5)
+        let imageRect = CGRect(origin: .zero, size: imageSize)
+        self.measure {
+            for _ in 0..<5 {
+                UIGraphicsBeginImageContextWithOptions(imageSize, true, 0.0)
+                defer {
+                    UIGraphicsEndImageContext()
+                }
+                uiImage.draw(in: imageRect)
+                let image = UIGraphicsGetImageFromCurrentImageContext()!
+                XCTAssertEqual(image.size, scaledSize)
+                XCTAssertEqual(image.scale, UIScreen.main.scale)
+            }
+        }
+    }
+    
+    // 0.018 sec
+    func testPerformanceCircle() {
+        let imageSize = CGSize(width: 256, height: 256)
+        self.measure {
+            for _ in 0..<10 {
+                print(UIImage.circle(size: imageSize, color: .white)?.size)
+            }
+        }
+    }
+    
+    // 0.032 sec
+    func testPerformanceCircle2() {
+        let imageSize = CGSize(width: 256, height: 256)
+        self.measure {
+            for _ in 0..<10 {
+                print(UIImage.circle2(size: imageSize, color: .white)?.size)
+            }
         }
     }
     

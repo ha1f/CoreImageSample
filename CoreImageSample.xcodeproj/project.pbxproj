@@ -13,6 +13,16 @@
 		56689E611FDE1C750016D6A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56689E601FDE1C750016D6A0 /* Assets.xcassets */; };
 		56689E641FDE1C750016D6A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56689E621FDE1C750016D6A0 /* LaunchScreen.storyboard */; };
 		56689E6F1FDE1C750016D6A0 /* CoreImageSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E6E1FDE1C750016D6A0 /* CoreImageSampleTests.swift */; };
+		56689E831FDE1CC90016D6A0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E7C1FDE1CC90016D6A0 /* UIView+Extension.swift */; };
+		56689E841FDE1CC90016D6A0 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E7D1FDE1CC90016D6A0 /* CGPoint+Extension.swift */; };
+		56689E851FDE1CC90016D6A0 /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E7E1FDE1CC90016D6A0 /* CGSize+Extension.swift */; };
+		56689E861FDE1CC90016D6A0 /* Comparable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E7F1FDE1CC90016D6A0 /* Comparable+Extension.swift */; };
+		56689E871FDE1CC90016D6A0 /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E801FDE1CC90016D6A0 /* UIBezierPath+Extension.swift */; };
+		56689E881FDE1CC90016D6A0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E811FDE1CC90016D6A0 /* UIImage+Extension.swift */; };
+		56689E8B1FDE23D80016D6A0 /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E8A1FDE23D80016D6A0 /* CIImage+Extension.swift */; };
+		56689E8F1FDE416E0016D6A0 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 56689E8E1FDE416E0016D6A0 /* Lenna.png */; };
+		56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */; };
+		56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +46,16 @@
 		56689E6A1FDE1C750016D6A0 /* CoreImageSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreImageSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56689E6E1FDE1C750016D6A0 /* CoreImageSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreImageSampleTests.swift; sourceTree = "<group>"; };
 		56689E701FDE1C750016D6A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56689E7C1FDE1CC90016D6A0 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		56689E7D1FDE1CC90016D6A0 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		56689E7E1FDE1CC90016D6A0 /* CGSize+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Extension.swift"; sourceTree = "<group>"; };
+		56689E7F1FDE1CC90016D6A0 /* Comparable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comparable+Extension.swift"; sourceTree = "<group>"; };
+		56689E801FDE1CC90016D6A0 /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
+		56689E811FDE1CC90016D6A0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		56689E8A1FDE23D80016D6A0 /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
+		56689E8E1FDE416E0016D6A0 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
+		56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension.swift"; sourceTree = "<group>"; };
+		56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +97,8 @@
 		56689E581FDE1C750016D6A0 /* CoreImageSample */ = {
 			isa = PBXGroup;
 			children = (
-				56689E591FDE1C750016D6A0 /* AppDelegate.swift */,
-				56689E5B1FDE1C750016D6A0 /* ViewController.swift */,
-				56689E5D1FDE1C750016D6A0 /* Main.storyboard */,
-				56689E601FDE1C750016D6A0 /* Assets.xcassets */,
-				56689E621FDE1C750016D6A0 /* LaunchScreen.storyboard */,
-				56689E651FDE1C750016D6A0 /* Info.plist */,
+				56689E791FDE1C7E0016D6A0 /* Common */,
+				56689E7B1FDE1C9C0016D6A0 /* App */,
 			);
 			path = CoreImageSample;
 			sourceTree = "<group>";
@@ -94,6 +110,68 @@
 				56689E701FDE1C750016D6A0 /* Info.plist */,
 			);
 			path = CoreImageSampleTests;
+			sourceTree = "<group>";
+		};
+		56689E791FDE1C7E0016D6A0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				56689E921FDE79770016D6A0 /* QrCodeGenerator */,
+				56689E7A1FDE1C860016D6A0 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		56689E7A1FDE1C860016D6A0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				56689E7D1FDE1CC90016D6A0 /* CGPoint+Extension.swift */,
+				56689E7E1FDE1CC90016D6A0 /* CGSize+Extension.swift */,
+				56689E7F1FDE1CC90016D6A0 /* Comparable+Extension.swift */,
+				56689E801FDE1CC90016D6A0 /* UIBezierPath+Extension.swift */,
+				56689E811FDE1CC90016D6A0 /* UIImage+Extension.swift */,
+				56689E7C1FDE1CC90016D6A0 /* UIView+Extension.swift */,
+				56689E8A1FDE23D80016D6A0 /* CIImage+Extension.swift */,
+				56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		56689E7B1FDE1C9C0016D6A0 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				56689E8C1FDE41560016D6A0 /* Resource */,
+				56689E591FDE1C750016D6A0 /* AppDelegate.swift */,
+				56689E5B1FDE1C750016D6A0 /* ViewController.swift */,
+				56689E5D1FDE1C750016D6A0 /* Main.storyboard */,
+				56689E601FDE1C750016D6A0 /* Assets.xcassets */,
+				56689E621FDE1C750016D6A0 /* LaunchScreen.storyboard */,
+				56689E651FDE1C750016D6A0 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		56689E8C1FDE41560016D6A0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				56689E8D1FDE415D0016D6A0 /* Image */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		56689E8D1FDE415D0016D6A0 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				56689E8E1FDE416E0016D6A0 /* Lenna.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		56689E921FDE79770016D6A0 /* QrCodeGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */,
+			);
+			path = QrCodeGenerator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +259,7 @@
 			files = (
 				56689E641FDE1C750016D6A0 /* LaunchScreen.storyboard in Resources */,
 				56689E611FDE1C750016D6A0 /* Assets.xcassets in Resources */,
+				56689E8F1FDE416E0016D6A0 /* Lenna.png in Resources */,
 				56689E5F1FDE1C750016D6A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,8 +278,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56689E8B1FDE23D80016D6A0 /* CIImage+Extension.swift in Sources */,
+				56689E831FDE1CC90016D6A0 /* UIView+Extension.swift in Sources */,
+				56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */,
+				56689E851FDE1CC90016D6A0 /* CGSize+Extension.swift in Sources */,
+				56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */,
 				56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */,
+				56689E881FDE1CC90016D6A0 /* UIImage+Extension.swift in Sources */,
+				56689E841FDE1CC90016D6A0 /* CGPoint+Extension.swift in Sources */,
 				56689E5A1FDE1C750016D6A0 /* AppDelegate.swift in Sources */,
+				56689E861FDE1CC90016D6A0 /* Comparable+Extension.swift in Sources */,
+				56689E871FDE1CC90016D6A0 /* UIBezierPath+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -341,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -355,7 +443,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V723YSJ67H;
-				INFOPLIST_FILE = CoreImageSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreImageSample/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ha1f.CoreImageSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,7 +458,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V723YSJ67H;
-				INFOPLIST_FILE = CoreImageSample/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoreImageSample/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.ha1f.CoreImageSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
