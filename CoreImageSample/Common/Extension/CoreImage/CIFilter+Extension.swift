@@ -58,9 +58,13 @@ extension CIFilter {
                 }
                 let filterDisplayName = filter.displayName ?? filterName
                 printer.print("")
-                printer.print("/// \(filterDisplayName)")
                 if let url = filter.referenceDocumentationUrl {
-                    printer.print("/// - SeeAlso: [Reference/\(filterDisplayName)](\(url))")
+                    // I don't know why, but SeeAlso does not work on my Xcode.
+                    // printer.print("/// \(filterDisplayName)")
+                    // printer.print("/// - SeeAlso: [Reference/\(filterDisplayName)](\(url))")
+                    printer.print("/// [\(filterDisplayName)](\(url))")
+                } else {
+                    printer.print("/// \(filterDisplayName)")
                 }
                 printer.print("/// ")
                 filter.inputKeys.forEach { inputKey in

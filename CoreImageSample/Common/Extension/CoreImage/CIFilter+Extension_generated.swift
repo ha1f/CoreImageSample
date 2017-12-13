@@ -1,7 +1,4 @@
 //
-//  CIFilter+Extension_generated.swift
-//  CoreImageSample
-//
 //  Created by はるふ on 2017/12/11.
 //  Copyright © 2017年 ha1f. All rights reserved.
 //
@@ -12,8 +9,7 @@ import AVFoundation
 
 extension CIFilter {
     
-    /// CIAccordionFoldTransition
-    /// - SeeAlso: [Reference/CIAccordionFoldTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAccordionFoldTransition)
+    /// [CIAccordionFoldTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAccordionFoldTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -38,8 +34,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAdditionCompositing
-    /// - SeeAlso: [Reference/CIAdditionCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAdditionCompositing)
+    /// [CIAdditionCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAdditionCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -56,8 +51,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAffineClamp
-    /// - SeeAlso: [Reference/CIAffineClamp](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAffineClamp)
+    /// [CIAffineClamp](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAffineClamp)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTransform: The transform to apply to the image. defaultValue = CGAffineTransform: {{1, 0, 0, 1}, {0, 0}}.
@@ -74,8 +68,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAffineTile
-    /// - SeeAlso: [Reference/CIAffineTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAffineTile)
+    /// [CIAffineTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAffineTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTransform: The transform to apply to the image. defaultValue = CGAffineTransform: {{1, 0, 0, 1}, {0, 0}}.
@@ -92,8 +85,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAffineTransform
-    /// - SeeAlso: [Reference/CIAffineTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAffineTransform)
+    /// [CIAffineTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAffineTransform)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTransform: A transform to apply to the image. defaultValue = CGAffineTransform: {{1, 0, 0, 1}, {0, 0}}.
@@ -110,8 +102,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAreaAverage
-    /// - SeeAlso: [Reference/CIAreaAverage](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaAverage)
+    /// [CIAreaAverage](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaAverage)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -128,8 +119,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAreaHistogram
-    /// - SeeAlso: [Reference/CIAreaHistogram](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaHistogram)
+    /// [CIAreaHistogram](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaHistogram)
     ///
     /// - parameter inputImage: The image whose histogram you want to calculate.
     /// - parameter inputExtent: A rectangle that, after intersection with the image extent, specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -150,8 +140,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAreaMaximum
-    /// - SeeAlso: [Reference/CIAreaMaximum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMaximum)
+    /// [CIAreaMaximum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMaximum)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -168,8 +157,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAreaMaximumAlpha
-    /// - SeeAlso: [Reference/CIAreaMaximumAlpha](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMaximumAlpha)
+    /// [CIAreaMaximumAlpha](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMaximumAlpha)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -186,8 +174,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAreaMinimum
-    /// - SeeAlso: [Reference/CIAreaMinimum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMinimum)
+    /// [CIAreaMinimum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMinimum)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -204,8 +191,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAreaMinimumAlpha
-    /// - SeeAlso: [Reference/CIAreaMinimumAlpha](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMinimumAlpha)
+    /// [CIAreaMinimumAlpha](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMinimumAlpha)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -222,8 +208,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAreaMinMaxRed
-    /// - SeeAlso: [Reference/CIAreaMinMaxRed](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMinMaxRed)
+    /// [CIAreaMinMaxRed](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAreaMinMaxRed)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -240,8 +225,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAttributedTextImageGenerator
-    /// - SeeAlso: [Reference/CIAttributedTextImageGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAttributedTextImageGenerator)
+    /// [CIAttributedTextImageGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAttributedTextImageGenerator)
     ///
     /// - parameter inputText:
     /// - parameter inputScaleFactor:  defaultValue = 1.
@@ -258,8 +242,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIAztecCodeGenerator
-    /// - SeeAlso: [Reference/CIAztecCodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator)
+    /// [CIAztecCodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIAztecCodeGenerator)
     ///
     /// - parameter inputMessage:
     /// - parameter inputCorrectionLevel: Aztec error correction value between 5 and 95 defaultValue = 23.
@@ -280,8 +263,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBarcodeGenerator
-    /// - SeeAlso: [Reference/CIBarcodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBarcodeGenerator)
+    /// [CIBarcodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBarcodeGenerator)
     ///
     /// - parameter inputBarcodeDescriptor:
     ///
@@ -296,8 +278,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBarsSwipeTransition
-    /// - SeeAlso: [Reference/CIBarsSwipeTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBarsSwipeTransition)
+    /// [CIBarsSwipeTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBarsSwipeTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -322,8 +303,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBicubicScaleTransform
-    /// - SeeAlso: [Reference/CIBicubicScaleTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBicubicScaleTransform)
+    /// [CIBicubicScaleTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBicubicScaleTransform)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputScale: The scaling factor to use on the image. Values less than 1.0 scale down the images. Values greater than 1.0 scale up the image. defaultValue = 1.
@@ -346,8 +326,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBlendWithAlphaMask
-    /// - SeeAlso: [Reference/CIBlendWithAlphaMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithAlphaMask)
+    /// [CIBlendWithAlphaMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithAlphaMask)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -366,8 +345,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBlendWithBlueMask
-    /// - SeeAlso: [Reference/CIBlendWithBlueMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithBlueMask)
+    /// [CIBlendWithBlueMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithBlueMask)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -386,8 +364,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBlendWithMask
-    /// - SeeAlso: [Reference/CIBlendWithMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithMask)
+    /// [CIBlendWithMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithMask)
     ///
     /// - parameter inputImage: The image to use as a foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -406,8 +383,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBlendWithRedMask
-    /// - SeeAlso: [Reference/CIBlendWithRedMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithRedMask)
+    /// [CIBlendWithRedMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBlendWithRedMask)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -426,8 +402,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBloom
-    /// - SeeAlso: [Reference/CIBloom](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBloom)
+    /// [CIBloom](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBloom)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the effect. The larger the radius, the greater the effect. defaultValue = 10.
@@ -446,8 +421,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBokehBlur
-    /// - SeeAlso: [Reference/CIBokehBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBokehBlur)
+    /// [CIBokehBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBokehBlur)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result. defaultValue = 20.
@@ -470,8 +444,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBoxBlur
-    /// - SeeAlso: [Reference/CIBoxBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBoxBlur)
+    /// [CIBoxBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBoxBlur)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result. defaultValue = 10.
@@ -488,8 +461,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBumpDistortion
-    /// - SeeAlso: [Reference/CIBumpDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortion)
+    /// [CIBumpDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -510,8 +482,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIBumpDistortionLinear
-    /// - SeeAlso: [Reference/CIBumpDistortionLinear](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortionLinear)
+    /// [CIBumpDistortionLinear](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIBumpDistortionLinear)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -534,12 +505,11 @@ extension CIFilter {
         return filter
     }
     
-    /// CICheckerboardGenerator
-    /// - SeeAlso: [Reference/CICheckerboardGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICheckerboardGenerator)
+    /// [CICheckerboardGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICheckerboardGenerator)
     ///
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
-    /// - parameter inputColor0: A color to use for the first set of squares. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: A color to use for the second set of squares. defaultValue = (0 0 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: A color to use for the first set of squares. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: A color to use for the second set of squares. defaultValue = (0 0 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputWidth: The width of the squares in the pattern. defaultValue = 80.
     /// - parameter inputSharpness: The sharpness of the edges in pattern. The smaller the value, the more blurry the pattern. Values range from 0.0 to 1.0. defaultValue = 1.
     ///
@@ -558,8 +528,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CICircleSplashDistortion
-    /// - SeeAlso: [Reference/CICircleSplashDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICircleSplashDistortion)
+    /// [CICircleSplashDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICircleSplashDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -578,8 +547,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CICircularScreen
-    /// - SeeAlso: [Reference/CICircularScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICircularScreen)
+    /// [CICircularScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICircularScreen)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the circular screen pattern defaultValue = [150 150].
@@ -600,8 +568,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CICircularWrap
-    /// - SeeAlso: [Reference/CICircularWrap](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICircularWrap)
+    /// [CICircularWrap](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICircularWrap)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -622,8 +589,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIClamp
-    /// - SeeAlso: [Reference/CIClamp](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIClamp)
+    /// [CIClamp](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIClamp)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputExtent: A rectangle that defines the extent of the effect. defaultValue = [0 0 640 80].
@@ -640,8 +606,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CICMYKHalftone
-    /// - SeeAlso: [Reference/CICMYKHalftone](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICMYKHalftone)
+    /// [CICMYKHalftone](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICMYKHalftone)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the halftone pattern defaultValue = [150 150].
@@ -668,8 +633,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CICode128BarcodeGenerator
-    /// - SeeAlso: [Reference/CICode128BarcodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator)
+    /// [CICode128BarcodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICode128BarcodeGenerator)
     ///
     /// - parameter inputMessage:
     /// - parameter inputQuietSpace:  defaultValue = 7.
@@ -688,8 +652,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorBlendMode
-    /// - SeeAlso: [Reference/CIColorBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorBlendMode)
+    /// [CIColorBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -706,8 +669,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorBurnBlendMode
-    /// - SeeAlso: [Reference/CIColorBurnBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorBurnBlendMode)
+    /// [CIColorBurnBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorBurnBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -724,8 +686,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorClamp
-    /// - SeeAlso: [Reference/CIColorClamp](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorClamp)
+    /// [CIColorClamp](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorClamp)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputMinComponents: Lower clamping values defaultValue = [0 0 0 0].
@@ -744,8 +705,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorControls
-    /// - SeeAlso: [Reference/CIColorControls](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorControls)
+    /// [CIColorControls](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorControls)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputSaturation: The amount of saturation to apply. The larger the value, the more saturated the result. defaultValue = 1.
@@ -766,8 +726,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorCrossPolynomial
-    /// - SeeAlso: [Reference/CIColorCrossPolynomial](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCrossPolynomial)
+    /// [CIColorCrossPolynomial](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCrossPolynomial)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRedCoefficients: Polynomial coefficients for red channel defaultValue = [1 0 0 0 0 0 0 0 0 0].
@@ -788,8 +747,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorCube
-    /// - SeeAlso: [Reference/CIColorCube](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCube)
+    /// [CIColorCube](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCube)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCubeDimension:  defaultValue = 2.
@@ -808,8 +766,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorCubesMixedWithMask
-    /// - SeeAlso: [Reference/CIColorCubesMixedWithMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCubesMixedWithMask)
+    /// [CIColorCubesMixedWithMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCubesMixedWithMask)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputMaskImage: A masking image.
@@ -834,8 +791,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorCubeWithColorSpace
-    /// - SeeAlso: [Reference/CIColorCubeWithColorSpace](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCubeWithColorSpace)
+    /// [CIColorCubeWithColorSpace](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCubeWithColorSpace)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCubeDimension:  defaultValue = 2.
@@ -856,8 +812,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorCurves
-    /// - SeeAlso: [Reference/CIColorCurves](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCurves)
+    /// [CIColorCurves](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorCurves)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCurvesData:  defaultValue = <00000000 00000000 00000000 0000003f 0000003f 0000003f 0000803f 0000803f 0000803f>.
@@ -878,8 +833,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorDodgeBlendMode
-    /// - SeeAlso: [Reference/CIColorDodgeBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorDodgeBlendMode)
+    /// [CIColorDodgeBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorDodgeBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -896,8 +850,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorInvert
-    /// - SeeAlso: [Reference/CIColorInvert](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorInvert)
+    /// [CIColorInvert](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorInvert)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -912,8 +865,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorMap
-    /// - SeeAlso: [Reference/CIColorMap](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorMap)
+    /// [CIColorMap](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorMap)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputGradientImage: The image data from this image transforms the source image values.
@@ -930,8 +882,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorMatrix
-    /// - SeeAlso: [Reference/CIColorMatrix](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorMatrix)
+    /// [CIColorMatrix](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorMatrix)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRVector: The amount of red to multiply the source color values by. defaultValue = [1 0 0 0].
@@ -956,11 +907,10 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorMonochrome
-    /// - SeeAlso: [Reference/CIColorMonochrome](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorMonochrome)
+    /// [CIColorMonochrome](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorMonochrome)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor: The monochrome color to apply to the image. defaultValue = (0.6 0.45 0.3 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The monochrome color to apply to the image. defaultValue = (0.6 0.45 0.3 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputIntensity: The intensity of the monochrome effect. A value of 1.0 creates a monochrome image using the supplied color. A value of 0.0 has no effect on the image. defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
@@ -976,8 +926,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorPolynomial
-    /// - SeeAlso: [Reference/CIColorPolynomial](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorPolynomial)
+    /// [CIColorPolynomial](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorPolynomial)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRedCoefficients: Polynomial coefficients for red channel defaultValue = [0 1 0 0].
@@ -1000,8 +949,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColorPosterize
-    /// - SeeAlso: [Reference/CIColorPosterize](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorPosterize)
+    /// [CIColorPosterize](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorPosterize)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputLevels: The number of brightness levels to use for each color component. Lower values result in a more extreme poster effect. defaultValue = 6.
@@ -1018,8 +966,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIColumnAverage
-    /// - SeeAlso: [Reference/CIColumnAverage](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColumnAverage)
+    /// [CIColumnAverage](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColumnAverage)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -1036,8 +983,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIComicEffect
-    /// - SeeAlso: [Reference/CIComicEffect](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIComicEffect)
+    /// [CIComicEffect](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIComicEffect)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -1052,10 +998,9 @@ extension CIFilter {
         return filter
     }
     
-    /// CIConstantColorGenerator
-    /// - SeeAlso: [Reference/CIConstantColorGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConstantColorGenerator)
+    /// [CIConstantColorGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConstantColorGenerator)
     ///
-    /// - parameter inputColor: The color to generate. defaultValue = (1 0 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color to generate. defaultValue = (1 0 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, *)
@@ -1068,8 +1013,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIConvolution3X3
-    /// - SeeAlso: [Reference/CIConvolution3X3](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution3X3)
+    /// [CIConvolution3X3](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution3X3)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputWeights:  defaultValue = [0 0 0 0 1 0 0 0 0].
@@ -1088,8 +1032,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIConvolution5X5
-    /// - SeeAlso: [Reference/CIConvolution5X5](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution5X5)
+    /// [CIConvolution5X5](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution5X5)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputWeights:  defaultValue = [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0].
@@ -1108,8 +1051,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIConvolution7X7
-    /// - SeeAlso: [Reference/CIConvolution7X7](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution7X7)
+    /// [CIConvolution7X7](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution7X7)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputWeights:  defaultValue = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0].
@@ -1128,8 +1070,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIConvolution9Horizontal
-    /// - SeeAlso: [Reference/CIConvolution9Horizontal](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution9Horizontal)
+    /// [CIConvolution9Horizontal](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution9Horizontal)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputWeights:  defaultValue = [0 0 0 0 1 0 0 0 0].
@@ -1148,8 +1089,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIConvolution9Vertical
-    /// - SeeAlso: [Reference/CIConvolution9Vertical](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution9Vertical)
+    /// [CIConvolution9Vertical](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConvolution9Vertical)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputWeights:  defaultValue = [0 0 0 0 1 0 0 0 0].
@@ -1168,13 +1108,12 @@ extension CIFilter {
         return filter
     }
     
-    /// CICopyMachineTransition
-    /// - SeeAlso: [Reference/CICopyMachineTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICopyMachineTransition)
+    /// [CICopyMachineTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICopyMachineTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputExtent: A rectangle that defines the extent of the effect. defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the copier light. defaultValue = (0.6 1 0.8 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the copier light. defaultValue = (0.6 1 0.8 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1). defaultValue = 0.
     /// - parameter inputAngle: The angle of the copier light. defaultValue = 0.
     /// - parameter inputWidth: The width of the copier light.  defaultValue = 200.
@@ -1198,8 +1137,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CICrop
-    /// - SeeAlso: [Reference/CICrop](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICrop)
+    /// [CICrop](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICrop)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRectangle: The rectangle that specifies the crop to apply to the image. defaultValue = [-8.98847e+307 -8.98847e+307 1.79769e+308 1.79769e+308].
@@ -1216,8 +1154,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CICrystallize
-    /// - SeeAlso: [Reference/CICrystallize](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICrystallize)
+    /// [CICrystallize](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CICrystallize)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the effect. The larger the radius, the larger the resulting crystals. defaultValue = 20.
@@ -1236,8 +1173,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDarkenBlendMode
-    /// - SeeAlso: [Reference/CIDarkenBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDarkenBlendMode)
+    /// [CIDarkenBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDarkenBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -1254,8 +1190,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDepthBlurEffect
-    /// - SeeAlso: [Reference/CIDepthBlurEffect](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDepthBlurEffect)
+    /// [CIDepthBlurEffect](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDepthBlurEffect)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputDisparityImage:
@@ -1292,8 +1227,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDepthOfField
-    /// - SeeAlso: [Reference/CIDepthOfField](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDepthOfField)
+    /// [CIDepthOfField](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDepthOfField)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputPoint0:  defaultValue = [0 300].
@@ -1320,8 +1254,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDepthToDisparity
-    /// - SeeAlso: [Reference/CIDepthToDisparity](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDepthToDisparity)
+    /// [CIDepthToDisparity](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDepthToDisparity)
     ///
     /// - parameter inputImage: The input depth data image to convert to disparity data.
     ///
@@ -1336,8 +1269,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDifferenceBlendMode
-    /// - SeeAlso: [Reference/CIDifferenceBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDifferenceBlendMode)
+    /// [CIDifferenceBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDifferenceBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -1354,8 +1286,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDiscBlur
-    /// - SeeAlso: [Reference/CIDiscBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDiscBlur)
+    /// [CIDiscBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDiscBlur)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result. defaultValue = 8.
@@ -1372,8 +1303,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDisintegrateWithMaskTransition
-    /// - SeeAlso: [Reference/CIDisintegrateWithMaskTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDisintegrateWithMaskTransition)
+    /// [CIDisintegrateWithMaskTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDisintegrateWithMaskTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -1400,8 +1330,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDisparityToDepth
-    /// - SeeAlso: [Reference/CIDisparityToDepth](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDisparityToDepth)
+    /// [CIDisparityToDepth](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDisparityToDepth)
     ///
     /// - parameter inputImage: The input disparity data image to convert to depth data.
     ///
@@ -1416,8 +1345,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDisplacementDistortion
-    /// - SeeAlso: [Reference/CIDisplacementDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDisplacementDistortion)
+    /// [CIDisplacementDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDisplacementDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputDisplacementImage: An image whose grayscale values will be applied to the source image.
@@ -1436,8 +1364,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDissolveTransition
-    /// - SeeAlso: [Reference/CIDissolveTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDissolveTransition)
+    /// [CIDissolveTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDissolveTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -1456,8 +1383,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDivideBlendMode
-    /// - SeeAlso: [Reference/CIDivideBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDivideBlendMode)
+    /// [CIDivideBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDivideBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -1474,8 +1400,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDotScreen
-    /// - SeeAlso: [Reference/CIDotScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDotScreen)
+    /// [CIDotScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDotScreen)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the dot screen pattern defaultValue = [150 150].
@@ -1498,8 +1423,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIDroste
-    /// - SeeAlso: [Reference/CIDroste](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDroste)
+    /// [CIDroste](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIDroste)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputInsetPoint0:  defaultValue = [200 200].
@@ -1526,8 +1450,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIEdgePreserveUpsampleFilter
-    /// - SeeAlso: [Reference/CIEdgePreserveUpsampleFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEdgePreserveUpsampleFilter)
+    /// [CIEdgePreserveUpsampleFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEdgePreserveUpsampleFilter)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputSmallImage:
@@ -1548,8 +1471,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIEdges
-    /// - SeeAlso: [Reference/CIEdges](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEdges)
+    /// [CIEdges](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEdges)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputIntensity: The intensity of the edges. The larger the value, the higher the intensity. defaultValue = 1.
@@ -1566,8 +1488,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIEdgeWork
-    /// - SeeAlso: [Reference/CIEdgeWork](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEdgeWork)
+    /// [CIEdgeWork](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEdgeWork)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The thickness of the edges. The larger the value, the thicker the edges. defaultValue = 3.
@@ -1584,8 +1505,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIEightfoldReflectedTile
-    /// - SeeAlso: [Reference/CIEightfoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEightfoldReflectedTile)
+    /// [CIEightfoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIEightfoldReflectedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -1606,8 +1526,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIExclusionBlendMode
-    /// - SeeAlso: [Reference/CIExclusionBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIExclusionBlendMode)
+    /// [CIExclusionBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIExclusionBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -1624,8 +1543,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIExposureAdjust
-    /// - SeeAlso: [Reference/CIExposureAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIExposureAdjust)
+    /// [CIExposureAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIExposureAdjust)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputEV: The amount to adjust the exposure of the image by. The larger the value, the brighter the exposure. defaultValue = 0.
@@ -1642,12 +1560,11 @@ extension CIFilter {
         return filter
     }
     
-    /// CIFalseColor
-    /// - SeeAlso: [Reference/CIFalseColor](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFalseColor)
+    /// [CIFalseColor](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFalseColor)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor0: The first color to use for the color ramp. defaultValue = (0.3 0 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use for the color ramp. defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use for the color ramp. defaultValue = (0.3 0 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use for the color ramp. defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, *)
@@ -1662,14 +1579,13 @@ extension CIFilter {
         return filter
     }
     
-    /// CIFlashTransition
-    /// - SeeAlso: [Reference/CIFlashTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFlashTransition)
+    /// [CIFlashTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFlashTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
     /// - parameter inputExtent: The extent of the flash. defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the light rays emanating from the flash. defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the light rays emanating from the flash. defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1). defaultValue = 0.
     /// - parameter inputMaxStriationRadius: The radius of the light rays emanating from the flash. defaultValue = 2.58.
     /// - parameter inputStriationStrength: The strength of the light rays emanating from the flash. defaultValue = 0.5.
@@ -1696,8 +1612,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIFourfoldReflectedTile
-    /// - SeeAlso: [Reference/CIFourfoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFourfoldReflectedTile)
+    /// [CIFourfoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFourfoldReflectedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -1720,8 +1635,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIFourfoldRotatedTile
-    /// - SeeAlso: [Reference/CIFourfoldRotatedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFourfoldRotatedTile)
+    /// [CIFourfoldRotatedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFourfoldRotatedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -1742,8 +1656,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIFourfoldTranslatedTile
-    /// - SeeAlso: [Reference/CIFourfoldTranslatedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFourfoldTranslatedTile)
+    /// [CIFourfoldTranslatedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIFourfoldTranslatedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -1766,8 +1679,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIGammaAdjust
-    /// - SeeAlso: [Reference/CIGammaAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGammaAdjust)
+    /// [CIGammaAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGammaAdjust)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputPower: A gamma value to use to correct image brightness. The larger the value, the darker the result. defaultValue = 1.
@@ -1784,8 +1696,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIGaussianBlur
-    /// - SeeAlso: [Reference/CIGaussianBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGaussianBlur)
+    /// [CIGaussianBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGaussianBlur)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result. defaultValue = 10.
@@ -1802,12 +1713,11 @@ extension CIFilter {
         return filter
     }
     
-    /// CIGaussianGradient
-    /// - SeeAlso: [Reference/CIGaussianGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGaussianGradient)
+    /// [CIGaussianGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGaussianGradient)
     ///
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
-    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 0) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 0) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputRadius: The radius of the Gaussian distribution. defaultValue = 300.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
@@ -1824,8 +1734,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIGlassDistortion
-    /// - SeeAlso: [Reference/CIGlassDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGlassDistortion)
+    /// [CIGlassDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGlassDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTexture: A texture to apply to the source image.
@@ -1846,8 +1755,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIGlassLozenge
-    /// - SeeAlso: [Reference/CIGlassLozenge](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGlassLozenge)
+    /// [CIGlassLozenge](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGlassLozenge)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputPoint0: The x and y position that defines the center of the circle at one end of the lozenge. defaultValue = [150 150].
@@ -1870,8 +1778,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIGlideReflectedTile
-    /// - SeeAlso: [Reference/CIGlideReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGlideReflectedTile)
+    /// [CIGlideReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGlideReflectedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -1892,8 +1799,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIGloom
-    /// - SeeAlso: [Reference/CIGloom](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGloom)
+    /// [CIGloom](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIGloom)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the effect. The larger the radius, the greater the effect. defaultValue = 10.
@@ -1912,8 +1818,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHardLightBlendMode
-    /// - SeeAlso: [Reference/CIHardLightBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHardLightBlendMode)
+    /// [CIHardLightBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHardLightBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -1930,8 +1835,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHatchedScreen
-    /// - SeeAlso: [Reference/CIHatchedScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHatchedScreen)
+    /// [CIHatchedScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHatchedScreen)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the hatched screen pattern defaultValue = [150 150].
@@ -1954,8 +1858,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHeightFieldFromMask
-    /// - SeeAlso: [Reference/CIHeightFieldFromMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHeightFieldFromMask)
+    /// [CIHeightFieldFromMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHeightFieldFromMask)
     ///
     /// - parameter inputImage: The white values of the mask define those pixels that are inside the height field while the black values define those pixels that are outside. The field varies smoothly and continuously inside the mask, reaching the value 0 at the edge of the mask.
     /// - parameter inputRadius: The distance from the edge of the mask for the smooth transition is proportional to the input radius. Larger values make the transition smoother and more pronounced. Smaller values make the transition approximate a fillet radius. defaultValue = 10.
@@ -1972,8 +1875,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHexagonalPixellate
-    /// - SeeAlso: [Reference/CIHexagonalPixellate](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHexagonalPixellate)
+    /// [CIHexagonalPixellate](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHexagonalPixellate)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -1992,8 +1894,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHighlightShadowAdjust
-    /// - SeeAlso: [Reference/CIHighlightShadowAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHighlightShadowAdjust)
+    /// [CIHighlightShadowAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHighlightShadowAdjust)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: Shadow Highlight Radius defaultValue = 0.
@@ -2014,8 +1915,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHistogramDisplayFilter
-    /// - SeeAlso: [Reference/CIHistogramDisplayFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHistogramDisplayFilter)
+    /// [CIHistogramDisplayFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHistogramDisplayFilter)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputHeight: The height of the displayable histogram image. defaultValue = 100.
@@ -2036,8 +1936,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHoleDistortion
-    /// - SeeAlso: [Reference/CIHoleDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHoleDistortion)
+    /// [CIHoleDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHoleDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -2056,8 +1955,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHueAdjust
-    /// - SeeAlso: [Reference/CIHueAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHueAdjust)
+    /// [CIHueAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHueAdjust)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputAngle: An angle (in radians) to use to correct the hue of an image. defaultValue = 0.
@@ -2074,8 +1972,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHueBlendMode
-    /// - SeeAlso: [Reference/CIHueBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHueBlendMode)
+    /// [CIHueBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHueBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2092,14 +1989,13 @@ extension CIFilter {
         return filter
     }
     
-    /// CIHueSaturationValueGradient
-    /// - SeeAlso: [Reference/CIHueSaturationValueGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHueSaturationValueGradient)
+    /// [CIHueSaturationValueGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIHueSaturationValueGradient)
     ///
     /// - parameter inputValue:  defaultValue = 1.
     /// - parameter inputRadius: The distance from the center of the effect. defaultValue = 300.
     /// - parameter inputSoftness:  defaultValue = 1.
     /// - parameter inputDither:  defaultValue = 1.
-    /// - parameter inputColorSpace: The CGColorSpaceRef that the color wheel should be generated in. defaultValue = <CGColorSpace 0x6040000ac960> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1).
+    /// - parameter inputColorSpace: The CGColorSpaceRef that the color wheel should be generated in. defaultValue = <CGColorSpace 0x6000000a74a0> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 10, *)
@@ -2116,8 +2012,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIKaleidoscope
-    /// - SeeAlso: [Reference/CIKaleidoscope](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIKaleidoscope)
+    /// [CIKaleidoscope](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIKaleidoscope)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCount: The number of reflections in the pattern. defaultValue = 6.
@@ -2138,8 +2033,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILabDeltaE
-    /// - SeeAlso: [Reference/CILabDeltaE](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILabDeltaE)
+    /// [CILabDeltaE](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILabDeltaE)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputImage2:
@@ -2156,8 +2050,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILanczosScaleTransform
-    /// - SeeAlso: [Reference/CILanczosScaleTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILanczosScaleTransform)
+    /// [CILanczosScaleTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILanczosScaleTransform)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputScale: The scaling factor to use on the image. Values less than 1.0 scale down the images. Values greater than 1.0 scale up the image. defaultValue = 1.
@@ -2176,11 +2069,10 @@ extension CIFilter {
         return filter
     }
     
-    /// CILenticularHaloGenerator
-    /// - SeeAlso: [Reference/CILenticularHaloGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILenticularHaloGenerator)
+    /// [CILenticularHaloGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILenticularHaloGenerator)
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the halo. defaultValue = [150 150].
-    /// - parameter inputColor: A color. defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: A color. defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputHaloRadius: The radius of the halo. defaultValue = 70.
     /// - parameter inputHaloWidth: The width of the halo, from its inner radius to its outer radius. defaultValue = 87.
     /// - parameter inputHaloOverlap:  defaultValue = 0.77.
@@ -2206,8 +2098,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILightenBlendMode
-    /// - SeeAlso: [Reference/CILightenBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILightenBlendMode)
+    /// [CILightenBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILightenBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2224,8 +2115,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILightTunnel
-    /// - SeeAlso: [Reference/CILightTunnel](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILightTunnel)
+    /// [CILightTunnel](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILightTunnel)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputCenter: Center of the light tunnel. defaultValue = [150 150].
@@ -2246,8 +2136,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILinearBurnBlendMode
-    /// - SeeAlso: [Reference/CILinearBurnBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearBurnBlendMode)
+    /// [CILinearBurnBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearBurnBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2264,8 +2153,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILinearDodgeBlendMode
-    /// - SeeAlso: [Reference/CILinearDodgeBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearDodgeBlendMode)
+    /// [CILinearDodgeBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearDodgeBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2282,13 +2170,12 @@ extension CIFilter {
         return filter
     }
     
-    /// CILinearGradient
-    /// - SeeAlso: [Reference/CILinearGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearGradient)
+    /// [CILinearGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearGradient)
     ///
     /// - parameter inputPoint0: The starting position of the gradient -- where the first color begins. defaultValue = [0 0].
     /// - parameter inputPoint1: The ending position of the gradient -- where the second color begins. defaultValue = [200 200].
-    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, *)
@@ -2304,8 +2191,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILinearToSRGBToneCurve
-    /// - SeeAlso: [Reference/CILinearToSRGBToneCurve](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearToSRGBToneCurve)
+    /// [CILinearToSRGBToneCurve](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILinearToSRGBToneCurve)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -2320,8 +2206,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILineOverlay
-    /// - SeeAlso: [Reference/CILineOverlay](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILineOverlay)
+    /// [CILineOverlay](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILineOverlay)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputNRNoiseLevel: The noise level of the image (used with camera data) that gets removed before tracing the edges of the image. Increasing the noise level helps to clean up the traced edges of the image. defaultValue = 0.07000000000000001.
@@ -2346,8 +2231,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILineScreen
-    /// - SeeAlso: [Reference/CILineScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILineScreen)
+    /// [CILineScreen](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILineScreen)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the line screen pattern defaultValue = [150 150].
@@ -2370,8 +2254,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CILuminosityBlendMode
-    /// - SeeAlso: [Reference/CILuminosityBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILuminosityBlendMode)
+    /// [CILuminosityBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CILuminosityBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2388,8 +2271,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMaskedVariableBlur
-    /// - SeeAlso: [Reference/CIMaskedVariableBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaskedVariableBlur)
+    /// [CIMaskedVariableBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaskedVariableBlur)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputMask:
@@ -2408,8 +2290,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMaskToAlpha
-    /// - SeeAlso: [Reference/CIMaskToAlpha](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaskToAlpha)
+    /// [CIMaskToAlpha](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaskToAlpha)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -2424,8 +2305,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMaximumComponent
-    /// - SeeAlso: [Reference/CIMaximumComponent](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaximumComponent)
+    /// [CIMaximumComponent](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaximumComponent)
     ///
     /// - parameter inputImage: The image to process.
     ///
@@ -2440,8 +2320,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMaximumCompositing
-    /// - SeeAlso: [Reference/CIMaximumCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaximumCompositing)
+    /// [CIMaximumCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMaximumCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2458,8 +2337,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMedianFilter
-    /// - SeeAlso: [Reference/CIMedianFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMedianFilter)
+    /// [CIMedianFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMedianFilter)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -2474,8 +2352,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMinimumComponent
-    /// - SeeAlso: [Reference/CIMinimumComponent](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMinimumComponent)
+    /// [CIMinimumComponent](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMinimumComponent)
     ///
     /// - parameter inputImage: The image to process.
     ///
@@ -2490,8 +2367,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMinimumCompositing
-    /// - SeeAlso: [Reference/CIMinimumCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMinimumCompositing)
+    /// [CIMinimumCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMinimumCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2508,8 +2384,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIModTransition
-    /// - SeeAlso: [Reference/CIModTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIModTransition)
+    /// [CIModTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIModTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -2536,8 +2411,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMorphologyGradient
-    /// - SeeAlso: [Reference/CIMorphologyGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMorphologyGradient)
+    /// [CIMorphologyGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMorphologyGradient)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The desired radius of the circular morphological operation to the image. defaultValue = 5.
@@ -2554,8 +2428,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMorphologyMaximum
-    /// - SeeAlso: [Reference/CIMorphologyMaximum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMorphologyMaximum)
+    /// [CIMorphologyMaximum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMorphologyMaximum)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The desired radius of the circular morphological operation to the image. defaultValue = 0.
@@ -2572,8 +2445,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMorphologyMinimum
-    /// - SeeAlso: [Reference/CIMorphologyMinimum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMorphologyMinimum)
+    /// [CIMorphologyMinimum](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMorphologyMinimum)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The desired radius of the circular morphological operation to the image. defaultValue = 0.
@@ -2590,8 +2462,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMotionBlur
-    /// - SeeAlso: [Reference/CIMotionBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMotionBlur)
+    /// [CIMotionBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMotionBlur)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result. defaultValue = 20.
@@ -2610,8 +2481,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMultiplyBlendMode
-    /// - SeeAlso: [Reference/CIMultiplyBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMultiplyBlendMode)
+    /// [CIMultiplyBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMultiplyBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2628,8 +2498,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIMultiplyCompositing
-    /// - SeeAlso: [Reference/CIMultiplyCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMultiplyCompositing)
+    /// [CIMultiplyCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIMultiplyCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2646,8 +2515,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CINinePartStretched
-    /// - SeeAlso: [Reference/CINinePartStretched](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CINinePartStretched)
+    /// [CINinePartStretched](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CINinePartStretched)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBreakpoint0: Lower left corner of image to retain before stretching begins. defaultValue = [50 50].
@@ -2668,8 +2536,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CINinePartTiled
-    /// - SeeAlso: [Reference/CINinePartTiled](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CINinePartTiled)
+    /// [CINinePartTiled](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CINinePartTiled)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBreakpoint0: Lower left corner of image to retain before tiling begins. defaultValue = [50 50].
@@ -2692,8 +2559,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CINoiseReduction
-    /// - SeeAlso: [Reference/CINoiseReduction](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CINoiseReduction)
+    /// [CINoiseReduction](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CINoiseReduction)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputNoiseLevel: The amount of noise reduction. The larger the value, the more noise reduction. defaultValue = 0.02.
@@ -2712,8 +2578,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIOpTile
-    /// - SeeAlso: [Reference/CIOpTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIOpTile)
+    /// [CIOpTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIOpTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -2736,8 +2601,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIOverlayBlendMode
-    /// - SeeAlso: [Reference/CIOverlayBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIOverlayBlendMode)
+    /// [CIOverlayBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIOverlayBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -2754,8 +2618,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPageCurlTransition
-    /// - SeeAlso: [Reference/CIPageCurlTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPageCurlTransition)
+    /// [CIPageCurlTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPageCurlTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -2784,8 +2647,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPageCurlWithShadowTransition
-    /// - SeeAlso: [Reference/CIPageCurlWithShadowTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPageCurlWithShadowTransition)
+    /// [CIPageCurlWithShadowTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPageCurlWithShadowTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -2818,8 +2680,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIParallelogramTile
-    /// - SeeAlso: [Reference/CIParallelogramTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIParallelogramTile)
+    /// [CIParallelogramTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIParallelogramTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -2842,8 +2703,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPDF417BarcodeGenerator
-    /// - SeeAlso: [Reference/CIPDF417BarcodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator)
+    /// [CIPDF417BarcodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPDF417BarcodeGenerator)
     ///
     /// - parameter inputMessage:
     /// - parameter inputMinWidth:
@@ -2880,8 +2740,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPerspectiveCorrection
-    /// - SeeAlso: [Reference/CIPerspectiveCorrection](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveCorrection)
+    /// [CIPerspectiveCorrection](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveCorrection)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTopLeft: The top left coordinate to be perspective corrected. defaultValue = [118 484].
@@ -2906,8 +2765,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPerspectiveTile
-    /// - SeeAlso: [Reference/CIPerspectiveTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveTile)
+    /// [CIPerspectiveTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTopLeft: The top left coordinate of a tile. defaultValue = [118 484].
@@ -2930,8 +2788,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPerspectiveTransform
-    /// - SeeAlso: [Reference/CIPerspectiveTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveTransform)
+    /// [CIPerspectiveTransform](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveTransform)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTopLeft: The top left coordinate to map the image to. defaultValue = [118 484].
@@ -2954,8 +2811,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPerspectiveTransformWithExtent
-    /// - SeeAlso: [Reference/CIPerspectiveTransformWithExtent](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveTransformWithExtent)
+    /// [CIPerspectiveTransformWithExtent](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPerspectiveTransformWithExtent)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputExtent: A rectangle that defines the extent of the effect. defaultValue = [0 0 300 300].
@@ -2980,8 +2836,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectChrome
-    /// - SeeAlso: [Reference/CIPhotoEffectChrome](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectChrome)
+    /// [CIPhotoEffectChrome](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectChrome)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -2996,8 +2851,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectFade
-    /// - SeeAlso: [Reference/CIPhotoEffectFade](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectFade)
+    /// [CIPhotoEffectFade](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectFade)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3012,8 +2866,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectInstant
-    /// - SeeAlso: [Reference/CIPhotoEffectInstant](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectInstant)
+    /// [CIPhotoEffectInstant](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectInstant)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3028,8 +2881,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectMono
-    /// - SeeAlso: [Reference/CIPhotoEffectMono](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectMono)
+    /// [CIPhotoEffectMono](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectMono)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3044,8 +2896,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectNoir
-    /// - SeeAlso: [Reference/CIPhotoEffectNoir](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectNoir)
+    /// [CIPhotoEffectNoir](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectNoir)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3060,8 +2911,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectProcess
-    /// - SeeAlso: [Reference/CIPhotoEffectProcess](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectProcess)
+    /// [CIPhotoEffectProcess](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectProcess)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3076,8 +2926,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectTonal
-    /// - SeeAlso: [Reference/CIPhotoEffectTonal](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectTonal)
+    /// [CIPhotoEffectTonal](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectTonal)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3092,8 +2941,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPhotoEffectTransfer
-    /// - SeeAlso: [Reference/CIPhotoEffectTransfer](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectTransfer)
+    /// [CIPhotoEffectTransfer](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPhotoEffectTransfer)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3108,8 +2956,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPinchDistortion
-    /// - SeeAlso: [Reference/CIPinchDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPinchDistortion)
+    /// [CIPinchDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPinchDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -3130,8 +2977,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPinLightBlendMode
-    /// - SeeAlso: [Reference/CIPinLightBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPinLightBlendMode)
+    /// [CIPinLightBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPinLightBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3148,8 +2994,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPixellate
-    /// - SeeAlso: [Reference/CIPixellate](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPixellate)
+    /// [CIPixellate](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPixellate)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -3168,8 +3013,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIPointillize
-    /// - SeeAlso: [Reference/CIPointillize](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPointillize)
+    /// [CIPointillize](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIPointillize)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius of the circles in the resulting pattern. defaultValue = 20.
@@ -3188,8 +3032,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIQRCodeGenerator
-    /// - SeeAlso: [Reference/CIQRCodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator)
+    /// [CIQRCodeGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator)
     ///
     /// - parameter inputMessage:
     /// - parameter inputCorrectionLevel: QRCode correction level L, M, Q, or H. defaultValue = M.
@@ -3206,14 +3049,13 @@ extension CIFilter {
         return filter
     }
     
-    /// CIRadialGradient
-    /// - SeeAlso: [Reference/CIRadialGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRadialGradient)
+    /// [CIRadialGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRadialGradient)
     ///
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
     /// - parameter inputRadius0: The radius of the starting circle to use in the gradient. defaultValue = 5.
     /// - parameter inputRadius1: The radius of the ending circle to use in the gradient. defaultValue = 100.
-    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, *)
@@ -3230,8 +3072,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIRandomGenerator
-    /// - SeeAlso: [Reference/CIRandomGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRandomGenerator)
+    /// [CIRandomGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRandomGenerator)
     ///
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
@@ -3244,8 +3085,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIRippleTransition
-    /// - SeeAlso: [Reference/CIRippleTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRippleTransition)
+    /// [CIRippleTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRippleTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
@@ -3274,8 +3114,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIRowAverage
-    /// - SeeAlso: [Reference/CIRowAverage](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRowAverage)
+    /// [CIRowAverage](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIRowAverage)
     ///
     /// - parameter inputImage: The image to process.
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process. defaultValue = [0 0 640 80].
@@ -3292,8 +3131,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISaturationBlendMode
-    /// - SeeAlso: [Reference/CISaturationBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISaturationBlendMode)
+    /// [CISaturationBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISaturationBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3310,8 +3148,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIScreenBlendMode
-    /// - SeeAlso: [Reference/CIScreenBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIScreenBlendMode)
+    /// [CIScreenBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIScreenBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3328,8 +3165,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISepiaTone
-    /// - SeeAlso: [Reference/CISepiaTone](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISepiaTone)
+    /// [CISepiaTone](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISepiaTone)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputIntensity: The intensity of the sepia effect. A value of 1.0 creates a monochrome sepia image. A value of 0.0 has no effect on the image. defaultValue = 1.
@@ -3346,8 +3182,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIShadedMaterial
-    /// - SeeAlso: [Reference/CIShadedMaterial](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIShadedMaterial)
+    /// [CIShadedMaterial](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIShadedMaterial)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputShadingImage: The image to use as the height field. The resulting image has greater heights with lighter shades, and lesser heights (lower areas) with darker shades.
@@ -3366,8 +3201,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISharpenLuminance
-    /// - SeeAlso: [Reference/CISharpenLuminance](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISharpenLuminance)
+    /// [CISharpenLuminance](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISharpenLuminance)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputSharpness: The amount of sharpening to apply. Larger values are sharper. defaultValue = 0.4.
@@ -3386,8 +3220,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISixfoldReflectedTile
-    /// - SeeAlso: [Reference/CISixfoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISixfoldReflectedTile)
+    /// [CISixfoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISixfoldReflectedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -3408,8 +3241,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISixfoldRotatedTile
-    /// - SeeAlso: [Reference/CISixfoldRotatedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISixfoldRotatedTile)
+    /// [CISixfoldRotatedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISixfoldRotatedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -3430,13 +3262,12 @@ extension CIFilter {
         return filter
     }
     
-    /// CISmoothLinearGradient
-    /// - SeeAlso: [Reference/CISmoothLinearGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISmoothLinearGradient)
+    /// [CISmoothLinearGradient](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISmoothLinearGradient)
     ///
     /// - parameter inputPoint0: The starting position of the gradient -- where the first color begins. defaultValue = [0 0].
     /// - parameter inputPoint1: The ending position of the gradient -- where the second color begins. defaultValue = [200 200].
-    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient. defaultValue = (0 0 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, *)
@@ -3452,8 +3283,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISoftLightBlendMode
-    /// - SeeAlso: [Reference/CISoftLightBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISoftLightBlendMode)
+    /// [CISoftLightBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISoftLightBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3470,8 +3300,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISourceAtopCompositing
-    /// - SeeAlso: [Reference/CISourceAtopCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceAtopCompositing)
+    /// [CISourceAtopCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceAtopCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3488,8 +3317,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISourceInCompositing
-    /// - SeeAlso: [Reference/CISourceInCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceInCompositing)
+    /// [CISourceInCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceInCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3506,8 +3334,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISourceOutCompositing
-    /// - SeeAlso: [Reference/CISourceOutCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceOutCompositing)
+    /// [CISourceOutCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceOutCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3524,8 +3351,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISourceOverCompositing
-    /// - SeeAlso: [Reference/CISourceOverCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceOverCompositing)
+    /// [CISourceOverCompositing](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISourceOverCompositing)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3542,20 +3368,19 @@ extension CIFilter {
         return filter
     }
     
-    /// CISpotColor
-    /// - SeeAlso: [Reference/CISpotColor](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISpotColor)
+    /// [CISpotColor](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISpotColor)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputCenterColor1: The center value of the first color range to replace. defaultValue = (0.0784 0.0627 0.0706 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor1: A replacement color for the first color range. defaultValue = (0.4392 0.1922 0.1961 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor1: The center value of the first color range to replace. defaultValue = (0.0784 0.0627 0.0706 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor1: A replacement color for the first color range. defaultValue = (0.4392 0.1922 0.1961 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness1: A value that indicates how close the first color must match before it is replaced. defaultValue = 0.22.
     /// - parameter inputContrast1: The contrast of the first replacement color. defaultValue = 0.98.
-    /// - parameter inputCenterColor2: The center value of the second color range to replace. defaultValue = (0.5255 0.3059 0.3451 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor2: A replacement color for the second color range. defaultValue = (0.9137 0.5608 0.5059 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor2: The center value of the second color range to replace. defaultValue = (0.5255 0.3059 0.3451 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor2: A replacement color for the second color range. defaultValue = (0.9137 0.5608 0.5059 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness2: A value that indicates how close the second color must match before it is replaced. defaultValue = 0.15.
     /// - parameter inputContrast2: The contrast of the second replacement color. defaultValue = 0.98.
-    /// - parameter inputCenterColor3: The center value of the third color range to replace. defaultValue = (0.9216 0.4549 0.3333 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor3: A replacement color for the third color range. defaultValue = (0.9098 0.7529 0.6078 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor3: The center value of the third color range to replace. defaultValue = (0.9216 0.4549 0.3333 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor3: A replacement color for the third color range. defaultValue = (0.9098 0.7529 0.6078 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness3: A value that indicates how close the third color must match before it is replaced. defaultValue = 0.5.
     /// - parameter inputContrast3: The contrast of the third replacement color. defaultValue = 0.99.
     ///
@@ -3582,15 +3407,14 @@ extension CIFilter {
         return filter
     }
     
-    /// CISpotLight
-    /// - SeeAlso: [Reference/CISpotLight](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISpotLight)
+    /// [CISpotLight](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISpotLight)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputLightPosition: The x and y position of the spotlight. defaultValue = [400 600 150].
     /// - parameter inputLightPointsAt: The x and y position that the spotlight points at. defaultValue = [200 200 0].
     /// - parameter inputBrightness: The brightness of the spotlight. defaultValue = 3.
     /// - parameter inputConcentration: The spotlight size. The smaller the value, the more tightly focused the light beam. defaultValue = 0.1.
-    /// - parameter inputColor: The color of the spotlight. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the spotlight. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 9, *)
@@ -3608,8 +3432,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISRGBToneCurveToLinear
-    /// - SeeAlso: [Reference/CISRGBToneCurveToLinear](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISRGBToneCurveToLinear)
+    /// [CISRGBToneCurveToLinear](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISRGBToneCurveToLinear)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3624,11 +3447,10 @@ extension CIFilter {
         return filter
     }
     
-    /// CIStarShineGenerator
-    /// - SeeAlso: [Reference/CIStarShineGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStarShineGenerator)
+    /// [CIStarShineGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStarShineGenerator)
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the star. defaultValue = [150 150].
-    /// - parameter inputColor: The color to use for the outer shell of the circular star. defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color to use for the outer shell of the circular star. defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputRadius: The radius of the star. defaultValue = 50.
     /// - parameter inputCrossScale: The size of the cross pattern. defaultValue = 15.
     /// - parameter inputCrossAngle: The angle of the cross pattern. defaultValue = 0.6.
@@ -3654,8 +3476,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIStraightenFilter
-    /// - SeeAlso: [Reference/CIStraightenFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStraightenFilter)
+    /// [CIStraightenFilter](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStraightenFilter)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputAngle: An angle in radians. defaultValue = 0.
@@ -3672,8 +3493,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIStretchCrop
-    /// - SeeAlso: [Reference/CIStretchCrop](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStretchCrop)
+    /// [CIStretchCrop](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStretchCrop)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputSize: The size in pixels of the output image. defaultValue = [1280 720].
@@ -3694,12 +3514,11 @@ extension CIFilter {
         return filter
     }
     
-    /// CIStripesGenerator
-    /// - SeeAlso: [Reference/CIStripesGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStripesGenerator)
+    /// [CIStripesGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIStripesGenerator)
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the stripe pattern. defaultValue = [150 150].
-    /// - parameter inputColor0: A color to use for the odd stripes. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: A color to use for the even stripes. defaultValue = (0 0 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: A color to use for the odd stripes. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: A color to use for the even stripes. defaultValue = (0 0 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputWidth: The width of a stripe. defaultValue = 80.
     /// - parameter inputSharpness: The sharpness of the stripe pattern. The smaller the value, the more blurry the pattern. Values range from 0.0 to 1.0. defaultValue = 1.
     ///
@@ -3718,8 +3537,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CISubtractBlendMode
-    /// - SeeAlso: [Reference/CISubtractBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISubtractBlendMode)
+    /// [CISubtractBlendMode](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISubtractBlendMode)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputBackgroundImage: The image to use as a background image.
@@ -3736,11 +3554,10 @@ extension CIFilter {
         return filter
     }
     
-    /// CISunbeamsGenerator
-    /// - SeeAlso: [Reference/CISunbeamsGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISunbeamsGenerator)
+    /// [CISunbeamsGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISunbeamsGenerator)
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the sunbeam pattern defaultValue = [150 150].
-    /// - parameter inputColor: The color of the sun. defaultValue = (1 0.5 0 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the sun. defaultValue = (1 0.5 0 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputSunRadius: The radius of the sun. defaultValue = 40.
     /// - parameter inputMaxStriationRadius: The radius of the sunbeams. defaultValue = 2.58.
     /// - parameter inputStriationStrength: The intensity of the sunbeams. Higher values result in more intensity. defaultValue = 0.5.
@@ -3764,13 +3581,12 @@ extension CIFilter {
         return filter
     }
     
-    /// CISwipeTransition
-    /// - SeeAlso: [Reference/CISwipeTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISwipeTransition)
+    /// [CISwipeTransition](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CISwipeTransition)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputExtent: The extent of the effect. defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the swipe. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the swipe. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1). defaultValue = 0.
     /// - parameter inputAngle: The angle of the swipe. defaultValue = 0.
     /// - parameter inputWidth: The width of the swipe defaultValue = 300.
@@ -3794,8 +3610,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CITemperatureAndTint
-    /// - SeeAlso: [Reference/CITemperatureAndTint](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITemperatureAndTint)
+    /// [CITemperatureAndTint](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITemperatureAndTint)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputNeutral:  defaultValue = [6500 0].
@@ -3814,8 +3629,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CITextImageGenerator
-    /// - SeeAlso: [Reference/CITextImageGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITextImageGenerator)
+    /// [CITextImageGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITextImageGenerator)
     ///
     /// - parameter inputText:
     /// - parameter inputFontName:  defaultValue = HelveticaNeue.
@@ -3836,8 +3650,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIThermal
-    /// - SeeAlso: [Reference/CIThermal](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIThermal)
+    /// [CIThermal](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIThermal)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -3852,8 +3665,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIToneCurve
-    /// - SeeAlso: [Reference/CIToneCurve](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIToneCurve)
+    /// [CIToneCurve](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIToneCurve)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputPoint0:  defaultValue = [0 0].
@@ -3878,8 +3690,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CITorusLensDistortion
-    /// - SeeAlso: [Reference/CITorusLensDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITorusLensDistortion)
+    /// [CITorusLensDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITorusLensDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the torus. defaultValue = [150 150].
@@ -3902,8 +3713,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CITriangleKaleidoscope
-    /// - SeeAlso: [Reference/CITriangleKaleidoscope](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITriangleKaleidoscope)
+    /// [CITriangleKaleidoscope](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITriangleKaleidoscope)
     ///
     /// - parameter inputImage: Input image to generate kaleidoscope effect from.
     /// - parameter inputPoint: The x and y position to use as the center of the triangular area in the input image. defaultValue = [150 150].
@@ -3926,8 +3736,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CITriangleTile
-    /// - SeeAlso: [Reference/CITriangleTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITriangleTile)
+    /// [CITriangleTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITriangleTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -3948,8 +3757,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CITwelvefoldReflectedTile
-    /// - SeeAlso: [Reference/CITwelvefoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITwelvefoldReflectedTile)
+    /// [CITwelvefoldReflectedTile](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITwelvefoldReflectedTile)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The x and y position to use as the center of the effect defaultValue = [150 150].
@@ -3970,8 +3778,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CITwirlDistortion
-    /// - SeeAlso: [Reference/CITwirlDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITwirlDistortion)
+    /// [CITwirlDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CITwirlDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -3992,8 +3799,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIUnsharpMask
-    /// - SeeAlso: [Reference/CIUnsharpMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIUnsharpMask)
+    /// [CIUnsharpMask](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIUnsharpMask)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputRadius: The radius around a given pixel to apply the unsharp mask. The larger the radius, the more of the image is affected. defaultValue = 2.5.
@@ -4012,8 +3818,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIVibrance
-    /// - SeeAlso: [Reference/CIVibrance](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVibrance)
+    /// [CIVibrance](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVibrance)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputAmount: The amount to adjust the saturation. defaultValue = 0.
@@ -4030,8 +3835,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIVignette
-    /// - SeeAlso: [Reference/CIVignette](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVignette)
+    /// [CIVignette](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVignette)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputIntensity: The intensity of the effect. defaultValue = 0.
@@ -4050,8 +3854,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIVignetteEffect
-    /// - SeeAlso: [Reference/CIVignetteEffect](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVignetteEffect)
+    /// [CIVignetteEffect](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVignetteEffect)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -4074,8 +3877,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIVortexDistortion
-    /// - SeeAlso: [Reference/CIVortexDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVortexDistortion)
+    /// [CIVortexDistortion](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIVortexDistortion)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -4096,11 +3898,10 @@ extension CIFilter {
         return filter
     }
     
-    /// CIWhitePointAdjust
-    /// - SeeAlso: [Reference/CIWhitePointAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIWhitePointAdjust)
+    /// [CIWhitePointAdjust](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIWhitePointAdjust)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor: A color to use as the white point. defaultValue = (1 1 1 1) <CGColorSpace 0x6040000ac8a0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: A color to use as the white point. defaultValue = (1 1 1 1) <CGColorSpace 0x6080000a87c0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, *)
@@ -4114,8 +3915,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIXRay
-    /// - SeeAlso: [Reference/CIXRay](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIXRay)
+    /// [CIXRay](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIXRay)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
@@ -4130,8 +3930,7 @@ extension CIFilter {
         return filter
     }
     
-    /// CIZoomBlur
-    /// - SeeAlso: [Reference/CIZoomBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIZoomBlur)
+    /// [CIZoomBlur](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIZoomBlur)
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputCenter: The center of the effect as x and y coordinates. defaultValue = [150 150].
@@ -4150,5 +3949,4 @@ extension CIFilter {
         return filter
     }
 }
-
 

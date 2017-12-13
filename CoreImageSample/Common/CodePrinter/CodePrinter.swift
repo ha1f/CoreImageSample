@@ -26,9 +26,6 @@ class CodePrinter {
     func printSign() {
         print("""
 //
-//  CIFilter+Extension_generated.swift
-//  CoreImageSample
-//
 //  Created by はるふ on 2017/12/11.
 //  Copyright © 2017年 ha1f. All rights reserved.
 //
