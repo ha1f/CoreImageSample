@@ -26,4 +26,8 @@ extension CIImage {
         let yScale = size.height / extent.height
         return transformed(by: CGAffineTransform(scaleX: xScale, y: yScale))
     }
+    
+    func asUIImage(scale: CGFloat = UIScreen.main.scale, orientation: UIImageOrientation = .up) -> UIImage {
+        return UIImage(ciImage: self, scale: scale, orientation: orientation)
+    }
 }
