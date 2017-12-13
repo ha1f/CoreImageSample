@@ -9,18 +9,26 @@
 import Foundation
 
 class CodePrinter {
-    let indent: String
-    private(set) var currentIndent: Int = 0
-    private var buffer: String = ""
+    struct CodePrinterLine {
+        let code: String
+        let indentLevel: Int
+    }
     
-    init(indent: String = "    ") {
-        self.indent = indent
+    let indentString: String
+    private(set) var currentIndentLevel: Int = 0
+    private var buffer: [CodePrinterLine] = []
+    
+    init(indentString: String = "    ") {
+        self.indentString = indentString
         printSign()
     }
     
     func commitPrint() {
-        Swift.print(buffer)
-        buffer = ""
+        Swift.print(
+            buffer
+                .map { String(repeating: indentString, count: $0.indentLevel) + $0.code }
+                .joined(separator: "\n")
+        )
     }
     
     func printSign() {
@@ -35,13 +43,13 @@ class CodePrinter {
     }
     
     func print(_ code: String) {
-        buffer += String(repeating: indent, count: currentIndent) + code + "\n"
+        buffer.append(CodePrinterLine(code: code, indentLevel: currentIndentLevel))
     }
     func shiftRight() {
-        currentIndent += 1
+        currentIndentLevel += 1
     }
     func shiftLeft() {
-        currentIndent -= 1
+        currentIndentLevel -= 1
     }
     
     func withShiftedRight(_ closure: () -> Void) {
