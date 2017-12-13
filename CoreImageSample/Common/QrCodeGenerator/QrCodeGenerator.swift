@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreImage
+import UIKit
 
 /// QR Code Generator using CIFilter
 /// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIQRCodeGenerator
@@ -30,16 +31,23 @@ struct QrCodeGenerator {
         return filter?.outputImage
     }
     
-    func generate(fromData data: Data, imageWidth: CGFloat, scale: CGFloat = 1.0) -> CIImage? {
+    func generate(fromData data: Data, imageWidth: CGFloat) -> CIImage? {
         guard let image = generate(fromData: data) else {
             return nil
         }
-        let scale = (imageWidth * scale) / image.extent.size.width
+        let scale = imageWidth / image.extent.size.width
         return image.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
     }
     
-    func generate(fromString string: String, imageWidth: CGFloat, scale: CGFloat = 1.0) -> CIImage? {
+    func generate(fromString string: String, imageWidth: CGFloat) -> CIImage? {
         let data = string.data(using: .isoLatin1)
-        return data.flatMap { self.generate(fromData: $0, imageWidth: imageWidth, scale: scale) }
+        return data.flatMap { self.generate(fromData: $0, imageWidth: imageWidth) }
+    }
+    
+    func generateUiImage(fromString string: String, imageWidth: CGFloat, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+        return generate(fromString: string, imageWidth: imageWidth * scale)
+            .map { ciImage in
+                return UIImage(ciImage: ciImage, scale: scale, orientation: .up)
+        }
     }
 }

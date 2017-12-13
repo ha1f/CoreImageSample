@@ -99,21 +99,13 @@ class CoreImageSampleTests: XCTestCase {
         }
     }
     
-    // 0.018 sec
-    func testPerformanceCircle() {
-        let imageSize = CGSize(width: 256, height: 256)
-        self.measure {
-            for _ in 0..<10 {
-                print(UIImage.circle(size: imageSize, color: .white)?.size)
-            }
-        }
-    }
-    
     func testPerformanceEmptyCI() {
         let imageSize = CGSize(width: 256, height: 256)
         self.measure {
             for _ in 0..<100 {
-                print(UIImage.empty(size: imageSize, color: .white)?.size)
+                let image = UIImage.empty(size: imageSize, color: .white)!
+                XCTAssertEqual(image.size, imageSize)
+                XCTAssertEqual(image.scale, UIScreen.main.scale)
             }
         }
     }
@@ -122,7 +114,9 @@ class CoreImageSampleTests: XCTestCase {
         let imageSize = CGSize(width: 256, height: 256)
         self.measure {
             for _ in 0..<100 {
-                print(UIImage.emptyUsingCoreGraphics(size: imageSize, color: .white)?.size)
+                let image = UIImage.emptyUsingCoreGraphics(size: imageSize, color: .white)!
+                XCTAssertEqual(image.size, imageSize)
+                XCTAssertEqual(image.scale, UIScreen.main.scale)
             }
         }
     }

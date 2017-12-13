@@ -26,6 +26,7 @@
 		56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */; };
 		56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9171FDE97800028344C /* CGImage+Extension.swift */; };
 		56D3F91F1FE0BDD00028344C /* CodePrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F91E1FE0BDD00028344C /* CodePrinter.swift */; };
+		56D3F9221FE101DC0028344C /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9211FE101DC0028344C /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension_generated.swift"; sourceTree = "<group>"; };
 		56D3F9171FDE97800028344C /* CGImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
 		56D3F91E1FE0BDD00028344C /* CodePrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePrinter.swift; sourceTree = "<group>"; };
+		56D3F9211FE101DC0028344C /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,9 +144,9 @@
 		56689E7B1FDE1C9C0016D6A0 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				56D3F9201FE101BE0028344C /* ViewController */,
 				56689E8C1FDE41560016D6A0 /* Resource */,
 				56689E591FDE1C750016D6A0 /* AppDelegate.swift */,
-				56689E5B1FDE1C750016D6A0 /* ViewController.swift */,
 				56689E5D1FDE1C750016D6A0 /* Main.storyboard */,
 				56689E601FDE1C750016D6A0 /* Assets.xcassets */,
 				56689E621FDE1C750016D6A0 /* LaunchScreen.storyboard */,
@@ -221,6 +223,15 @@
 				56D3F91E1FE0BDD00028344C /* CodePrinter.swift */,
 			);
 			path = CodePrinter;
+			sourceTree = "<group>";
+		};
+		56D3F9201FE101BE0028344C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				56689E5B1FDE1C750016D6A0 /* ViewController.swift */,
+				56D3F9211FE101DC0028344C /* CameraViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +349,7 @@
 				56689E881FDE1CC90016D6A0 /* UIImage+Extension.swift in Sources */,
 				56689E841FDE1CC90016D6A0 /* CGPoint+Extension.swift in Sources */,
 				56689E5A1FDE1C750016D6A0 /* AppDelegate.swift in Sources */,
+				56D3F9221FE101DC0028344C /* CameraViewController.swift in Sources */,
 				56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */,
 				56689E861FDE1CC90016D6A0 /* Comparable+Extension.swift in Sources */,
 				56689E871FDE1CC90016D6A0 /* UIBezierPath+Extension.swift in Sources */,

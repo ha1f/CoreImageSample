@@ -28,12 +28,7 @@ class ViewController: UIViewController {
             imageView.heightAnchor.constraint(equalToConstant: 256)
             ])
         
-        imageView.image = QrCodeGenerator()
-            .generate(fromString: "https://ha1f.net", imageWidth: 256, scale: UIScreen.main.scale)
-            .map { UIImage(ciImage: $0, scale: UIScreen.main.scale, orientation: .up) }
-        
-        
-        CIFilter.generateCode()
+        imageView.image = QrCodeGenerator().generateUiImage(fromString: "https://ha1f.net", imageWidth: 256)
     }
 }
 
