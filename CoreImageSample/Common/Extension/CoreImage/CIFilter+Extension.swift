@@ -32,11 +32,13 @@ extension CIFilter {
     }
     
     static func generateCode() {
-        print("import Foundation")
-        print("import CoreImage")
-        print("import AVFoundation")
-        print("")
-        print("extension CIFilter {")
+        let printer = CodePrinter()
+        printer.print("import Foundation")
+        printer.print("import CoreImage")
+        printer.print("import AVFoundation")
+        printer.print("")
+        printer.print("extension CIFilter {")
+        printer.shiftRight()
         CIFilter.filterNames(inCategory: kCICategoryBuiltIn)
             .forEach { filterName in
                 guard let filter = CIFilter(name: filterName) else {
@@ -54,39 +56,51 @@ extension CIFilter {
                         return "\(inputKey): \(type)"
                     }
                 }
-                print("    /// \(filter.displayName ?? filterName)")
+                let filterDisplayName = filter.displayName ?? filterName
+                printer.print("")
+                printer.print("/// \(filterDisplayName)")
                 if let url = filter.referenceDocumentationUrl {
-                    print("    /// \(url)")
+                    printer.print("/// - SeeAlso: [Reference/\(filterDisplayName)](\(url))")
                 }
+                printer.print("/// ")
                 filter.inputKeys.forEach { inputKey in
                     let information = filter.parameterInformation(forInputKey: inputKey)
                     let description = (information[kCIAttributeDescription] as? String) ?? ""
                     if let defaultValue = information[kCIAttributeDefault] {
-                        print("    /// - parameter \(inputKey): \(description) defaultValue = \(defaultValue).")
+                        printer.print("/// - parameter \(inputKey): \(description) defaultValue = \(defaultValue).")
                     } else {
-                        print("    /// - parameter \(inputKey): \(description)")
+                        printer.print("/// - parameter \(inputKey): \(description)")
                     }
                 }
-                print("    /// ")
-                print("    /// - returns: Generated CIFilter (you can get result with \(filter.outputKeys)")
+                printer.print("/// ")
+                printer.print("/// - returns: Generated CIFilter (you can get result with \(filter.outputKeys))")
                 if let availableIos = filter.availableIos {
-                    print("    @available(iOS \(availableIos), *)")
+                    printer.print("@available(iOS \(availableIos), *)")
                 }
+                
+                // 関数名はfilterNameからCIを除いて、lowerCamelCaseにしたもの
                 var methodName = filterName.hasPrefix("CI") ? String(filterName.dropFirst(2)) : filterName
                 let initialString = methodName.removeFirst()
                 let functionName =  String(initialString).lowercased() + methodName
-                print("    static func \(functionName)(\(inputs.joined(separator: ", "))) -> CIFilter? {")
-                print("        guard let filter = CIFilter(name: \"\(filterName)\") else {")
-                print("            return nil")
-                print("        }")
-                print("        filter.setDefaults()")
-                filter.inputKeys.forEach { inputKey in
-                    print("        filter.setValue(\(inputKey), forKey: \"\(inputKey)\")")
+                
+                printer.print("static func \(functionName)(\(inputs.joined(separator: ", "))) -> CIFilter? {")
+                printer.withShiftedRight {
+                    let filterVariableName = "filter"
+                    printer.print("guard let \(filterVariableName) = CIFilter(name: \"\(filterName)\") else {")
+                    printer.withShiftedRight {
+                        printer.print("return nil")
+                    }
+                    printer.print("}")
+                    printer.print("\(filterVariableName).setDefaults()")
+                    filter.inputKeys.forEach { inputKey in
+                        printer.print("\(filterVariableName).setValue(\(inputKey), forKey: \"\(inputKey)\")")
+                    }
+                    printer.print("return \(filterVariableName)")
                 }
-                print("        return filter")
-                print("    }")
-                print("")
+                printer.print("}")
         }
-        print("}")
+        printer.shiftLeft()
+        printer.print("}")
+        printer.commitPrint()
     }
 }

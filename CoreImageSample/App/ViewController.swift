@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             .map { UIImage(ciImage: $0, scale: UIScreen.main.scale, orientation: .up) }
         
         
-        print(CIFilter.constantColorGenerator(inputColor: CIColor(color: UIColor.orange))!.outputImage.map { UIImage(ciImage: $0, scale: UIScreen.main.scale, orientation: .up).size })
+        CIFilter.generateCode()
     }
 }
 

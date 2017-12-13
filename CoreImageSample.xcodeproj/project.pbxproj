@@ -25,6 +25,7 @@
 		56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */; };
 		56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */; };
 		56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9171FDE97800028344C /* CGImage+Extension.swift */; };
+		56D3F91F1FE0BDD00028344C /* CodePrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F91E1FE0BDD00028344C /* CodePrinter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeGenerator.swift; sourceTree = "<group>"; };
 		56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension_generated.swift"; sourceTree = "<group>"; };
 		56D3F9171FDE97800028344C /* CGImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
+		56D3F91E1FE0BDD00028344C /* CodePrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePrinter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		56689E791FDE1C7E0016D6A0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				56D3F91D1FE0BDC10028344C /* CodePrinter */,
 				56689E921FDE79770016D6A0 /* QrCodeGenerator */,
 				56689E7A1FDE1C860016D6A0 /* Extension */,
 			);
@@ -210,6 +213,14 @@
 				56689E7F1FDE1CC90016D6A0 /* Comparable+Extension.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		56D3F91D1FE0BDC10028344C /* CodePrinter */ = {
+			isa = PBXGroup;
+			children = (
+				56D3F91E1FE0BDD00028344C /* CodePrinter.swift */,
+			);
+			path = CodePrinter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +332,7 @@
 				56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */,
 				56689E851FDE1CC90016D6A0 /* CGSize+Extension.swift in Sources */,
 				56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */,
+				56D3F91F1FE0BDD00028344C /* CodePrinter.swift in Sources */,
 				56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */,
 				56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */,
 				56689E881FDE1CC90016D6A0 /* UIImage+Extension.swift in Sources */,
