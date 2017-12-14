@@ -53,12 +53,31 @@ extension Image where Pixel == RGBA<UInt8> {
             }
         }
         if isInside {
-            if currentLeft == 720 {
-                print(xRange, currentLeft, xRange.upperBound, y, isRegardedAsInside(self[720, y]))
-            }
             seeds.append(HorizontalLineSegment(minX: currentLeft, maxX: xRange.upperBound, y: y))
         }
         return seeds
+    }
+    
+    private func scanHorizontalLine(targetY: Int, seed: ScanLineSeed, leftEdgeX: Int, rightEdgeX: Int, isRegardedAsInside: (RGBA<UInt8>) -> Bool) -> [ScanLineSeed] {
+        guard targetY >= 0 && targetY < self.height else {
+            return []
+        }
+        if targetY == seed.parentY {
+            // 親ラインかつ、x >= seed.minX  && x <= seed.maxXのとき、スルーする
+            // つまり、親ラインならleftEdgeX..<seed.minX, (seed.maxX+1)..<rightEdgeXの範囲のみ探索する
+            var result: [HorizontalLineSegment] = []
+            if leftEdgeX < seed.lineSegment.minX {
+                result.append(contentsOf: self.searchSeed(xRange: CountableClosedRange(leftEdgeX..<seed.lineSegment.minX), y: targetY, isRegardedAsInside: isRegardedAsInside))
+            }
+            if rightEdgeX >= (seed.lineSegment.maxX+1) {
+                result.append(contentsOf: self.searchSeed(xRange: (seed.lineSegment.maxX+1)...rightEdgeX, y: targetY, isRegardedAsInside: isRegardedAsInside))
+            }
+            return result
+                .map { ScanLineSeed(lineSegment: $0, parentY: seed.lineSegment.y) }
+        } else {
+            return self.searchSeed(xRange: leftEdgeX...rightEdgeX, y: targetY, isRegardedAsInside: isRegardedAsInside)
+                .map { ScanLineSeed(lineSegment: $0, parentY: seed.lineSegment.y) }
+        }
     }
     
     mutating func fill(from startPoint: PixelPoint, color: RGBA<UInt8>) {
@@ -108,23 +127,11 @@ extension Image where Pixel == RGBA<UInt8> {
                 self[x, seed.lineSegment.y] = color
             }
             
+            // 一つ上
+            seedStack.append(contentsOf: self.scanHorizontalLine(targetY: seed.lineSegment.y - 1, seed: seed, leftEdgeX: leftEdgeX, rightEdgeX: rightEdgeX, isRegardedAsInside: isRegardedAsInside))
             
-            // TODO: 親ラインかつ、x >= seed.minX  && x <= seed.maxXのとき、スルーする
-            // つまり、親ラインならleftEdgeX..<seed.minX, (seed.maxX+1)..<rightEdgeXの範囲のみ探索する
-            
-            // 一行上
-            let upperY = seed.lineSegment.y - 1
-            if upperY >= 0 {
-                seedStack.append(contentsOf: self.searchSeed(xRange: leftEdgeX...rightEdgeX, y: upperY, isRegardedAsInside: isRegardedAsInside)
-                        .map { ScanLineSeed(lineSegment: $0, parentY: seed.lineSegment.y) })
-            }
-            
-            // 一行下
-            let lowerY = seed.lineSegment.y + 1
-            if lowerY < self.height {
-                seedStack.append(contentsOf: self.searchSeed(xRange: leftEdgeX...rightEdgeX, y: lowerY, isRegardedAsInside: isRegardedAsInside)
-                    .map { ScanLineSeed(lineSegment: $0, parentY: seed.lineSegment.y) })
-            }
+            // ひとつ下
+            seedStack.append(contentsOf: self.scanHorizontalLine(targetY: seed.lineSegment.y + 1, seed: seed, leftEdgeX: leftEdgeX, rightEdgeX: rightEdgeX, isRegardedAsInside: isRegardedAsInside))
         }
     }
 }
