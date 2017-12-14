@@ -24,20 +24,47 @@ struct HorizontalLineSegment {
     }
 }
 
-class ViewController: UIViewController {
-    
-    let imageView: UIImageView = {
-       let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    func fill(from startPoint: PixelPoint, color: RGBA<UInt8>) {
-        var image = Image<RGBA<UInt8>>(uiImage: #imageLiteral(resourceName: "sample.PNG"))
+struct ScanLineSeed {
+    let lineSegment: HorizontalLineSegment
+    let parentY: Int?
+}
+
+extension Image where Pixel == RGBA<UInt8> {
+    private func searchSeed(xRange: CountableClosedRange<Int>, y: Int, isRegardedAsInside: (RGBA<UInt8>) -> Bool) -> [HorizontalLineSegment] {
+        var seeds: [HorizontalLineSegment] = []
         
-        var seedStack = [HorizontalLineSegment.point(x: startPoint.x, y: startPoint.y)]
+        // パフォーマンスの観点から無視
+        // guard y >= 0 && y < image.height else {
+        //     return
+        // }
+        var isInside = false
+        var currentLeft = xRange.lowerBound
+        for x in xRange {
+            if !isRegardedAsInside(self[x, y]) {
+                if isInside {
+                    seeds.append(HorizontalLineSegment(minX: currentLeft, maxX: x-1, y: y))
+                }
+                isInside = false
+            } else {
+                if !isInside {
+                    currentLeft = x
+                }
+                isInside = true
+            }
+        }
+        if isInside {
+            if currentLeft == 720 {
+                print(xRange, currentLeft, xRange.upperBound, y, isRegardedAsInside(self[720, y]))
+            }
+            seeds.append(HorizontalLineSegment(minX: currentLeft, maxX: xRange.upperBound, y: y))
+        }
+        return seeds
+    }
+    
+    mutating func fill(from startPoint: PixelPoint, color: RGBA<UInt8>) {
+        var seedStack = [ScanLineSeed(lineSegment: HorizontalLineSegment.point(x: startPoint.x, y: startPoint.y), parentY: nil)]
         
-        guard let startPointPixel = image.pixelAt(x: startPoint.x, y: startPoint.y) else {
+        guard let startPointPixel = self.pixelAt(x: startPoint.x, y: startPoint.y) else {
             return
         }
         
@@ -57,68 +84,60 @@ class ViewController: UIViewController {
             
             // 右
             let rightEdgeX: Int = {
-                for x in (seed.maxX+1)..<image.width {
-                    if !isRegardedAsInside(image[x, seed.y]) {
+                for x in (seed.lineSegment.maxX+1)..<self.width {
+                    if !isRegardedAsInside(self[x, seed.lineSegment.y]) {
                         return x-1
                     }
-                    // 塗る
-                    image[x, seed.y] = color
+                    // 塗ってもいい
                 }
-                return image.width - 1
+                return self.width - 1
             }()
             // 左
             let leftEdgeX: Int = {
-                for x in (0...seed.minX).reversed() {
-                    if !isRegardedAsInside(image[x, seed.y]) {
+                for x in (0...seed.lineSegment.minX).reversed() {
+                    if !isRegardedAsInside(self[x, seed.lineSegment.y]) {
                         return x+1
                     }
-                    // 塗る
-                    image[x, seed.y] = color
+                    // 塗ってもいいが、上で塗らないように注意
                 }
                 return 0
             }()
             
-            // TODO: ここまでで(leftEdgeX...rightEdgeX, seed.y)をまとめて塗って処理を高速化したい
-            
-            let searchSeed: (Int) -> () = { y in
-                // guard y >= 0 && y < image.width else {
-                //     return
-                // }
-                var isInside = false
-                var currentLeft = 0
-                for x in leftEdgeX...rightEdgeX {
-                    if !isRegardedAsInside(image[x, y]) {
-                        if isInside {
-                            seedStack.append(HorizontalLineSegment(minX: currentLeft, maxX: x-1, y: y))
-                        }
-                        isInside = false
-                    } else {
-                        if !isInside {
-                            currentLeft = x
-                        }
-                        isInside = true
-                    }
-                }
-                if isInside {
-                    seedStack.append(HorizontalLineSegment(minX: currentLeft, maxX: rightEdgeX, y: y))
-                }
+            // TODO: ここで(leftEdgeX...rightEdgeX, seed.y)をまとめて塗って処理を高速化したい
+            for x in leftEdgeX...rightEdgeX {
+                self[x, seed.lineSegment.y] = color
             }
             
+            
+            // TODO: 親ラインかつ、x >= seed.minX  && x <= seed.maxXのとき、スルーする
+            // つまり、親ラインならleftEdgeX..<seed.minX, (seed.maxX+1)..<rightEdgeXの範囲のみ探索する
+            
             // 一行上
-            let upperY = seed.y - 1
+            let upperY = seed.lineSegment.y - 1
             if upperY >= 0 {
-                searchSeed(upperY)
+                seedStack.append(contentsOf: self.searchSeed(xRange: leftEdgeX...rightEdgeX, y: upperY, isRegardedAsInside: isRegardedAsInside)
+                        .map { ScanLineSeed(lineSegment: $0, parentY: seed.lineSegment.y) })
             }
             
             // 一行下
-            let lowerY = seed.y + 1
-            if lowerY < image.width {
-                searchSeed(lowerY)
+            let lowerY = seed.lineSegment.y + 1
+            if lowerY < self.height {
+                seedStack.append(contentsOf: self.searchSeed(xRange: leftEdgeX...rightEdgeX, y: lowerY, isRegardedAsInside: isRegardedAsInside)
+                    .map { ScanLineSeed(lineSegment: $0, parentY: seed.lineSegment.y) })
             }
         }
-        
-        imageView.image = image.uiImage
     }
+}
+
+class ViewController: UIViewController {
+    
+    let imageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    var image = Image<RGBA<UInt8>>(uiImage: #imageLiteral(resourceName: "sample.PNG"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,10 +151,26 @@ class ViewController: UIViewController {
             imageView.heightAnchor.constraint(equalToConstant: 256)
             ])
         
-        fill(from: PixelPoint(x: 350, y: 220), color: .green)
+        imageView.image = image.uiImage
         
-//        imageView.image = QrCodeGenerator().generateUiImage(fromString: "https://ha1f.net", imageWidth: 256)
-        
+        self.fillImage(point: PixelPoint(x: 350, y: 220), color: .green) {
+            self.fillImage(point: PixelPoint(x: 750, y: 320), color: .red) {
+                self.fillImage(point: PixelPoint(x: 230, y: 720), color: .blue) {
+                    self.fillImage(point: PixelPoint(x: 10, y: 10), color: .black) {
+                        print("complete")
+                    }
+                }
+            }
+        }
+    }
+    
+    private func fillImage(point: PixelPoint, color: RGBA<UInt8>, completion: (() -> Void)? = nil) {
+        DispatchQueue.global(qos: .default).async { [weak self] in
+            self?.image.fill(from: point, color: color)
+            DispatchQueue.main.async {
+                self?.imageView.image = self?.image.uiImage
+                completion?()
+            }
+        }
     }
 }
-
