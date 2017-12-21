@@ -323,5 +323,23 @@ class CameraViewController: UIViewController {
     
     private func takePhoto() {
         //
+        sessionQueue.async { [weak self] in
+            guard let `self` = self else {
+                return
+            }
+            
+            var photoSettings: AVCapturePhotoSettings = AVCapturePhotoSettings()
+            if #available(iOS 11.0, *) {
+                if photoSettings.availableEmbeddedThumbnailPhotoCodecTypes.contains(AVVideoCodecType.jpeg) {
+                    photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+                }
+            } else {
+                photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecJPEG])
+            }
+            self.photoOutput.capturePhoto(with: photoSettings, delegate: self)
+        }
     }
+}
+
+extension CameraViewController: AVCapturePhotoCaptureDelegate {
 }
