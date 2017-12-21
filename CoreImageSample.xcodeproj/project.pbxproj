@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56097CAA1FEB64A60090B7EC /* EasyImagy+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56097CA91FEB64A60090B7EC /* EasyImagy+Extension.swift */; };
 		56689E5A1FDE1C750016D6A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E591FDE1C750016D6A0 /* AppDelegate.swift */; };
 		56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E5B1FDE1C750016D6A0 /* ViewController.swift */; };
 		56689E5F1FDE1C750016D6A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56689E5D1FDE1C750016D6A0 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56097CA91FEB64A60090B7EC /* EasyImagy+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EasyImagy+Extension.swift"; sourceTree = "<group>"; };
 		56689E561FDE1C750016D6A0 /* CoreImageSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56689E591FDE1C750016D6A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56689E5B1FDE1C750016D6A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56097CA81FEB648E0090B7EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56097CA91FEB64A60090B7EC /* EasyImagy+Extension.swift */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		56689E4D1FDE1C750016D6A0 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +149,7 @@
 		56689E7A1FDE1C860016D6A0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				56097CA81FEB648E0090B7EC /* Frameworks */,
 				56D3F91C1FDE987A0028344C /* Foundation */,
 				56D3F91B1FDE98690028344C /* UIKit */,
 				56D3F91A1FDE98520028344C /* CoreGraphics */,
@@ -377,6 +388,7 @@
 				56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */,
 				56689E851FDE1CC90016D6A0 /* CGSize+Extension.swift in Sources */,
 				56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */,
+				56097CAA1FEB64A60090B7EC /* EasyImagy+Extension.swift in Sources */,
 				56D3F91F1FE0BDD00028344C /* CodePrinter.swift in Sources */,
 				56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */,
 				56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */,
