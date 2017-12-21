@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		56097CAA1FEB64A60090B7EC /* EasyImagy+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56097CA91FEB64A60090B7EC /* EasyImagy+Extension.swift */; };
+		56097CAD1FEB66780090B7EC /* SafeAreaLayoutGuideCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56097CAC1FEB66780090B7EC /* SafeAreaLayoutGuideCompatible.swift */; };
 		56689E5A1FDE1C750016D6A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E591FDE1C750016D6A0 /* AppDelegate.swift */; };
 		56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E5B1FDE1C750016D6A0 /* ViewController.swift */; };
 		56689E5F1FDE1C750016D6A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56689E5D1FDE1C750016D6A0 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		56097CA91FEB64A60090B7EC /* EasyImagy+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EasyImagy+Extension.swift"; sourceTree = "<group>"; };
+		56097CAC1FEB66780090B7EC /* SafeAreaLayoutGuideCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaLayoutGuideCompatible.swift; sourceTree = "<group>"; };
 		56689E561FDE1C750016D6A0 /* CoreImageSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56689E591FDE1C750016D6A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56689E5B1FDE1C750016D6A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				56D3F91D1FE0BDC10028344C /* CodePrinter */,
 				56689E921FDE79770016D6A0 /* QrCodeGenerator */,
 				56689E7A1FDE1C860016D6A0 /* Extension */,
+				56097CAC1FEB66780090B7EC /* SafeAreaLayoutGuideCompatible.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56689E8B1FDE23D80016D6A0 /* CIImage+Extension.swift in Sources */,
+				56097CAD1FEB66780090B7EC /* SafeAreaLayoutGuideCompatible.swift in Sources */,
 				56689E831FDE1CC90016D6A0 /* UIView+Extension.swift in Sources */,
 				56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */,
 				56689E851FDE1CC90016D6A0 /* CGSize+Extension.swift in Sources */,
