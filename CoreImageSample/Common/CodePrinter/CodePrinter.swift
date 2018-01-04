@@ -9,7 +9,7 @@
 import Foundation
 
 class CodePrinter {
-    struct CodePrinterLine {
+    private struct CodePrinterLine {
         let code: String
         let indentLevel: Int
     }
@@ -23,6 +23,14 @@ class CodePrinter {
         printSign()
     }
     
+    private static let codeSign = """
+//
+//  Created by はるふ on 2017/12/11.
+//  Copyright © 2017年 ha1f. All rights reserved.
+//
+
+"""
+    
     func commitPrint() {
         Swift.print(
             buffer
@@ -32,14 +40,7 @@ class CodePrinter {
     }
     
     func printSign() {
-        print("""
-//
-//  Created by はるふ on 2017/12/11.
-//  Copyright © 2017年 ha1f. All rights reserved.
-//
-
-""")
-        
+        print(CodePrinter.codeSign)
     }
     
     func print(_ code: String) {

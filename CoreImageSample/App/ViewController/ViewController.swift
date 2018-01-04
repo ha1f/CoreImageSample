@@ -9,6 +9,28 @@
 import UIKit
 import EasyImagy
 
+extension UIView {
+    func constraintTo(centerOf view: UIView, width: CGFloat, height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            widthAnchor.constraint(equalToConstant: width),
+            heightAnchor.constraint(equalToConstant: height)
+            ])
+    }
+    
+    func constraintTo(frameOf view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.topAnchor),
+            leftAnchor.constraint(equalTo: view.leftAnchor),
+            rightAnchor.constraint(equalTo: view.rightAnchor),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
+}
+
 class ViewController: UIViewController {
     
     let imageView: UIImageView = {
@@ -21,13 +43,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 256),
-            imageView.heightAnchor.constraint(equalToConstant: 256)
-            ])
+        imageView.constraintTo(centerOf: view, width: 256, height: 256)
         
         imageView.image = #imageLiteral(resourceName: "sample.PNG")
         
@@ -40,6 +56,11 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.present(CanvasViewController(), animated: true, completion: nil)
     }
     
     private func fillImage(point: PixelPoint, color: RGBA<UInt8>, completion: (() -> Void)? = nil) {

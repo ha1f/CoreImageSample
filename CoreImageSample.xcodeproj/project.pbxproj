@@ -35,6 +35,7 @@
 		E958AFDB1FF7A61600A435CA /* CaptureVideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958AFDA1FF7A61600A435CA /* CaptureVideoPreviewView.swift */; };
 		E958AFDD1FF7A65700A435CA /* AVCaptureDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958AFDC1FF7A65700A435CA /* AVCaptureDevice+Extension.swift */; };
 		E958AFDF1FF7A68700A435CA /* CaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958AFDE1FF7A68700A435CA /* CaptureDevice.swift */; };
+		E99BB2511FFE5786006043F3 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2501FFE5786006043F3 /* CanvasViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		E958AFDA1FF7A61600A435CA /* CaptureVideoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureVideoPreviewView.swift; sourceTree = "<group>"; };
 		E958AFDC1FF7A65700A435CA /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
 		E958AFDE1FF7A68700A435CA /* CaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureDevice.swift; sourceTree = "<group>"; };
+		E99BB2501FFE5786006043F3 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 		56689E7B1FDE1C9C0016D6A0 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E99BB24F1FFE575F006043F3 /* Canvas */,
 				E958AFD71FF7A5AC00A435CA /* Camera */,
 				56D3F9201FE101BE0028344C /* ViewController */,
 				56689E8C1FDE41560016D6A0 /* Resource */,
@@ -281,6 +284,14 @@
 				E958AFDE1FF7A68700A435CA /* CaptureDevice.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		E99BB24F1FFE575F006043F3 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				E99BB2501FFE5786006043F3 /* CanvasViewController.swift */,
+			);
+			path = Canvas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E99BB2511FFE5786006043F3 /* CanvasViewController.swift in Sources */,
 				56689E8B1FDE23D80016D6A0 /* CIImage+Extension.swift in Sources */,
 				56097CAD1FEB66780090B7EC /* SafeAreaLayoutGuideCompatible.swift in Sources */,
 				56689E831FDE1CC90016D6A0 /* UIView+Extension.swift in Sources */,

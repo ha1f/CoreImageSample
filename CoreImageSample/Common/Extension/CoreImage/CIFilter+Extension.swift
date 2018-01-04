@@ -31,6 +31,54 @@ extension CIFilter {
         return (self.attributes[inputKey] as? [String: Any]) ?? [:]
     }
     
+    private static func initializerString(for cgAffineTransform: CGAffineTransform) -> String {
+        return "CGAffineTransform(a: \(cgAffineTransform.a), b: \(cgAffineTransform.b), c: \(cgAffineTransform.c), d: \(cgAffineTransform.d), tx: \(cgAffineTransform.tx), ty: \(cgAffineTransform.ty))"
+    }
+    
+    private static func initializerString(for ciVector: CIVector) -> String {
+        switch ciVector.count {
+        case 1:
+            return "CIVector(x: \(ciVector.x))"
+        case 2:
+            return "CIVector(x: \(ciVector.x), y: \(ciVector.y))"
+        case 3:
+            return "CIVector(x: \(ciVector.x), y: \(ciVector.y), z: \(ciVector.z))"
+        case 4:
+            return "CIVector(x: \(ciVector.x), y: \(ciVector.y), z: \(ciVector.z), w: \(ciVector.w))"
+        default:
+            return "CIVector()"
+        }
+    }
+    
+    // not complete dictionary
+    private static let inputKeyConstantDict: [String: String] = [
+        kCIInputImageKey: "kCIInputImageKey",
+        kCIInputEVKey: "kCIInputEVKey",
+        kCIInputBiasKey: "kCIInputBiasKey",
+        kCIInputTimeKey: "kCIInputTimeKey",
+        kCIInputAngleKey: "kCIInputAngleKey",
+        kCIInputBoostKey: "kCIInputBoostKey",
+        kCIInputColorKey: "kCIInputColorKey",
+        kCIInputScaleKey: "kCIInputScaleKey",
+        kCIInputWidthKey: "kCIInputWidthKey",
+        kCIInputCenterKey: "kCIInputCenterKey",
+        kCIInputExtentKey: "kCIInputExtentKey",
+        kCIInputRadiusKey: "kCIInputRadiusKey",
+        kCIInputContrastKey: "kCIInputContrastKey",
+        kCIInputVersionKey: "kCIInputVersionKey",
+        kCIInputWeightsKey: "kCIInputWeightsKey",
+        kCIInputIntensityKey: "kCIInputIntensityKey",
+        kCIInputMaskImageKey: "kCIInputMaskImageKey",
+        kCIInputSharpnessKey: "kCIInputSharpnessKey",
+        kCIInputTransformKey: "kCIInputTransformKey",
+        kCIInputBrightnessKey: "kCIInputBrightnessKey",
+        kCIInputBackgroundImageKey: "kCIInputBackgroundImageKey"
+    ]
+    private static func inputKeyStringString(for inputKeyString: String) -> String {
+        return inputKeyConstantDict.first(where: { $0.key == inputKeyString })?.value
+            ?? "\"\(inputKeyString)\""
+    }
+    
     static func generateCode() {
         let printer = CodePrinter()
         printer.print("import Foundation")
@@ -46,14 +94,18 @@ extension CIFilter {
                 }
                 let inputs: [String] = filter.inputKeys.map { inputKey in
                     let information = filter.parameterInformation(forInputKey: inputKey)
-                    let type = (information[kCIAttributeClass].map { "\($0)" } ?? "")
+                    let typeString = (information[kCIAttributeClass].map { "\($0)" } ?? "")
                     let defaultValue = information[kCIAttributeDefault]
                     if let value = defaultValue as? NSNumber {
-                        return "\(inputKey): \(type) = \(value)"
+                        return "\(inputKey): \(typeString) = \(value)"
                     } else if let value = defaultValue as? NSString {
-                        return "\(inputKey): \(type) = \"\(value)\""
+                        return "\(inputKey): \(typeString) = \"\(value)\""
+                    } else if let value = defaultValue as? CGAffineTransform {
+                        return "\(inputKey): \(typeString) = NSValue(cgAffineTransform:  \(initializerString(for: value)))"
+                    } else if let ciVector = defaultValue as? CIVector {
+                        return "\(inputKey): \(typeString) = \(initializerString(for: ciVector))"
                     } else {
-                        return "\(inputKey): \(type)"
+                        return "\(inputKey): \(typeString)"
                     }
                 }
                 let filterDisplayName = filter.displayName ?? filterName
@@ -97,7 +149,7 @@ extension CIFilter {
                     printer.print("}")
                     printer.print("\(filterVariableName).setDefaults()")
                     filter.inputKeys.forEach { inputKey in
-                        printer.print("\(filterVariableName).setValue(\(inputKey), forKey: \"\(inputKey)\")")
+                        printer.print("\(filterVariableName).setValue(\(inputKey), forKey: \(inputKeyStringString(for: inputKey)))")
                     }
                     printer.print("return \(filterVariableName)")
                 }
