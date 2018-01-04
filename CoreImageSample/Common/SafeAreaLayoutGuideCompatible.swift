@@ -1,12 +1,27 @@
 //
 //  SafeAreaLayoutGuideCompatible.swift
-//  CoreImageSample
 //
-//  Created by ST20591 on 2017/12/21.
+//  Created by はるふ on 2017/12/21.
 //  Copyright © 2017年 ha1f. All rights reserved.
 //
 
+
 import UIKit
+
+private extension UIView {
+    /// Get ViewController using responder chain
+    /// - SeeAlso: https://qiita.com/tomohisaota/items/3ac83f9b829e30ce624c
+    func getViewController() -> UIViewController? {
+        var responder = self as UIResponder
+        while let nextResponder = responder.next {
+            if let viewController = nextResponder as? UIViewController {
+                return viewController
+            }
+            responder = nextResponder
+        }
+        return nil
+    }
+}
 
 extension UIView: SafeAreaLayoutGuideCompatibleContainerType {}
 
@@ -60,7 +75,8 @@ extension SafeAreaLayoutGuideCompatible where Base: UIView {
         if #available(iOS 11.0, *) {
             return base.safeAreaLayoutGuide.topAnchor
         } else {
-            return base.topAnchor
+            // statusBarがあるのでちょっと頑張る
+            return base.getViewController()?.topLayoutGuide.bottomAnchor ?? base.topAnchor
         }
     }
     
