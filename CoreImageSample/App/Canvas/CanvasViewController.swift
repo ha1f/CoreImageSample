@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// frame + rotationのほうがいいかも
+/// 歪みのないtransform
 struct TransformState {
     let position: CGPoint = .zero
     let scaleX: CGFloat = 1.0
@@ -25,12 +27,12 @@ protocol LayerStateType {
     var transformState: TransformState { get }
 }
 
-struct ImageLayerState {
+struct ImageLayerState: LayerStateType {
     let transformState: TransformState = TransformState()
     let image: UIImage?
 }
 
-struct DrawLayerState {
+struct DrawLayerState: LayerStateType {
     let transformState: TransformState = TransformState()
     let lines: [DrawLine]
     
@@ -52,11 +54,15 @@ struct DrawLineConfig {
 }
 
 protocol CanvasLayerViewType {
-    associatedtype State
+    associatedtype State: LayerStateType
     var state: State { get set }
 }
 
-class DrawLayerView: UIView, CanvasLayerViewType {
+class CanvasLayerView: UIView {
+    
+}
+
+class DrawLayerView: CanvasLayerView, CanvasLayerViewType {
     typealias State = DrawLayerState
     var state: DrawLayerState = DrawLayerState() {
         didSet {
@@ -84,9 +90,21 @@ class DrawLayerView: UIView, CanvasLayerViewType {
             context.strokePath()
         }
     }
+    
+    override func sizeToFit() {
+        let rect = CGRect.containing(self.state.lines.map({ $0.path.bounds }))
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if self.state.lines.map({ $0.path.bounds.contains(point) }).contains(where: { $0 }) {
+            return self
+        } else {
+            return nil
+        }
+    }
 }
 
-class ImageLayerView: UIView {
+class ImageLayerView: CanvasLayerView {
     var state: ImageLayerState = ImageLayerState(image: nil) {
         didSet {
             self.transform = state.transformState.asCGAffineTransform()
@@ -160,6 +178,24 @@ class CanvasViewController: UIViewController {
         return view
     }()
     
+    private lazy var pinchGestureRecognizer: UIPinchGestureRecognizer = {
+        let gesture = UIPinchGestureRecognizer()
+        return gesture
+    }()
+    
+    private lazy var panGestureRecognizer: UIPanGestureRecognizer = {
+        let gesture = UIPanGestureRecognizer()
+        gesture.minimumNumberOfTouches = 2
+        return gesture
+    }()
+    
+    private lazy var moveGestureRecognizer: UIPanGestureRecognizer = {
+        let gesture = UIPanGestureRecognizer()
+        gesture.minimumNumberOfTouches = 1
+        gesture.addTarget(self, action: #selector(self.onMoved(_:)))
+        return gesture
+    }()
+    
     override func viewDidLoad() {
         view.backgroundColor = UIColor.black
         
@@ -171,6 +207,15 @@ class CanvasViewController: UIViewController {
         canvasView.append(CanvasLayer(state: ImageLayerState(image: #imageLiteral(resourceName: "Lenna.png"))))
         let path = UIBezierPath(rect: CGRect(x: 10, y: 10, width: 400, height: 40))
         canvasView.append(CanvasLayer(state: DrawLayerState(lines: [DrawLine(drawLineConfig: DrawLineConfig(width: 5, lineColor: UIColor.red), path: path)])))
+        
+        canvasView.addGestureRecognizer(moveGestureRecognizer)
+        // moveGestureRecognizer
+        // moveGestureRecognizer.view
+    }
+    
+    @objc
+    private func onMoved(_ recognizer: UIPanGestureRecognizer) {
+        print(recognizer.view!.hitTest(recognizer.location(in: recognizer.view!), with: nil))
     }
     
     private func adjustCanvasViewScale() {

@@ -36,6 +36,8 @@
 		E958AFDD1FF7A65700A435CA /* AVCaptureDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958AFDC1FF7A65700A435CA /* AVCaptureDevice+Extension.swift */; };
 		E958AFDF1FF7A68700A435CA /* CaptureDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E958AFDE1FF7A68700A435CA /* CaptureDevice.swift */; };
 		E99BB2511FFE5786006043F3 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2501FFE5786006043F3 /* CanvasViewController.swift */; };
+		E99BB2541FFE81C3006043F3 /* DrawGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2531FFE81C3006043F3 /* DrawGestureRecognizer.swift */; };
+		E99BB2561FFE86A8006043F3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2551FFE86A8006043F3 /* CGRect+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		E958AFDC1FF7A65700A435CA /* AVCaptureDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extension.swift"; sourceTree = "<group>"; };
 		E958AFDE1FF7A68700A435CA /* CaptureDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureDevice.swift; sourceTree = "<group>"; };
 		E99BB2501FFE5786006043F3 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
+		E99BB2531FFE81C3006043F3 /* DrawGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawGestureRecognizer.swift; sourceTree = "<group>"; };
+		E99BB2551FFE86A8006043F3 /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 		56689E791FDE1C7E0016D6A0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E99BB2521FFE81AD006043F3 /* DrawGestureRecognizer */,
 				56D3F91D1FE0BDC10028344C /* CodePrinter */,
 				56689E921FDE79770016D6A0 /* QrCodeGenerator */,
 				56689E7A1FDE1C860016D6A0 /* Extension */,
@@ -236,6 +241,7 @@
 				56D3F9171FDE97800028344C /* CGImage+Extension.swift */,
 				56689E7E1FDE1CC90016D6A0 /* CGSize+Extension.swift */,
 				56689E7D1FDE1CC90016D6A0 /* CGPoint+Extension.swift */,
+				E99BB2551FFE86A8006043F3 /* CGRect+Extension.swift */,
 			);
 			path = CoreGraphics;
 			sourceTree = "<group>";
@@ -292,6 +298,14 @@
 				E99BB2501FFE5786006043F3 /* CanvasViewController.swift */,
 			);
 			path = Canvas;
+			sourceTree = "<group>";
+		};
+		E99BB2521FFE81AD006043F3 /* DrawGestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				E99BB2531FFE81C3006043F3 /* DrawGestureRecognizer.swift */,
+			);
+			path = DrawGestureRecognizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +440,7 @@
 				56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */,
 				56097CAA1FEB64A60090B7EC /* EasyImagy+Extension.swift in Sources */,
 				56D3F91F1FE0BDD00028344C /* CodePrinter.swift in Sources */,
+				E99BB2561FFE86A8006043F3 /* CGRect+Extension.swift in Sources */,
 				56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */,
 				56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */,
 				56689E881FDE1CC90016D6A0 /* UIImage+Extension.swift in Sources */,
@@ -436,6 +451,7 @@
 				E958AFDF1FF7A68700A435CA /* CaptureDevice.swift in Sources */,
 				56D3F9221FE101DC0028344C /* CameraViewController.swift in Sources */,
 				E958AFD91FF7A5D300A435CA /* AVCaptureVideoOrientation+Extension.swift in Sources */,
+				E99BB2541FFE81C3006043F3 /* DrawGestureRecognizer.swift in Sources */,
 				56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */,
 				56689E861FDE1CC90016D6A0 /* Comparable+Extension.swift in Sources */,
 				56689E871FDE1CC90016D6A0 /* UIBezierPath+Extension.swift in Sources */,
