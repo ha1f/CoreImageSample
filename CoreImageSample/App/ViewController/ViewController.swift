@@ -9,28 +9,6 @@
 import UIKit
 import EasyImagy
 
-extension UIView {
-    func constraintTo(centerOf view: UIView, width: CGFloat, height: CGFloat) {
-        translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            widthAnchor.constraint(equalToConstant: width),
-            heightAnchor.constraint(equalToConstant: height)
-            ])
-    }
-    
-    func constraintTo(frameOf view: UIView) {
-        translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.topAnchor),
-            leftAnchor.constraint(equalTo: view.leftAnchor),
-            rightAnchor.constraint(equalTo: view.rightAnchor),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
-    }
-}
-
 class ViewController: UIViewController {
     
     let imageView: UIImageView = {

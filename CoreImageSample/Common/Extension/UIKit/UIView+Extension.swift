@@ -48,3 +48,37 @@ extension UIView {
         self.layer.mask = maskLayer
     }
 }
+
+// AutoLayoutHelper
+extension UIView {
+    func constraintTo(centerOf view: UIView, width: CGFloat, height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            widthAnchor.constraint(equalToConstant: width),
+            heightAnchor.constraint(equalToConstant: height)
+            ])
+    }
+    
+    func constraintTo(frameOf view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.topAnchor),
+            leftAnchor.constraint(equalTo: view.leftAnchor),
+            rightAnchor.constraint(equalTo: view.rightAnchor),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+    }
+    
+    @available(iOS 11.0, *)
+    func constraintTo(safeAreaOf view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            ])
+    }
+}

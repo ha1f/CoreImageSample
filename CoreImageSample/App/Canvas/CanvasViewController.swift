@@ -215,7 +215,7 @@ class CanvasViewController: UIViewController {
     
     @objc
     private func onMoved(_ recognizer: UIPanGestureRecognizer) {
-        print(recognizer.view!.hitTest(recognizer.location(in: recognizer.view!), with: nil))
+        // print(recognizer.view!.hitTest(recognizer.location(in: recognizer.view!), with: nil))
     }
     
     private func adjustCanvasViewScale() {

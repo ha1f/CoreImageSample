@@ -17,6 +17,20 @@ extension UIImage {
         return UIImage(ciImage: ciImage, scale: scale, orientation: .up)
     }
     
+    /// https://qiita.com/coffeemk2/items/5f6f5352f9b8b1b02ec9
+    func asPNGRepresentation() -> Data? {
+        if let data = UIImagePNGRepresentation(self) {
+            return data
+        }
+        if let cgImage = CGImage.extractOrGenerate(from: self) {
+            let uiImage = UIImage(cgImage: cgImage)
+            if let data = UIImagePNGRepresentation(uiImage) {
+                return data
+            }
+        }
+        return nil
+    }
+    
     /// Create UIImage by drawing current image on colored context.
     ///
     /// - parameter color: Color of the background context

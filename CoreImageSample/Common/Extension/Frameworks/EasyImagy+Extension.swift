@@ -27,6 +27,7 @@ struct HorizontalLineSegment {
 
 struct ScanLineSeed {
     let lineSegment: HorizontalLineSegment
+    // parentYのlineSegmentのminX〜maxX間はスキャン済み
     let parentY: Int?
 }
 
@@ -49,6 +50,7 @@ extension Image where Pixel == RGBA<UInt8> {
         }
     }
     
+    // 両外が外側なのを前提に、内側判定される領域を探索する
     private func searchSeed(xRange: CountableClosedRange<Int>, y: Int, isRegardedAsInside: (RGBA<UInt8>) -> Bool) -> [HorizontalLineSegment] {
         var seeds: [HorizontalLineSegment] = []
         
@@ -62,13 +64,13 @@ extension Image where Pixel == RGBA<UInt8> {
             if !isRegardedAsInside(self[x, y]) {
                 if isInside {
                     seeds.append(HorizontalLineSegment(minX: currentLeft, maxX: x-1, y: y))
+                    isInside = false
                 }
-                isInside = false
             } else {
                 if !isInside {
                     currentLeft = x
+                    isInside = true
                 }
-                isInside = true
             }
         }
         if isInside {
@@ -82,7 +84,7 @@ extension Image where Pixel == RGBA<UInt8> {
             return []
         }
         if targetY == seed.parentY {
-            // 親ラインかつ、x >= seed.minX  && x <= seed.maxXのとき、スルーする
+            // 親ラインかつ、x >= seed.minX  && x <= seed.maxXなら探索済（必ず内側）
             // つまり、親ラインならleftEdgeX..<seed.minX, (seed.maxX+1)..<rightEdgeXの範囲のみ探索する
             var result: [HorizontalLineSegment] = []
             if leftEdgeX < seed.lineSegment.minX {
@@ -107,20 +109,22 @@ extension Image where Pixel == RGBA<UInt8> {
             return nil
         }
         
+        // TODO: 許容範囲を修正する
+        let isRegardedAsInside: (RGBA<UInt8>) -> Bool = { pixel in
+            return pixel.red == startPointPixel.red
+                && pixel.green == startPointPixel.green
+                && pixel.blue == startPointPixel.blue
+                && pixel.alpha == startPointPixel.alpha
+        }
+        
+        // 塗りつぶし色がinside判定されると無限ループになるので
+        if isRegardedAsInside(color) {
+            return nil
+        }
+        
         var seedStack = [ScanLineSeed(lineSegment: HorizontalLineSegment.point(x: startPoint.x, y: startPoint.y), parentY: nil)]
         while let seed = seedStack.popLast() {
-            // TODO: 許容範囲を修正する
-            let isRegardedAsInside: (RGBA<UInt8>) -> Bool = { pixel in
-                return pixel.red == startPointPixel.red
-                    && pixel.green == startPointPixel.green
-                    && pixel.blue == startPointPixel.blue
-                    && pixel.alpha == startPointPixel.alpha
-            }
-            
-            // 塗りつぶし色がinside判定されると無限ループになるので
-            if isRegardedAsInside(color) {
-                break
-            }
+            // seedのlineSegment間が内側なのは既知。これをleftEdgeX~leftEdgeXまで拡大する
             
             // 右
             let rightEdgeX: Int = {
@@ -138,7 +142,7 @@ extension Image where Pixel == RGBA<UInt8> {
                     if !isRegardedAsInside(newImage[x, seed.lineSegment.y]) {
                         return x+1
                     }
-                    // 塗ってもいいが、上で塗らないように注意
+                    // 塗ってもいいが、上で塗らないように注意（1ドットだと普通に塗ってしまう）
                 }
                 return 0
             }()

@@ -19,10 +19,17 @@ extension CGImage {
             return cgImge
         }
         if let ciImage = CIImage.extractOrGenerate(from: image) {
-            let context = CIContext(options: nil)
-            return context.createCGImage(ciImage, from: ciImage.extent)
+            return CGImage.extractOrGenerate(from: ciImage)
         }
         return nil
+    }
+    
+    static func extractOrGenerate(from image: CIImage) -> CGImage? {
+        if let cgImage = image.cgImage {
+            return cgImage
+        }
+        let context = CIContext(options: nil)
+        return context.createCGImage(image, from: image.extent)
     }
 }
 

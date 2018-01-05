@@ -121,4 +121,52 @@ class CoreImageSampleTests: XCTestCase {
         }
     }
     
+    func testPerformanceCIImageFromUIImage1() {
+        let image = #imageLiteral(resourceName: "Lenna.png")
+        self.measure {
+            for _ in 0..<100 {
+                _ = CIImage.extractOrGenerate(from: image)
+            }
+        }
+    }
+    
+    func testPerformanceSetArray() {
+        let arrayLength = 1000
+        var array = [UInt8](repeating: 0, count: arrayLength)
+        self.measure {
+            for i in 0..<256 {
+                let value = UInt8(i)
+                for j in 0..<arrayLength {
+                    array[j] = value
+                }
+            }
+        }
+    }
+
+    func testPerformanceSetArray2() {
+         let arrayLength = 1000
+        let array = [UInt8](repeating: 0, count: arrayLength)
+        self.measure {
+            for i in 0..<256 {
+                let value = UInt8(i)
+                var pointer = array.pointer
+                for _ in 0..<arrayLength {
+                    pointer.pointee = value
+                    pointer = pointer.successor()
+                }
+            }
+        }
+    }
+    
+    func testPerformanceSetArray3() {
+        let arrayLength = 1000
+        let array = [UInt8](repeating: 0, count: arrayLength)
+        self.measure {
+            for i in 0..<256 {
+                let value = UInt8(i)
+                array.setValues(value, from: 0, count: arrayLength)
+            }
+        }
+    }
+    
 }

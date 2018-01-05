@@ -38,6 +38,7 @@
 		E99BB2511FFE5786006043F3 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2501FFE5786006043F3 /* CanvasViewController.swift */; };
 		E99BB2541FFE81C3006043F3 /* DrawGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2531FFE81C3006043F3 /* DrawGestureRecognizer.swift */; };
 		E99BB2561FFE86A8006043F3 /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2551FFE86A8006043F3 /* CGRect+Extension.swift */; };
+		E99BB2581FFF55CB006043F3 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99BB2571FFF55CB006043F3 /* Array+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		E99BB2501FFE5786006043F3 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		E99BB2531FFE81C3006043F3 /* DrawGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawGestureRecognizer.swift; sourceTree = "<group>"; };
 		E99BB2551FFE86A8006043F3 /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		E99BB2571FFF55CB006043F3 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				56689E7F1FDE1CC90016D6A0 /* Comparable+Extension.swift */,
+				E99BB2571FFF55CB006043F3 /* Array+Extension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				56689E831FDE1CC90016D6A0 /* UIView+Extension.swift in Sources */,
 				56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */,
 				56689E851FDE1CC90016D6A0 /* CGSize+Extension.swift in Sources */,
+				E99BB2581FFF55CB006043F3 /* Array+Extension.swift in Sources */,
 				56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */,
 				56097CAA1FEB64A60090B7EC /* EasyImagy+Extension.swift in Sources */,
 				56D3F91F1FE0BDD00028344C /* CodePrinter.swift in Sources */,
