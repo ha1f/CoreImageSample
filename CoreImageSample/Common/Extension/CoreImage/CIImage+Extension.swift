@@ -21,10 +21,6 @@ extension CIImage {
         return image.ciImage ?? CIImage(image: image)
     }
     
-//    static func extractOrGenerate(from image: CGImage) -> CIImage? {
-//        return image.
-//    }
-    
     func resized(to size: CGSize) -> CIImage? {
         let xScale = size.width / extent.width
         let yScale = size.height / extent.height
