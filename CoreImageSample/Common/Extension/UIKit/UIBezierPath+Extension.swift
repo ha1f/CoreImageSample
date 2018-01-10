@@ -19,7 +19,11 @@ extension UIBezierPath {
         return pathCopy
     }
     
-    func scaled(by scale: CGFloat) -> UIBezierPath? {
+    func scaled(by scale: CGFloat) -> UIBezierPath {
         return transformed(with: CGAffineTransform(scaleX: scale, y: scale))
+    }
+    
+    func offset(byDx dx: CGFloat, dy: CGFloat) -> UIBezierPath {
+        return transformed(with: CGAffineTransform(translationX: dx, y: dy))
     }
 }
