@@ -8,23 +8,6 @@
 
 import UIKit
 
-/// 歪みのないtransform
-/// activeFrameを取得できるようにする
-/// 実際のフレームはすべてcanvasSizeと揃える
-struct LayerFrameState {
-    let rotation: CGFloat
-    var frame: CGRect
-    
-    var center: CGPoint {
-        return frame.center
-    }
-    
-    init(frame: CGRect = .zero, rotation: CGFloat = 0) {
-        self.frame = frame
-        self.rotation = rotation
-    }
-}
-
 protocol LayerStateType {
  }
 
@@ -66,28 +49,26 @@ class CanvasLayerView: UIView {
     }
     
     private func _commonInit() {
-        layer.borderWidth = 2
-        layer.borderColor = UIColor.white.cgColor
-    }
-    
-    func setFrameAndTransform(with state: LayerFrameState) {
-        self.frame = state.frame
-        self.transform = CGAffineTransform(rotationAngle: state.rotation)
-        self.setNeedsLayout()
+        // layer.borderWidth = 2
+        // layer.borderColor = UIColor.white.cgColor
     }
 }
 
 class DrawLayerView: CanvasLayerView, CanvasLayerViewType {
-    typealias State = DrawLayerState
-    var state: DrawLayerState = DrawLayerState() {
+    
+    private var _state: DrawLayerState = DrawLayerState() {
         didSet {
-            sizeToFit()
             setNeedsDisplay()
         }
     }
-    var frameState: LayerFrameState = LayerFrameState() {
-        didSet {
-            setFrameAndTransform(with: frameState)
+    
+    var state: DrawLayerState {
+        set {
+            _state = newValue
+            _normalizePathAndFrame()
+        }
+        get {
+            return _state
         }
     }
     
@@ -98,9 +79,6 @@ class DrawLayerView: CanvasLayerView, CanvasLayerViewType {
     }
     
     override func draw(_ rect: CGRect) {
-//        guard let context = UIGraphicsGetCurrentContext() else {
-//            return
-//        }
         state.lines.forEach { line in
             line.lineColor.setStroke()
             line.path.stroke()
@@ -108,20 +86,16 @@ class DrawLayerView: CanvasLayerView, CanvasLayerViewType {
     }
     
     private func _normalizePathAndFrame() {
+        let oldFrameOrigin = self.frame.origin
         let rect = CGRect.containing(self.state.lines.map({ $0.path.bounds }))
-        self.frameState = LayerFrameState(frame: rect, rotation: frameState.rotation)
-        self.state = DrawLayerState(lines: state.lines.map({ line in
-            let path = line.path.offset(byDx: -rect.origin.x, dy: -rect.origin.y)
+        self.frame = rect
+        
+        // frameがずれた分pathをずらす
+        self._state = DrawLayerState(lines: state.lines.map({ line in
+            let path = line.path.offset(byDx: oldFrameOrigin.x - rect.origin.x, dy: oldFrameOrigin.y - rect.origin.y)
+            print(path.bounds, self.frame)
             return DrawLine(path: path, lineColor: line.lineColor)
         }))
-    }
-    
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if self.state.lines.map({ $0.path.bounds.contains(point) }).contains(where: { $0 }) {
-            return self
-        } else {
-            return nil
-        }
     }
 }
 
@@ -129,13 +103,8 @@ class ImageLayerView: CanvasLayerView {
     var state: ImageLayerState = ImageLayerState(image: nil) {
         didSet {
             imageView.image = state.image
-            self.sizeToFit()
-        }
-    }
-    
-    var frameState: LayerFrameState = LayerFrameState() {
-        didSet {
-            setFrameAndTransform(with: frameState)
+            let imageSize = state.image?.size ?? .zero
+            frame = CGRect(origin: frame.origin, size: imageSize)
         }
     }
     
@@ -162,14 +131,12 @@ enum CanvasLayer {
     case image(ImageLayerView)
     case draw(DrawLayerView)
     
-    init(state: ImageLayerState, frameState: LayerFrameState) {
+    init(state: ImageLayerState) {
         let view = ImageLayerView.instantiate(with: state)
-        view.frameState = frameState
         self = .image(view)
     }
-    init(state: DrawLayerState, frameState: LayerFrameState) {
+    init(state: DrawLayerState) {
         let view = DrawLayerView.instantiate(with: state)
-        view.frameState = frameState
         self = .draw(view)
     }
 }
@@ -185,6 +152,7 @@ class CanvasView: UIView {
     func append(_ layer: CanvasLayer) {
         switch layer {
         case .image(let view):
+            // let scale = view.state.image?.size.aspectFitScale(to: bounds.size)
             view.backgroundColor = UIColor.clear
             self.addSubview(view)
         case .draw(let view):
@@ -236,11 +204,11 @@ class CanvasViewController: UIViewController {
         
         adjustCanvasViewScale()
         
-        canvasView.append(CanvasLayer(state: ImageLayerState(image: #imageLiteral(resourceName: "Lenna.png")), frameState: LayerFrameState(frame: canvasView.bounds, rotation: 0)))
+        canvasView.append(CanvasLayer(state: ImageLayerState(image: #imageLiteral(resourceName: "Lenna.png"))))
         let path = UIBezierPath(rect: CGRect(x: 10, y: 30, width: 100, height: 40))
-        path.lineWidth = 5
+        path.lineWidth = 8
         path.lineCapStyle = .round
-        canvasView.append(CanvasLayer(state: DrawLayerState(lines: [DrawLine(path: path, lineColor: UIColor.red)]), frameState: LayerFrameState(frame: path.bounds, rotation: 0)))
+        canvasView.append(CanvasLayer(state: DrawLayerState(lines: [DrawLine(path: path, lineColor: UIColor.red)])))
         
         canvasView.addGestureRecognizer(moveGestureRecognizer)
         // moveGestureRecognizer
