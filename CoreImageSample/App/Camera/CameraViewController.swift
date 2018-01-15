@@ -26,7 +26,8 @@ class CameraViewController: UIViewController {
     
     private lazy var previewView = CaptureVideoPreviewView()
     
-    private let sessionQueue = DispatchQueue(label: "session queue") // Communicate with the session and other session objects on this queue.
+    /// Communicate with the session and other session objects on this queue.
+    private let sessionQueue = DispatchQueue(label: "session queue")
     
     let captureSession = AVCaptureSession()
     let photoOutput = AVCapturePhotoOutput()
@@ -53,13 +54,20 @@ class CameraViewController: UIViewController {
         previewView.videoPreviewLayer.videoGravity = .resizeAspect
         previewView.session = captureSession
         
-        sessionQueue.async { [weak self] in
-           self?.configureSession()
-        }
+        configureSession()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        _startSessionIfNeeded()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        _stopSessionIfNeeded()
+    }
+    
+    private func _startSessionIfNeeded() {
         sessionQueue.async { [weak session = self.captureSession] in
             if let session = session, !session.isRunning {
                 session.startRunning()
@@ -67,8 +75,7 @@ class CameraViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    private func _stopSessionIfNeeded() {
         sessionQueue.async { [weak session = self.captureSession] in
             if let session = session, session.isRunning {
                 session.stopRunning()
@@ -76,8 +83,18 @@ class CameraViewController: UIViewController {
         }
     }
     
+    @objc
+    private func onToggleCameraButtonTapped() {
+        toggleCamera()
+    }
+    
+    @objc
+    private func onShutterButtonTapped() {
+        takePhoto()
+    }
+    
     /// Call this on the session queue.
-    private func configureSession() {
+    private func _configureSession() {
         guard let captureDevice = CaptureDevice.frontVideoDevice else {
             return
         }
@@ -95,7 +112,7 @@ class CameraViewController: UIViewController {
                 captureSession.addInput(videoDeviceInput)
                 currentVideoDeviceInput = videoDeviceInput
                 
-                // subsequent orientation changes should be handled by viewWillTransition(to:with:)
+                // TODO: subsequent orientation changes should be handled by viewWillTransition(to:with:)
                 DispatchQueue.main.async {
                     let statusBarOrientation = UIApplication.shared.statusBarOrientation
                     var initialVideoOrientation: AVCaptureVideoOrientation = .portrait
@@ -119,78 +136,73 @@ class CameraViewController: UIViewController {
                 photoOutput.isDepthDataDeliveryEnabled = photoOutput.isDepthDataDeliverySupported
             }
         }
-        
     }
     
-    @objc
-    private func onToggleCameraButtonTapped() {
-        toggleCamera()
-    }
-    
-    @objc
-    private func onShutterButtonTapped() {
-        takePhoto()
-    }
-    
-    private func toggleCamera() {
-        // ボタンをdisable
+    func configureSession() {
         sessionQueue.async { [weak self] in
-            guard let `self` = self else {
-                return
-            }
-            
-            let currentPosition = self.currentVideoDeviceInput?.device.position ?? .unspecified
-            
-            let preferredPosition: AVCaptureDevice.Position
-            switch currentPosition {
-            case .front:
-                preferredPosition = .back
-            case .unspecified, .back:
-                preferredPosition = .front
-            }
-            
-            // 付け替え先
-            guard let captureDeviceInput = (try? CaptureDevice.videoDevice(of: preferredPosition)?.asDeviceInput()).flatMap({ $0 }) else {
-                // ボタンをenable
-                return
-            }
-            
-            self.captureSession.beginConfiguration()
-            defer {
-                self.captureSession.commitConfiguration()
-                // ボタンをenable
-            }
-            
-            if self.captureSession.canAddInput(captureDeviceInput) {
-                // 既にあったらremove
-                if let videoDeviceInput = self.currentVideoDeviceInput {
-                    self.captureSession.removeInput(videoDeviceInput)
-                }
-                
-                // sampleではここで AVCaptureDeviceSubjectAreaDidChange をつけてる
-                self.captureSession.addInput(captureDeviceInput)
-                
-                self.currentVideoDeviceInput = captureDeviceInput
-            }
+            self?.configureSession()
         }
     }
     
-    private func takePhoto() {
-        //
-        sessionQueue.async { [weak self] in
-            guard let `self` = self else {
-                return
+    /// Call this on the session queue.
+    private func _toggleCamera() {
+        let currentPosition = self.currentVideoDeviceInput?.device.position ?? .unspecified
+        
+        let preferredPosition: AVCaptureDevice.Position
+        switch currentPosition {
+        case .front:
+            preferredPosition = .back
+        case .unspecified, .back:
+            preferredPosition = .front
+        }
+        
+        // 付け替え先
+        guard let captureDeviceInput = (try? CaptureDevice.videoDevice(of: preferredPosition)?.asDeviceInput()).flatMap({ $0 }) else {
+            // ボタンをenable
+            return
+        }
+        
+        self.captureSession.beginConfiguration()
+        defer {
+            self.captureSession.commitConfiguration()
+            // ボタンをenable
+        }
+        
+        if self.captureSession.canAddInput(captureDeviceInput) {
+            // 既にあったらremove
+            if let videoDeviceInput = self.currentVideoDeviceInput {
+                self.captureSession.removeInput(videoDeviceInput)
             }
             
-            var photoSettings: AVCapturePhotoSettings = AVCapturePhotoSettings()
-            if #available(iOS 11.0, *) {
-                if photoSettings.availableEmbeddedThumbnailPhotoCodecTypes.contains(AVVideoCodecType.jpeg) {
-                    photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-                }
-            } else {
-                photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecJPEG])
+            // sampleではここで AVCaptureDeviceSubjectAreaDidChange をつけてる
+            self.captureSession.addInput(captureDeviceInput)
+            
+            self.currentVideoDeviceInput = captureDeviceInput
+        }
+    }
+    
+    func toggleCamera() {
+        // TODO: ここでボタンをdisableする
+        sessionQueue.async { [weak self] in
+            self?._toggleCamera()
+        }
+    }
+    
+    private func _takePhoto() {
+        var photoSettings: AVCapturePhotoSettings = AVCapturePhotoSettings()
+        if #available(iOS 11.0, *) {
+            if photoSettings.availableEmbeddedThumbnailPhotoCodecTypes.contains(AVVideoCodecType.jpeg) {
+                photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
             }
-            self.photoOutput.capturePhoto(with: photoSettings, delegate: self)
+        } else {
+            photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecJPEG])
+        }
+        self.photoOutput.capturePhoto(with: photoSettings, delegate: self)
+    }
+    
+    func takePhoto() {
+        sessionQueue.async { [weak self] in
+            self?._takePhoto()
         }
     }
 }

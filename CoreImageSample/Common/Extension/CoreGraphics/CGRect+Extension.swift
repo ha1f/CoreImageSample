@@ -35,10 +35,17 @@ extension CGRect {
         return CGRect(minX: minX, minY: minY, maxX: maxX, maxY: maxY)
     }
     
+    var center: CGPoint {
+        return CGPoint(x: self.origin.x + self.width / 2, y: self.origin.y + self.height / 2)
+    }
+    
+    init(center: CGPoint, size: CGSize) {
+        self.init(x: center.x - size.width / 2, y: center.y - size.height / 2, width: size.width, height: size.height)
+    }
+    
     init(minX: CGFloat, minY: CGFloat, maxX: CGFloat, maxY: CGFloat) {
-        if maxX < minX || maxY < minY {
-            assertionFailure("maxX >= minX and maxY >= minY is necessary")
-        }
+        assert(maxX >= minX)
+        assert(maxY >= minY)
         self.init(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
     }
 }
