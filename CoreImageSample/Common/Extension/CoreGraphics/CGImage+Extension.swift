@@ -9,6 +9,33 @@
 import Foundation
 import UIKit
 
+struct BitmapImage {
+    var pixelData: [Rgba]
+    
+    var context: CGContext
+    
+    init(image: CGImage) {
+        let bytesPerComponent = MemoryLayout<UInt8>.size
+        
+        let bytesPerRow = MemoryLayout<Rgba>.stride * image.width
+        
+        let dataSize = image.width * image.height
+        
+        pixelData = [Rgba](repeating: Rgba.clear, count: dataSize)
+        
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        
+        context = CGContext(data: &pixelData,
+                            width: image.width,
+                            height: image.height,
+                            bitsPerComponent: bytesPerComponent * 8,
+                            bytesPerRow: bytesPerRow,
+                            space: colorSpace,
+                            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+        context.draw(image, in: CGRect(x: 0, y: 0, width: image.width, height: image.height))
+    }
+}
+
 extension CGImage {
     /// Get as CGImage
     /// If the UIImage is build from CIImage, cgImage is nil.
@@ -30,6 +57,52 @@ extension CGImage {
         }
         let context = CIContext(options: nil)
         return context.createCGImage(image, from: image.extent)
+    }
+    
+    func pixelData() -> [Rgba] {
+        // UInt8なら1
+        let bytesPerComponent = MemoryLayout<UInt8>.size
+        
+        let bytesPerRow = MemoryLayout<Rgba>.stride * width
+
+        let dataSize = width * height// * bytesPerComponent * componentsPerPixel
+        var pixelData = [Rgba](repeating: Rgba.clear, count: dataSize)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = CGContext(data: &pixelData,
+                                width: width,
+                                height: height,
+                                bitsPerComponent: bytesPerComponent * 8,
+                                bytesPerRow: bytesPerRow,
+                                space: colorSpace,
+                                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        context?.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
+        return pixelData
+    }
+    
+    func toRgba(pointer: UnsafePointer<[UInt8]>) {
+        let p = UnsafePointer<UInt8>(pointer.pointee)
+        
+    }
+    
+    func pixelDataUint8() -> [UInt8] {
+        // UInt8なら1
+        let bytesPerComponent = 1
+        
+        // rgba
+        let componentsPerPixel = 4
+        
+        let dataSize = width * height * bytesPerComponent * componentsPerPixel
+        var pixelData = [UInt8](repeating: 0, count: dataSize)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = CGContext(data: &pixelData,
+                                width: width,
+                                height: height,
+                                bitsPerComponent: bytesPerComponent * 8,
+                                bytesPerRow: bytesPerComponent * componentsPerPixel * width,
+                                space: colorSpace,
+                                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        context?.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
+        return pixelData
     }
 }
 

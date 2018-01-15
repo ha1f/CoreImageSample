@@ -17,8 +17,31 @@ class ViewController: UIViewController {
         return imageView
     }()
     
+    func onNumberButtonPressed(number: Int) {
+        if jdsaf
+        
+    }
+    
+    func sample(pointer: UnsafeMutablePointer<Rgba>) {
+        print(pointer.pointee)
+        var n = name(5)
+    }
+    
+    @IBAction func select0() {
+        onNumberButtonPressed(number: 0)
+    }
+    @IBAction func select1() {
+        onNumberButtonPressed(number: 1)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("size", MemoryLayout<Rgba>.size)
+        print("stride", MemoryLayout<Rgba>.stride)
+        print("alignment", MemoryLayout<Rgba>.alignment)
+        print(MemoryLayout<UInt8>.size, MemoryLayout<UInt8>.stride)
+        
         
         view.addSubview(imageView)
         imageView.constraintTo(centerOf: view, width: 256, height: 256)
