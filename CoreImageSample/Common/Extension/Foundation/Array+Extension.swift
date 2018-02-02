@@ -16,10 +16,10 @@ extension Array {
         pointer.advanced(by: index).initialize(to: value, count: count)
     }
     func setValues(_ value: Element, from index: Int, count: Int) {
-        guard index < self.count else {
+        guard index < count else {
             return
         }
-        let validCount = Swift.max(self.count - index, count)
+        let validCount = Swift.max(count - index, count)
         pointer.advanced(by: index).initialize(to: value, count: validCount)
     }
 }

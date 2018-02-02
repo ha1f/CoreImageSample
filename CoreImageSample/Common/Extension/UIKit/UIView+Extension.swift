@@ -13,19 +13,19 @@ extension UIView {
     ///
     /// - parameter path: The path to specify the mask
     /// - parameter fillRule: The rule to fill with the path
-    func mask(path: UIBezierPath, inverse: Bool = false) {
-        let newPath = path.duplicated()
+    func mask(with path: UIBezierPath, inverse: Bool = false) {
+        let newPath = path.clone()
         
         if inverse {
-            newPath.append(UIBezierPath(rect: self.bounds))
+            newPath.append(UIBezierPath(rect: bounds))
         }
         
         let maskLayer = CAShapeLayer()
-        maskLayer.frame = self.bounds
+        maskLayer.frame = bounds
         maskLayer.fillColor = UIColor.black.cgColor
         maskLayer.fillRule = kCAFillRuleEvenOdd
         maskLayer.path = newPath.cgPath
-        self.layer.mask = maskLayer
+        layer.mask = maskLayer
     }
     
     /// Mask the view with the CGRect.
@@ -34,7 +34,7 @@ extension UIView {
     /// - parameter inverse: Reverse the mask or not
     func mask(rect: CGRect, inverse: Bool = false) {
         let path = UIBezierPath(rect: rect)
-        self.mask(path: path, inverse: inverse)
+        self.mask(with: path, inverse: inverse)
     }
     
     /// Mask the view with the UIImage.
@@ -43,9 +43,9 @@ extension UIView {
     /// - parameter image: The image to mask the UIView
     func mask(image: UIImage) {
         let maskLayer = CALayer()
-        maskLayer.frame = self.bounds
+        maskLayer.frame = bounds
         maskLayer.contents = image.cgImage
-        self.layer.mask = maskLayer
+        layer.mask = maskLayer
     }
 }
 

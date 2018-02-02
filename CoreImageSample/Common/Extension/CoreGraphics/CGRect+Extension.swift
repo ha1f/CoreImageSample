@@ -35,6 +35,10 @@ extension CGRect {
         return CGRect(minX: minX, minY: minY, maxX: maxX, maxY: maxY)
     }
     
+    func uniformlyScaled(by scale: CGFloat) -> CGRect {
+        return CGRect(x: minX * scale, y: minY * scale, width: width * scale, height: height * scale)
+    }
+    
     var center: CGPoint {
         return CGPoint(x: self.origin.x + self.width / 2, y: self.origin.y + self.height / 2)
     }
@@ -46,6 +50,12 @@ extension CGRect {
     init(minX: CGFloat, minY: CGFloat, maxX: CGFloat, maxY: CGFloat) {
         assert(maxX >= minX)
         assert(maxY >= minY)
-        self.init(x: minX, y: minY, width: maxX - minX, height: maxY - minY)
+        self.init(x: minX, y: minY, width: maxX - minX + 1, height: maxY - minY + 1)
+    }
+    
+    init(minX: Int, minY: Int, maxX: Int, maxY: Int) {
+        assert(maxX >= minX)
+        assert(maxY >= minY)
+        self.init(x: minX, y: minY, width: maxX - minX + 1, height: maxY - minY + 1)
     }
 }

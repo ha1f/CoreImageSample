@@ -31,5 +31,69 @@ extension CGImage {
         let context = CIContext(options: nil)
         return context.createCGImage(image, from: image.extent)
     }
+    
+    /// 不透明領域を計算する
+    func opaqueRect() -> CGRect? {
+        let bytesPerComponent = MemoryLayout<UInt8>.stride
+        
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let componentsPerPixel = 1
+        let componentsPerRow = componentsPerPixel * width
+        
+        var pixelData = [UInt8](repeating: 0, count: width * height * componentsPerPixel)
+        guard let context = CGContext(
+            data: &pixelData,
+            width: width,
+            height: height,
+            bitsPerComponent: bytesPerComponent * 8,
+            bytesPerRow: componentsPerRow * bytesPerComponent,
+            space: colorSpace,
+            bitmapInfo: CGImageAlphaInfo.alphaOnly.rawValue) else {
+                debugPrint("context error")
+                return nil
+        }
+        
+        context.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        var currentMinX: Int = width
+        var currentMaxX: Int = 0
+        var currentMinY: Int = height
+        var currentMaxY: Int = 0
+        var i: Int = componentsPerPixel - 1
+        let pixelDataLength = pixelData.count
+        var isBlank = true
+        while i < pixelDataLength {
+            let y: Int = i / componentsPerRow
+            let x: Int = (i % componentsPerRow) / componentsPerPixel
+            // 間を飛ばす
+            if x >= currentMinX && x <= currentMaxX && y <= currentMaxY {
+                i = y * componentsPerRow + (currentMaxX + 1) * componentsPerPixel + componentsPerPixel - 1
+                continue
+            }
+            
+            if pixelData[i] > 0 {
+                isBlank = false
+                // 不透明
+                if y < currentMinY {
+                    currentMinY = y
+                }
+                if y > currentMaxY {
+                    currentMaxY = y
+                }
+                if x < currentMinX {
+                    currentMinX = x
+                }
+                if x > currentMaxX {
+                    currentMaxX = x
+                }
+            }
+            i += componentsPerPixel
+        }
+        
+        guard !isBlank else {
+            return .zero
+        }
+        return CGRect(minX: currentMinX, minY: currentMinY, maxX: currentMaxX, maxY: currentMaxY)
+    }
 }
 

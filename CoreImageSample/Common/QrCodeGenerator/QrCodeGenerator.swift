@@ -40,14 +40,14 @@ struct QrCodeGenerator {
     }
     
     func generate(fromString string: String, imageWidth: CGFloat) -> CIImage? {
+        // According to the official reference above, we should use isoLatin1 encoding
         let data = string.data(using: .isoLatin1)
         return data.flatMap { self.generate(fromData: $0, imageWidth: imageWidth) }
     }
     
     func generateUiImage(fromString string: String, imageWidth: CGFloat, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
         return generate(fromString: string, imageWidth: imageWidth * scale)
-            .map { ciImage in
-                return UIImage(ciImage: ciImage, scale: scale, orientation: .up)
+            .map { ciImage in UIImage(ciImage: ciImage, scale: scale, orientation: .up)
         }
     }
 }

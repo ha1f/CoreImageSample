@@ -10,6 +10,45 @@ import Foundation
 import CoreImage
 import AVFoundation
 
+protocol InitializerStringConvertible {
+    func initializerString() -> String
+}
+
+extension NSNumber: InitializerStringConvertible {
+    func initializerString() -> String {
+        return "\(self)"
+    }
+}
+
+extension NSString: InitializerStringConvertible {
+    func initializerString() -> String {
+        return "\"\(self)\""
+    }
+}
+
+extension CGAffineTransform: InitializerStringConvertible {
+    func initializerString() -> String {
+        return "CGAffineTransform(a: \(a), b: \(b), c: \(c), d: \(d), tx: \(tx), ty: \(ty))"
+    }
+}
+
+extension CIVector: InitializerStringConvertible {
+    func initializerString() -> String {
+        switch count {
+        case 1:
+            return "CIVector(x: \(x))"
+        case 2:
+            return "CIVector(x: \(x), y: \(y))"
+        case 3:
+            return "CIVector(x: \(x), y: \(y), z: \(z))"
+        case 4:
+            return "CIVector(x: \(x), y: \(y), z: \(z), w: \(w))"
+        default:
+            return "CIVector()"
+        }
+    }
+}
+
 extension CIFilter {
     var displayName: String? {
         return self.attributes[kCIAttributeDisplayName] as? String
@@ -29,25 +68,6 @@ extension CIFilter {
     
     private func parameterInformation(forInputKey inputKey: String) -> [String: Any] {
         return (self.attributes[inputKey] as? [String: Any]) ?? [:]
-    }
-    
-    private static func initializerString(for cgAffineTransform: CGAffineTransform) -> String {
-        return "CGAffineTransform(a: \(cgAffineTransform.a), b: \(cgAffineTransform.b), c: \(cgAffineTransform.c), d: \(cgAffineTransform.d), tx: \(cgAffineTransform.tx), ty: \(cgAffineTransform.ty))"
-    }
-    
-    private static func initializerString(for ciVector: CIVector) -> String {
-        switch ciVector.count {
-        case 1:
-            return "CIVector(x: \(ciVector.x))"
-        case 2:
-            return "CIVector(x: \(ciVector.x), y: \(ciVector.y))"
-        case 3:
-            return "CIVector(x: \(ciVector.x), y: \(ciVector.y), z: \(ciVector.z))"
-        case 4:
-            return "CIVector(x: \(ciVector.x), y: \(ciVector.y), z: \(ciVector.z), w: \(ciVector.w))"
-        default:
-            return "CIVector()"
-        }
     }
     
     // not complete dictionary
@@ -96,14 +116,10 @@ extension CIFilter {
                     let information = filter.parameterInformation(forInputKey: inputKey)
                     let typeString = (information[kCIAttributeClass].map { "\($0)" } ?? "")
                     let defaultValue = information[kCIAttributeDefault]
-                    if let value = defaultValue as? NSNumber {
-                        return "\(inputKey): \(typeString) = \(value)"
-                    } else if let value = defaultValue as? NSString {
-                        return "\(inputKey): \(typeString) = \"\(value)\""
-                    } else if let value = defaultValue as? CGAffineTransform {
-                        return "\(inputKey): \(typeString) = NSValue(cgAffineTransform:  \(initializerString(for: value)))"
-                    } else if let ciVector = defaultValue as? CIVector {
-                        return "\(inputKey): \(typeString) = \(initializerString(for: ciVector))"
+                    if let value = defaultValue as? CGAffineTransform {
+                        return "\(inputKey): \(typeString) = NSValue(cgAffineTransform: \(value.initializerString()))"
+                    } else if let value = defaultValue as? InitializerStringConvertible {
+                        return "\(inputKey): \(typeString) = \(value.initializerString())"
                     } else {
                         return "\(inputKey): \(typeString)"
                     }
@@ -123,7 +139,7 @@ extension CIFilter {
                     let information = filter.parameterInformation(forInputKey: inputKey)
                     let description = (information[kCIAttributeDescription] as? String) ?? ""
                     if let defaultValue = information[kCIAttributeDefault] {
-                        printer.print("/// - parameter \(inputKey): \(description) defaultValue = \(defaultValue).")
+                        printer.print("/// - parameter \(inputKey): \(description), defaultValue = \(defaultValue).")
                     } else {
                         printer.print("/// - parameter \(inputKey): \(description)")
                     }

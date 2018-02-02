@@ -169,4 +169,24 @@ class CoreImageSampleTests: XCTestCase {
         }
     }
     
+    func testCropping() {
+        let image = UIImage.emptyUsingCoreGraphics(size: CGSize(width: 100, height: 100))
+        self.measure {
+            for i in 0..<100 {
+                _ = image?.cropped(to: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
+                print(i)
+            }
+        }
+    }
+    
+    func testCropping2() {
+        let image = UIImage.emptyUsingCoreGraphics(size: CGSize(width: 100, height: 100))
+        self.measure {
+            for i in 0..<100 {
+                _ = image?.croppedUsingCGImage(to: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
+                print(i)
+            }
+        }
+    }
+    
 }

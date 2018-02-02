@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIBezierPath {
-    func duplicated() -> UIBezierPath {
+    func clone() -> UIBezierPath {
         let newCgPath = cgPath.copy(strokingWithWidth: lineWidth, lineCap: lineCapStyle, lineJoin: lineJoinStyle, miterLimit: miterLimit, transform: .identity)
         let pathCopy = UIBezierPath(cgPath: newCgPath)
         pathCopy.lineJoinStyle = lineJoinStyle
@@ -20,7 +20,7 @@ extension UIBezierPath {
     }
     
     func transformed(with transform: CGAffineTransform) -> UIBezierPath {
-        let pathCopy = duplicated()
+        let pathCopy = clone()
         pathCopy.apply(transform)
         return pathCopy
     }
