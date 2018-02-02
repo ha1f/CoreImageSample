@@ -20,6 +20,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("size", MemoryLayout<Rgba>.size)
+        print("stride", MemoryLayout<Rgba>.stride)
+        print("alignment", MemoryLayout<Rgba>.alignment)
+        print(MemoryLayout<UInt8>.size, MemoryLayout<UInt8>.stride)
+        
+        
         view.addSubview(imageView)
         imageView.constraintTo(centerOf: view, width: 256, height: 256)
         
