@@ -29,9 +29,9 @@ class ViewController: UIViewController {
 //            .padded(with: 10)?
 //            .cropped(to: CGRect(x: 5, y: 5, width: 56, height: 56))
         let orientedImage = #imageLiteral(resourceName: "Lenna.png").withSetting(orientation: .leftMirrored)!
-        print(orientedImage.imageOrientation.rawValue)
+        print(orientedImage.imageOrientation.rawValue, UIImageOrientation.leftMirrored.rawValue)
         let orientedImage2 = orientedImage.orientationNormalized()!
-        print(orientedImage2.imageOrientation.rawValue)
+        print(orientedImage2.imageOrientation.rawValue, UIImageOrientation.up.rawValue)
         imageView.image = orientedImage2
         //imageView.image = orientedImage.cropped(to: CGRect(x: 0, y: 0, width: 150, height: 150).applying(orientedImage.transformer))
         

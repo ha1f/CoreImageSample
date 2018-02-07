@@ -64,7 +64,9 @@ extension UIImage {
     }
     
     func orientationNormalized() -> UIImage? {
-        let orientationTransformer = self.orientationTransformer
+        if imageOrientation == .up {
+            return self
+        }
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer {
             UIGraphicsEndImageContext()
