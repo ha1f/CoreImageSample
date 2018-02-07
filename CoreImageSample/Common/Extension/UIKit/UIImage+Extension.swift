@@ -71,7 +71,7 @@ extension UIImage {
         defer {
             UIGraphicsEndImageContext()
         }
-        self.draw(at: .zero)
+        draw(at: .zero)
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
