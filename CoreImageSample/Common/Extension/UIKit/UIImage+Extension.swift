@@ -63,8 +63,14 @@ extension UIImage {
         return CGAffineTransform(scaleX: scale, y: scale).concatenating(inverseOrientationTransformer)
     }
     
-    func orientationNormalized() {
-        //CGImage.extractOrGenerate(from: self).
+    func orientationNormalized() -> UIImage? {
+        let orientationTransformer = self.orientationTransformer
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        self.draw(at: .zero)
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
     func resized(to size: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {

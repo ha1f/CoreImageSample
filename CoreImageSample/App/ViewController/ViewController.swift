@@ -20,11 +20,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("size", MemoryLayout<Rgba>.size)
-        print("stride", MemoryLayout<Rgba>.stride)
-        print("alignment", MemoryLayout<Rgba>.alignment)
-        print(MemoryLayout<UInt8>.size, MemoryLayout<UInt8>.stride)
-        
         
         view.addSubview(imageView)
         imageView.constraintTo(centerOf: view, width: 256, height: 256)
@@ -34,7 +29,11 @@ class ViewController: UIViewController {
 //            .padded(with: 10)?
 //            .cropped(to: CGRect(x: 5, y: 5, width: 56, height: 56))
         let orientedImage = #imageLiteral(resourceName: "Lenna.png").withSetting(orientation: .leftMirrored)!
-        imageView.image = orientedImage.cropped(to: CGRect(x: 0, y: 0, width: 150, height: 150).applying(orientedImage.transformer))
+        print(orientedImage.imageOrientation.rawValue)
+        let orientedImage2 = orientedImage.orientationNormalized()!
+        print(orientedImage2.imageOrientation.rawValue)
+        imageView.image = orientedImage2
+        //imageView.image = orientedImage.cropped(to: CGRect(x: 0, y: 0, width: 150, height: 150).applying(orientedImage.transformer))
         
 //        self.fillImage(point: PixelPoint(x: 350, y: 220), color: .green) {
 //            self.fillImage(point: PixelPoint(x: 750, y: 320), color: .red) {
