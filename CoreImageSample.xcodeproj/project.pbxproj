@@ -26,6 +26,7 @@
 		56689E911FDE553E0016D6A0 /* CIFilter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */; };
 		56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */; };
 		56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */; };
+		566977EE202422F20098B7B7 /* BitmapImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566977ED202422F20098B7B7 /* BitmapImage.swift */; };
 		56CCFF431FE2152500A2FDEE /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CCFF421FE2152500A2FDEE /* EasyImagy.framework */; };
 		56CCFF461FE216B700A2FDEE /* sample.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 56CCFF451FE216B700A2FDEE /* sample.PNG */; };
 		56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9171FDE97800028344C /* CGImage+Extension.swift */; };
@@ -76,6 +77,7 @@
 		56689E901FDE553E0016D6A0 /* CIFilter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension.swift"; sourceTree = "<group>"; };
 		56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeGenerator.swift; sourceTree = "<group>"; };
 		56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension_generated.swift"; sourceTree = "<group>"; };
+		566977ED202422F20098B7B7 /* BitmapImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapImage.swift; sourceTree = "<group>"; };
 		56CCFF421FE2152500A2FDEE /* EasyImagy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyImagy.framework; path = Carthage/Build/iOS/EasyImagy.framework; sourceTree = "<group>"; };
 		56CCFF451FE216B700A2FDEE /* sample.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.PNG; sourceTree = "<group>"; };
 		56D3F9171FDE97800028344C /* CGImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				E99BB25A2000A4E7006043F3 /* Rgba.swift */,
+				566977ED202422F20098B7B7 /* BitmapImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				E958AFDB1FF7A61600A435CA /* CaptureVideoPreviewView.swift in Sources */,
 				E958AFDF1FF7A68700A435CA /* CaptureDevice.swift in Sources */,
 				56D3F9221FE101DC0028344C /* CameraViewController.swift in Sources */,
+				566977EE202422F20098B7B7 /* BitmapImage.swift in Sources */,
 				E958AFD91FF7A5D300A435CA /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				E99BB2541FFE81C3006043F3 /* DrawGestureRecognizer.swift in Sources */,
 				56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */,

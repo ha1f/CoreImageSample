@@ -9,10 +9,9 @@
 import UIKit
 
 extension UIImage {
-    /// CGImageに対する領域をUIImageに対する領域に変換する行列
-    var transformer: CGAffineTransform {
-        var transform = CGAffineTransform.identity
-        transform = transform.translatedBy(x: size.width / 2, y: size.height / 2)
+    /// orientationを反映させる行列
+    var orientationTransformer: CGAffineTransform {
+        var transform = CGAffineTransform(translationX: size.width / 2, y: size.height / 2)
         switch imageOrientation {
         case .up, .upMirrored:
             break
@@ -29,13 +28,12 @@ extension UIImage {
         default:
             break
         }
-        return transform.translatedBy(x: -size.width / 2, y: -size.height / 2).scaledBy(x: 1 / scale, y: 1 / scale)
+        return transform.translatedBy(x: -size.width / 2, y: -size.height / 2)
     }
     
-    /// UIImageに対する領域をCGImageに対する領域に変換する行列
-    var inverseTransformer: CGAffineTransform {
-        var transform = CGAffineTransform(scaleX: scale, y: scale)
-        transform = transform.translatedBy(x: size.width/2, y: size.height/2)
+    /// orientationを消すための行列
+    var inverseOrientationTransformer: CGAffineTransform {
+        var transform = CGAffineTransform(translationX: size.width / 2, y: size.height / 2)
         switch imageOrientation {
         case .upMirrored, .downMirrored, .rightMirrored, .leftMirrored:
             transform = transform.scaledBy(x: -1, y: 1)
@@ -53,6 +51,20 @@ extension UIImage {
             transform = transform.rotated(by: -CGFloat.pi / 2)
         }
         return transform.translatedBy(x: -size.width/2, y: -size.height/2)
+    }
+    
+    /// CGImageに対する領域をUIImageに対する領域に変換する行列
+    var transformer: CGAffineTransform {
+        return orientationTransformer.scaledBy(x: 1 / scale, y: 1 / scale)
+    }
+    
+    /// UIImageに対する領域をCGImageに対する領域に変換する行列
+    var inverseTransformer: CGAffineTransform {
+        return CGAffineTransform(scaleX: scale, y: scale).concatenating(inverseOrientationTransformer)
+    }
+    
+    func orientationNormalized() {
+        //CGImage.extractOrGenerate(from: self).
     }
     
     func resized(to size: CGSize, scale: CGFloat = UIScreen.main.scale) -> UIImage? {

@@ -27,4 +27,13 @@ struct Rgba {
         self.blue = UInt8(hex & 0xff)
         self.alpha = alpha
     }
+    
+    init(uiColor: UIColor) {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        uiColor.getRed(&r, green: &g, blue: &b, alpha: &a)
+        self.red = UInt8(0xff * r)
+        self.green = UInt8(0xff * g)
+        self.blue = UInt8(0xff * b)
+        self.alpha = UInt8(0xff * a)
+    }
 }

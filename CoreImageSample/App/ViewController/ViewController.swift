@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 //        imageView.image = UIImage.empty(size: CGSize(width: 50, height: 50), color: UIColor.blue, scale: 2.0)?
 //            .padded(with: 10)?
 //            .cropped(to: CGRect(x: 5, y: 5, width: 56, height: 56))
-        let orientedImage = #imageLiteral(resourceName: "Lenna.png").withSetting(orientation: .left)!
+        let orientedImage = #imageLiteral(resourceName: "Lenna.png").withSetting(orientation: .leftMirrored)!
         imageView.image = orientedImage.cropped(to: CGRect(x: 0, y: 0, width: 150, height: 150).applying(orientedImage.transformer))
         
 //        self.fillImage(point: PixelPoint(x: 350, y: 220), color: .green) {
