@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         imageView.backgroundColor = UIColor.red
         
         let lenna = #imageLiteral(resourceName: "Lenna.png")
-        imageView.image = lenna.masked(with: UIImage.circleUsingCoreGraphics(size: lenna.size, color: .black, backgroundColor: .white)!)
+        imageView.image = lenna.cgImage?.toGrayScale()?.asUIImage()// lenna.masked(with: UIImage.circleUsingCoreGraphics(size: lenna.size, color: .black, backgroundColor: .white)!)
         
 //        self.fillImage(point: PixelPoint(x: 350, y: 220), color: .green) {
 //            self.fillImage(point: PixelPoint(x: 750, y: 320), color: .red) {

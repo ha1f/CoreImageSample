@@ -33,6 +33,29 @@ extension CGImage {
         return context.createCGImage(image, from: image.extent)
     }
     
+    /// Convert to UIImage
+    func asUIImage(scale: CGFloat = UIScreen.main.scale, orientation: UIImageOrientation = .up) -> UIImage {
+        return UIImage(cgImage: self, scale: scale, orientation: orientation)
+    }
+    
+    /// Convert to grayscale
+    func toGrayScale() -> CGImage? {
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let bufferSize = width * height * colorSpace.numberOfComponents
+        var pixelData = [UInt8](repeating: 0, count: bufferSize)
+        guard let context = CGContext(data: &pixelData,
+                                      width: width,
+                                      height: height,
+                                      bitsPerComponent: MemoryLayout<UInt8>.size * 8,
+                                      bytesPerRow: MemoryLayout<UInt8>.stride * colorSpace.numberOfComponents * width,
+                                      space: colorSpace,
+                                      bitmapInfo: CGImageAlphaInfo.none.rawValue) else {
+            return nil
+        }
+        context.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
+        return context.makeImage()
+    }
+    
     /// Convert into mask image
     func toMaskImage() -> CGImage? {
         guard let dataProvider = dataProvider else {

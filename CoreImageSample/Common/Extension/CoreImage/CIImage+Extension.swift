@@ -21,12 +21,22 @@ extension CIImage {
         return image.ciImage ?? CIImage(image: image)
     }
     
+    /// Resize image to given size
+    ///
+    /// - parameter size: size to fit
+    ///
+    /// - returns: Generated CIImage. Nil on error.
     func resized(to size: CGSize) -> CIImage? {
+        guard extent.width != 0 && extent.height != 0 else {
+            debugPrint("extent.width or extent.height is 0 so you cannot resize this CIImage to the size: \(size)")
+            return nil
+        }
         let xScale = size.width / extent.width
         let yScale = size.height / extent.height
         return transformed(by: CGAffineTransform(scaleX: xScale, y: yScale))
     }
     
+    /// Convert to UIImage
     func asUIImage(scale: CGFloat = UIScreen.main.scale, orientation: UIImageOrientation = .up) -> UIImage {
         return UIImage(ciImage: self, scale: scale, orientation: orientation)
     }

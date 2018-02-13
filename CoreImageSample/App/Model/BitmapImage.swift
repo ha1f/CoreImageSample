@@ -13,22 +13,18 @@ struct BitmapImage {
     private var pixelData: [Rgba]
     private let context: CGContext
     
-    init(image: CGImage) {
-        let bytesPerComponent = MemoryLayout<UInt8>.size
-        let bytesPerRow = MemoryLayout<Rgba>.stride * image.width
-        let dataSize = image.width * image.height
-        
-        pixelData = [Rgba](repeating: Rgba.clear, count: dataSize)
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        
-        context = CGContext(data: &pixelData,
+    init?(image: CGImage) {
+        pixelData = [Rgba](repeating: Rgba.clear, count: image.width * image.height)
+        guard let _context = CGContext(data: &pixelData,
                             width: image.width,
                             height: image.height,
-                            bitsPerComponent: bytesPerComponent * 8,
-                            bytesPerRow: bytesPerRow,
-                            space: colorSpace,
-                            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
-        context.draw(image, in: CGRect(x: 0, y: 0, width: image.width, height: image.height))
+                            bitsPerComponent: Rgba.bytesPerComponent * 8,
+                            bytesPerRow: Rgba.bytesPerRow(withWidth: image.width),
+                            space: Rgba.preferredColorSpace,
+                            bitmapInfo: Rgba.preferredBitmapInfo) else {
+                           return nil
+        }
+        _context.draw(image, in: CGRect(origin: .zero, size: CGSize(width: image.width, height: image.height)))
+        context = _context
     }
 }

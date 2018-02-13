@@ -19,6 +19,19 @@ struct Rgba {
     
     static let clear = Rgba(hex: 0x000000, alpha: 0)
     
+    internal static var preferredBitmapInfo: UInt32 {
+        return CGImageAlphaInfo.premultipliedLast.rawValue
+    }
+    internal static var preferredColorSpace: CGColorSpace {
+        return CGColorSpaceCreateDeviceRGB()
+    }
+    internal static var bytesPerComponent: Int {
+        return MemoryLayout<UInt8>.size
+    }
+    internal static func bytesPerRow(withWidth width: Int) -> Int {
+        return MemoryLayout<UInt8>.stride * width
+    }
+    
     // MARK: Initializer
     
     init(hex: UInt32, alpha: UInt8) {
