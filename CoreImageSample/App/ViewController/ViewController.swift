@@ -25,15 +25,9 @@ class ViewController: UIViewController {
         imageView.constraintTo(centerOf: view, width: 256, height: 256)
         
         imageView.backgroundColor = UIColor.red
-//        imageView.image = UIImage.empty(size: CGSize(width: 50, height: 50), color: UIColor.blue, scale: 2.0)?
-//            .padded(with: 10)?
-//            .cropped(to: CGRect(x: 5, y: 5, width: 56, height: 56))
-        let orientedImage = #imageLiteral(resourceName: "Lenna.png").withSetting(orientation: .leftMirrored)!
-        print(orientedImage.imageOrientation.rawValue, UIImageOrientation.leftMirrored.rawValue)
-        let orientedImage2 = orientedImage.orientationNormalized()!
-        print(orientedImage2.imageOrientation.rawValue, UIImageOrientation.up.rawValue)
-        imageView.image = orientedImage2
-        //imageView.image = orientedImage.cropped(to: CGRect(x: 0, y: 0, width: 150, height: 150).applying(orientedImage.transformer))
+        
+        let lenna = #imageLiteral(resourceName: "Lenna.png")
+        imageView.image = lenna.masked(with: UIImage.circleUsingCoreGraphics(size: lenna.size, color: .black, backgroundColor: .white)!)
         
 //        self.fillImage(point: PixelPoint(x: 350, y: 220), color: .green) {
 //            self.fillImage(point: PixelPoint(x: 750, y: 320), color: .red) {

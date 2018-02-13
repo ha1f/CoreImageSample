@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage {
-    /// orientationを反映させる行列
+    /// CGAffineTransform to apply orientation of the image
     var orientationTransformer: CGAffineTransform {
         var transform = CGAffineTransform(translationX: size.width / 2, y: size.height / 2)
         switch imageOrientation {
@@ -31,7 +31,7 @@ extension UIImage {
         return transform.translatedBy(x: -size.width / 2, y: -size.height / 2)
     }
     
-    /// orientationを消すための行列
+    /// CGAffineTransform to revert orientation of the image
     var inverseOrientationTransformer: CGAffineTransform {
         var transform = CGAffineTransform(translationX: size.width / 2, y: size.height / 2)
         switch imageOrientation {
@@ -53,20 +53,18 @@ extension UIImage {
         return transform.translatedBy(x: -size.width/2, y: -size.height/2)
     }
     
-    /// CGImageに対する領域をUIImageに対する領域に変換する行列
+    /// CGAffineTransform which converts coordinate of CGImage to coordinate of UIImage
     var transformer: CGAffineTransform {
         return orientationTransformer.scaledBy(x: 1 / scale, y: 1 / scale)
     }
     
-    /// UIImageに対する領域をCGImageに対する領域に変換する行列
+    /// CGAffineTransform which converts coordinate of UIImage to coordinate of CGImage
     var inverseTransformer: CGAffineTransform {
         return CGAffineTransform(scaleX: scale, y: scale).concatenating(inverseOrientationTransformer)
     }
     
+    /// Set orientation to `.up`
     func orientationNormalized() -> UIImage? {
-        if imageOrientation == .up {
-            return self
-        }
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer {
             UIGraphicsEndImageContext()
@@ -116,7 +114,7 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
-    func withSetting(orientation: UIImageOrientation) -> UIImage? {
+    func replacingOrientation(with orientation: UIImageOrientation) -> UIImage? {
         if let cgImage = cgImage {
             return UIImage(cgImage: cgImage, scale: scale, orientation: orientation)
         }
@@ -138,6 +136,7 @@ extension UIImage {
             .map { UIImage(cgImage: $0, scale: scale, orientation: imageOrientation) }
     }
     
+    /// Crop image with rect. rect is relative to UIImage coordinate.
     /// slower
     func croppedUsingCoreGraphics(to rect: CGRect) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, scale)
@@ -155,7 +154,7 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
-    /// 不透明領域を計算する
+    /// Calculate rect of opaque pixels
     func opaqueRect() -> CGRect? {
         return CGImage.extractOrGenerate(from: self)?.opaqueRect().map { $0.applying(transformer) }
     }
@@ -210,23 +209,14 @@ extension UIImage {
     /// - parameter image: Image for masking
     ///
     /// - returns: The created image. Nil on error.
-    func masked(with image: UIImage) -> UIImage? {
-        guard let maskRef = CGImage.extractOrGenerate(from: image),
-            let ref = CGImage.extractOrGenerate(from: self),
-            let dataProvider = maskRef.dataProvider else {
+    func masked(with maskImage: UIImage) -> UIImage? {
+        guard let ref = CGImage.extractOrGenerate(from: self) else {
                 return nil
         }
-        
-        let mask = CGImage(maskWidth: maskRef.width,
-                           height: maskRef.height,
-                           bitsPerComponent: maskRef.bitsPerComponent,
-                           bitsPerPixel: maskRef.bitsPerPixel,
-                           bytesPerRow: maskRef.bytesPerRow,
-                           provider: dataProvider,
-                           decode: nil,
-                           shouldInterpolate: false)
-        return mask
-            .flatMap { ref.masking($0) }
+        guard let mask = CGImage.extractOrGenerate(from: maskImage)?.toMaskImage() else {
+            return nil
+        }
+        return ref.masking(mask)
             .map { UIImage(cgImage: $0) }
     }
 }
@@ -288,6 +278,36 @@ extension UIImage {
             cgContext.addEllipse(in: frame)
             cgContext.fillPath()
         }
+    }
+    
+    /// Create UIImage of circle.
+    /// If you use UIGraphicsImageRenderer for mask, you will get following error.
+    /// CGImageMaskCreate: invalid mask bits/component: 16.
+    ///
+    /// - parameter size: Size of output image
+    /// - parameter color: Color of the circle
+    /// - parameter backgroundColor: Background color of the image
+    ///
+    /// - returns: The created image. Nil on error.
+    static func circleUsingCoreGraphics(size: CGSize, color: UIColor, backgroundColor: UIColor = .clear) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        let frame = CGRect(origin: .zero, size: size)
+        backgroundColor.setFill()
+        context.fill(frame)
+        
+        color.setFill()
+        context.setLineWidth(0)
+        context.addEllipse(in: frame)
+        context.fillPath()
+        
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
     /// Create UIImage by drawing text

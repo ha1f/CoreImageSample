@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension CGImage {
-    /// Get as CGImage
+    /// Get as CGImage from UIImage
     /// If the UIImage is build from CIImage, cgImage is nil.
     /// https://developer.apple.com/documentation/uikit/uiimage/1624147-cgimage
     /// If so, we must build with CIContext
@@ -24,6 +24,7 @@ extension CGImage {
         return nil
     }
 
+    /// Get as CGImage from CIImage
     static func extractOrGenerate(from image: CIImage) -> CGImage? {
         if let cgImage = image.cgImage {
             return cgImage
@@ -32,13 +33,28 @@ extension CGImage {
         return context.createCGImage(image, from: image.extent)
     }
     
-    /// 不透明領域を計算する
+    /// Convert into mask image
+    func toMaskImage() -> CGImage? {
+        guard let dataProvider = dataProvider else {
+            return nil
+        }
+        return CGImage(maskWidth: width,
+                       height: height,
+                       bitsPerComponent: bitsPerComponent,
+                       bitsPerPixel: bitsPerPixel,
+                       bytesPerRow: bytesPerRow,
+                       provider: dataProvider,
+                       decode: nil,
+                       shouldInterpolate: false)
+    }
+    
+    /// Calculate the rect of opaque pixels
     func opaqueRect() -> CGRect? {
         let bitsPerComponent = MemoryLayout<UInt8>.size * 8
         let bytesPerComponent = MemoryLayout<UInt8>.stride
 
         let colorSpace = CGColorSpaceCreateDeviceGray()
-        let componentsPerPixel = 1
+        let componentsPerPixel = 1 // alpha only
         let componentsPerRow = componentsPerPixel * width
 
         // draw alpha only
@@ -56,25 +72,23 @@ extension CGImage {
         }
         context.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
 
-        var currentMinX: Int = width
-        var currentMaxX: Int = 0
-        var currentMinY: Int = height
-        var currentMaxY: Int = 0
-        var i: Int = componentsPerPixel - 1
-        let pixelDataLength = pixelData.count
+        // initial value
+        var currentMinX = width, currentMaxX = 0, currentMinY = height, currentMaxY = 0
         var isBlank = true
+        var i = componentsPerPixel - 1
+        let pixelDataLength = pixelData.count
         while i < pixelDataLength {
             let y: Int = i / componentsPerRow
             let x: Int = (i % componentsPerRow) / componentsPerPixel
-            // 間を飛ばす
+            // Skip if we can
             if x >= currentMinX && x <= currentMaxX && y <= currentMaxY {
                 i = y * componentsPerRow + (currentMaxX + 1) * componentsPerPixel + componentsPerPixel - 1
                 continue
             }
 
             if pixelData[i] > 0 {
+                // opaque
                 isBlank = false
-                // 不透明
                 if y < currentMinY {
                     currentMinY = y
                 }
