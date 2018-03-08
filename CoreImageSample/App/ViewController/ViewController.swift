@@ -24,20 +24,22 @@ class ViewController: UIViewController {
         view.addSubview(imageView)
         imageView.constraintTo(centerOf: view, width: 256, height: 256)
         
-        imageView.backgroundColor = UIColor.red
+        imageView.backgroundColor = UIColor.cyan
         
-        let lenna = #imageLiteral(resourceName: "Lenna.png")
-        imageView.image = lenna.cgImage?.toGrayScale()?.asUIImage()// lenna.masked(with: UIImage.circleUsingCoreGraphics(size: lenna.size, color: .black, backgroundColor: .white)!)
+        var bitmapImage = BitmapImage(image: CGImage.extractOrGenerate(from: #imageLiteral(resourceName: "Lenna.png"))!)!
+        for x in 50..<80 {
+            for y in 40..<50 {
+                bitmapImage.fillPixel(x: x, y: y, color: Rgba.clear)
+            }
+        }
         
-//        self.fillImage(point: PixelPoint(x: 350, y: 220), color: .green) {
-//            self.fillImage(point: PixelPoint(x: 750, y: 320), color: .red) {
-//                self.fillImage(point: PixelPoint(x: 230, y: 720), color: .blue) {
-//                    self.fillImage(point: PixelPoint(x: 10, y: 10), color: .black) {
-//                        print("complete")
-//                    }
-//                }
-//            }
-//        }
+        for x in 0..<50 {
+            for y in 0..<30 {
+                bitmapImage.fillPixel(x: x, y: y, color: Rgba.clear)
+            }
+        }
+        
+        imageView.image = bitmapImage.makeImage()?.asUIImage()
     }
     
     override func viewDidAppear(_ animated: Bool) {

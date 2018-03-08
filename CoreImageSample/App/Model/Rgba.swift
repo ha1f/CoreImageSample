@@ -17,7 +17,15 @@ struct Rgba {
     let blue: UInt8
     let alpha: UInt8
     
+    // MARK: Static values
+    
     static let clear = Rgba(hex: 0x000000, alpha: 0)
+    static let black = Rgba(hex: 0x000000, alpha: 0xff)
+    static let red = Rgba(hex: 0xff0000, alpha: 0xff)
+    static let green = Rgba(hex: 0x00ff00, alpha: 0xff)
+    static let blue = Rgba(hex: 0x0000ff, alpha: 0xff)
+    
+    // MARK: CGContext parameters
     
     internal static var preferredBitmapInfo: UInt32 {
         return CGImageAlphaInfo.premultipliedLast.rawValue
@@ -25,16 +33,38 @@ struct Rgba {
     internal static var preferredColorSpace: CGColorSpace {
         return CGColorSpaceCreateDeviceRGB()
     }
-    internal static var bytesPerComponent: Int {
+    private static var bytesPerComponent: Int {
         return MemoryLayout<UInt8>.size
     }
+    internal static var bitsPerComponent: Int {
+        return bytesPerComponent * 8
+    }
+    private static var numberOfComponentsPerPixel: Int {
+        // colorspace + alpha
+        return preferredColorSpace.numberOfComponents + 1
+    }
     internal static func bytesPerRow(withWidth width: Int) -> Int {
-        return MemoryLayout<UInt8>.stride * width
+        return MemoryLayout<UInt8>.stride * numberOfComponentsPerPixel * width
     }
     
-    // MARK: Initializer
+    // MARK: Initializers
     
-    init(hex: UInt32, alpha: UInt8) {
+    init(red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8 = 0xff) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.alpha = alpha
+    }
+    
+    init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1.0) {
+        assert(red >= 0 && green >= 0 && blue >= 0, "color component must be positive value")
+        self.red = UInt8(red.remainder(dividingBy: 1.0) * 255)
+        self.green = UInt8(green.remainder(dividingBy: 1.0) * 255)
+        self.blue = UInt8(blue.remainder(dividingBy: 1.0) * 255)
+        self.alpha = UInt8(alpha.remainder(dividingBy: 1.0) * 255)
+    }
+    
+    init(hex: UInt32, alpha: UInt8 = 0xff) {
         self.red = UInt8((hex >> 16) & 0xff)
         self.green = UInt8((hex >> 8) & 0xff)
         self.blue = UInt8(hex & 0xff)
