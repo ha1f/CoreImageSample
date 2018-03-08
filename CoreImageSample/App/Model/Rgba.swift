@@ -80,3 +80,12 @@ struct Rgba {
         self.alpha = UInt8(0xff * a)
     }
 }
+
+extension Rgba: Equatable {
+    static func ==(_ lhs: Rgba, _ rhs: Rgba) -> Bool {
+        return lhs.red == rhs.red
+            && lhs.green == rhs.green
+            && lhs.blue == rhs.blue
+            && lhs.alpha == rhs.alpha
+    }
+}
