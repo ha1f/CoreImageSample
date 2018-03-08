@@ -2,34 +2,13 @@
 //  EasyImagy+Extension.swift
 //  CoreImageSample
 //
-//  Created by ST20591 on 2017/12/21.
+//  Created by ha1f on 2017/12/21.
 //  Copyright © 2017年 ha1f. All rights reserved.
 //
 
 import Foundation
 import EasyImagy
 import CoreGraphics
-
-struct PixelPoint {
-    let x: Int
-    let y: Int
-}
-
-struct HorizontalLineSegment {
-    let minX: Int
-    let maxX: Int
-    let y: Int
-    
-    static func point(x: Int, y: Int) -> HorizontalLineSegment {
-        return HorizontalLineSegment(minX: x, maxX: x, y: y)
-    }
-}
-
-struct ScanLineSeed {
-    let lineSegment: HorizontalLineSegment
-    // parentYのlineSegmentのminX〜maxX間はスキャン済み
-    let parentY: Int?
-}
 
 extension Image where Pixel == RGBA<UInt8> {
     func filled(rect: CGRect, with pixel: Pixel) -> Image<Pixel> {
@@ -102,10 +81,10 @@ extension Image where Pixel == RGBA<UInt8> {
         }
     }
     
-    func filled(from startPoint: PixelPoint, color: RGBA<UInt8>) -> Image? {
+    func filled(fromX x: Int, y: Int, color: RGBA<UInt8>) -> Image? {
         var newImage = Image(width: width, height: height, pixels: pixels)
         
-        guard let startPointPixel = self.pixelAt(x: startPoint.x, y: startPoint.y) else {
+        guard let startPointPixel = self.pixelAt(x: x, y: y) else {
             return nil
         }
         
@@ -122,7 +101,7 @@ extension Image where Pixel == RGBA<UInt8> {
             return nil
         }
         
-        var seedStack = [ScanLineSeed(lineSegment: HorizontalLineSegment.point(x: startPoint.x, y: startPoint.y), parentY: nil)]
+        var seedStack = [ScanLineSeed(lineSegment: HorizontalLineSegment.point(x: x, y: y), parentY: nil)]
         while let seed = seedStack.popLast() {
             // seedのlineSegment間が内側なのは既知。これをleftEdgeX~leftEdgeXまで拡大する
             

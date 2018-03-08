@@ -2,7 +2,7 @@
 //  Rgba.swift
 //  ha1f-chat
 //
-//  Created by ST20591 on 2017/07/19.
+//  Created by ha1f on 2017/07/19.
 //  Copyright © 2017年 ha1f. All rights reserved.
 //
 
@@ -12,10 +12,10 @@ struct Rgba {
     
     // MARK: Properties
     
-    let red: UInt8
-    let green: UInt8
-    let blue: UInt8
-    let alpha: UInt8
+    var red: UInt8
+    var green: UInt8
+    var blue: UInt8
+    var alpha: UInt8
     
     // MARK: Static values
     

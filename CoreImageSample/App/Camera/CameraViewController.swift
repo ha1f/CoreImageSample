@@ -27,7 +27,7 @@ class CameraViewController: UIViewController {
     private lazy var previewView = CaptureVideoPreviewView()
     
     /// Communicate with the session and other session objects on this queue.
-    private let sessionQueue = DispatchQueue(label: "session queue")
+    private let sessionQueue = DispatchQueue(label: "camera session queue")
     
     let captureSession = AVCaptureSession()
     let photoOutput = AVCapturePhotoOutput()
@@ -145,7 +145,7 @@ class CameraViewController: UIViewController {
     }
     
     /// Call this on the session queue.
-    private func _toggleCamera() {
+    private func _toggleCamera(completion: (() -> ())? = nil) {
         let currentPosition = self.currentVideoDeviceInput?.device.position ?? .unspecified
         
         let preferredPosition: AVCaptureDevice.Position
@@ -158,14 +158,14 @@ class CameraViewController: UIViewController {
         
         // 付け替え先
         guard let captureDeviceInput = (try? CaptureDevice.videoDevice(of: preferredPosition)?.asDeviceInput()).flatMap({ $0 }) else {
-            // ボタンをenable
+            completion?()
             return
         }
         
         self.captureSession.beginConfiguration()
         defer {
             self.captureSession.commitConfiguration()
-            // ボタンをenable
+            completion?()
         }
         
         if self.captureSession.canAddInput(captureDeviceInput) {
@@ -184,7 +184,9 @@ class CameraViewController: UIViewController {
     func toggleCamera() {
         // TODO: ここでボタンをdisableする
         sessionQueue.async { [weak self] in
-            self?._toggleCamera()
+            self?._toggleCamera(completion: {
+                // TODO: ここでボタンをenable
+            })
         }
     }
     
