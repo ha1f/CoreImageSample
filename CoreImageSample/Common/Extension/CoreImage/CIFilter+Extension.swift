@@ -66,34 +66,57 @@ extension CIFilter {
         return self.attributes[kCIAttributeFilterAvailable_iOS] as? String
     }
     
+    var categories: [String]? {
+        return self.attributes[kCIAttributeFilterCategories] as? [String]
+    }
+    
     private func parameterInformation(forInputKey inputKey: String) -> [String: Any] {
         return (self.attributes[inputKey] as? [String: Any]) ?? [:]
     }
     
     // not complete dictionary
+    // kCIInputDepthImageKey: "kCIInputDepthImageKey" is available on iOS 11+
     private static let inputKeyConstantDict: [String: String] = [
-        kCIInputImageKey: "kCIInputImageKey",
-        kCIInputEVKey: "kCIInputEVKey",
-        kCIInputBiasKey: "kCIInputBiasKey",
-        kCIInputTimeKey: "kCIInputTimeKey",
         kCIInputAngleKey: "kCIInputAngleKey",
+        kCIInputAspectRatioKey: "kCIInputAspectRatioKey",
+        kCIInputBackgroundImageKey: "kCIInputBackgroundImageKey",
+        kCIInputBiasKey: "kCIInputBiasKey",
         kCIInputBoostKey: "kCIInputBoostKey",
-        kCIInputColorKey: "kCIInputColorKey",
-        kCIInputScaleKey: "kCIInputScaleKey",
-        kCIInputWidthKey: "kCIInputWidthKey",
-        kCIInputCenterKey: "kCIInputCenterKey",
-        kCIInputExtentKey: "kCIInputExtentKey",
-        kCIInputRadiusKey: "kCIInputRadiusKey",
-        kCIInputContrastKey: "kCIInputContrastKey",
-        kCIInputVersionKey: "kCIInputVersionKey",
-        kCIInputWeightsKey: "kCIInputWeightsKey",
-        kCIInputIntensityKey: "kCIInputIntensityKey",
-        kCIInputMaskImageKey: "kCIInputMaskImageKey",
-        kCIInputSharpnessKey: "kCIInputSharpnessKey",
-        kCIInputTransformKey: "kCIInputTransformKey",
+        kCIInputBoostShadowAmountKey: "kCIInputBoostShadowAmountKey",
         kCIInputBrightnessKey: "kCIInputBrightnessKey",
-        kCIInputBackgroundImageKey: "kCIInputBackgroundImageKey"
+        kCIInputCenterKey: "kCIInputCenterKey",
+        kCIInputColorKey: "kCIInputColorKey",
+        kCIInputColorNoiseReductionAmountKey: "kCIInputColorNoiseReductionAmountKey",
+        kCIInputContrastKey: "kCIInputContrastKey",
+        kCIInputEVKey: "kCIInputEVKey",
+        kCIInputExtentKey: "kCIInputExtentKey",
+        kCIInputIgnoreImageOrientationKey: "kCIInputIgnoreImageOrientationKey",
+        kCIInputIntensityKey: "kCIInputIntensityKey",
+        kCIInputImageKey: "kCIInputImageKey",
+        kCIInputRefractionKey: "kCIInputRefractionKey",
+        kCIInputLinearSpaceFilter: "kCIInputLinearSpaceFilter",
+        kCIInputLuminanceNoiseReductionAmountKey: "kCIInputLuminanceNoiseReductionAmountKey",
+        kCIInputMaskImageKey: "kCIInputMaskImageKey",
+        kCIInputNeutralChromaticityXKey: "kCIInputNeutralChromaticityXKey",
+        kCIInputNeutralChromaticityYKey: "kCIInputNeutralChromaticityYKey",
+        kCIInputNeutralTintKey: "kCIInputNeutralTintKey",
+        kCIInputNeutralLocationKey: "kCIInputNeutralLocationKey",
+        kCIInputNeutralTemperatureKey: "kCIInputNeutralTemperatureKey",
+        kCIInputNoiseReductionDetailAmountKey: "kCIInputNoiseReductionDetailAmountKey",
+        kCIInputNoiseReductionAmountKey: "kCIInputNoiseReductionAmountKey",
+        kCIInputNoiseReductionContrastAmountKey: "kCIInputNoiseReductionContrastAmountKey",
+        kCIInputNoiseReductionSharpnessAmountKey: "kCIInputNoiseReductionSharpnessAmountKey",
+        kCIInputRadiusKey: "kCIInputRadiusKey",
+        kCIInputSaturationKey: "kCIInputSaturationKey",
+        kCIInputScaleKey: "kCIInputScaleKey",
+        kCIInputSharpnessKey: "kCIInputSharpnessKey",
+        kCIInputTimeKey: "kCIInputTimeKey",
+        kCIInputTransformKey: "kCIInputTransformKey",
+        kCIInputVersionKey: "kCIInputVersionKey",
+        kCIInputWidthKey: "kCIInputWidthKey",
+        kCIInputWeightsKey: "kCIInputWeightsKey",
     ]
+    
     private static func inputKeyStringString(for inputKeyString: String) -> String {
         return inputKeyConstantDict.first(where: { $0.key == inputKeyString })?.value
             ?? "\"\(inputKeyString)\""
@@ -133,6 +156,9 @@ extension CIFilter {
                     printer.print("/// [\(filterDisplayName)](\(url))")
                 } else {
                     printer.print("/// \(filterDisplayName)")
+                }
+                if let categories = filter.categories {
+                    printer.print("/// categories: \(categories))")
                 }
                 printer.print("/// ")
                 filter.inputKeys.forEach { inputKey in

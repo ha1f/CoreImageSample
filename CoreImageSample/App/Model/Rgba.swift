@@ -24,6 +24,9 @@ struct Rgba {
     static let red = Rgba(hex: 0xff0000, alpha: 0xff)
     static let green = Rgba(hex: 0x00ff00, alpha: 0xff)
     static let blue = Rgba(hex: 0x0000ff, alpha: 0xff)
+    static let cyan = Rgba(hex: 0x00ffff, alpha: 0xff)
+    static let magenta = Rgba(hex: 0xff00ff, alpha: 0xff)
+    static let yellow = Rgba(hex: 0xffff00, alpha: 0xff)
     
     // MARK: CGContext parameters
     

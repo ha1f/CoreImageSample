@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(CIFilter.colorClamp(inputImage: CIImage.extractOrGenerate(from: #imageLiteral(resourceName: "Lenna.png"))!)?.categories)
+        
         view.addSubview(imageView)
         imageView.constraintTo(centerOf: view, width: 256, height: 256)
         
