@@ -35,6 +35,6 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        self.present(CanvasViewController(), animated: true, completion: nil)
+        self.present(MicroPaintViewController(), animated: true, completion: nil)
     }
 }

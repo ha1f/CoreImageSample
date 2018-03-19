@@ -27,6 +27,9 @@
 		56689E941FDE798A0016D6A0 /* QrCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */; };
 		56689E961FDE92B70016D6A0 /* CIFilter+Extension_generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */; };
 		566977EE202422F20098B7B7 /* BitmapImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566977ED202422F20098B7B7 /* BitmapImage.swift */; };
+		569AED80205FC077009AFE1A /* MicroPaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED7F205FC077009AFE1A /* MicroPaintViewController.swift */; };
+		569AED83205FC159009AFE1A /* CIMicroPaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED82205FC159009AFE1A /* CIMicroPaintView.swift */; };
+		569AED85205FC1C0009AFE1A /* SampleCIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED84205FC1C0009AFE1A /* SampleCIView.swift */; };
 		56CCFF431FE2152500A2FDEE /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CCFF421FE2152500A2FDEE /* EasyImagy.framework */; };
 		56CCFF461FE216B700A2FDEE /* sample.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 56CCFF451FE216B700A2FDEE /* sample.PNG */; };
 		56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9171FDE97800028344C /* CGImage+Extension.swift */; };
@@ -78,6 +81,9 @@
 		56689E931FDE798A0016D6A0 /* QrCodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrCodeGenerator.swift; sourceTree = "<group>"; };
 		56689E951FDE92B70016D6A0 /* CIFilter+Extension_generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension_generated.swift"; sourceTree = "<group>"; };
 		566977ED202422F20098B7B7 /* BitmapImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitmapImage.swift; sourceTree = "<group>"; };
+		569AED7F205FC077009AFE1A /* MicroPaintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroPaintViewController.swift; sourceTree = "<group>"; };
+		569AED82205FC159009AFE1A /* CIMicroPaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIMicroPaintView.swift; sourceTree = "<group>"; };
+		569AED84205FC1C0009AFE1A /* SampleCIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCIView.swift; sourceTree = "<group>"; };
 		56CCFF421FE2152500A2FDEE /* EasyImagy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyImagy.framework; path = Carthage/Build/iOS/EasyImagy.framework; sourceTree = "<group>"; };
 		56CCFF451FE216B700A2FDEE /* sample.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.PNG; sourceTree = "<group>"; };
 		56D3F9171FDE97800028344C /* CGImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
@@ -224,6 +230,16 @@
 			path = QrCodeGenerator;
 			sourceTree = "<group>";
 		};
+		569AED81205FC0D0009AFE1A /* MicroPaint */ = {
+			isa = PBXGroup;
+			children = (
+				569AED7F205FC077009AFE1A /* MicroPaintViewController.swift */,
+				569AED82205FC159009AFE1A /* CIMicroPaintView.swift */,
+				569AED84205FC1C0009AFE1A /* SampleCIView.swift */,
+			);
+			path = MicroPaint;
+			sourceTree = "<group>";
+		};
 		56CCFF411FE2152500A2FDEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +299,7 @@
 		56D3F9201FE101BE0028344C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				569AED81205FC0D0009AFE1A /* MicroPaint */,
 				56689E5B1FDE1C750016D6A0 /* ViewController.swift */,
 			);
 			path = ViewController;
@@ -464,7 +481,9 @@
 				56689E5C1FDE1C750016D6A0 /* ViewController.swift in Sources */,
 				56689E881FDE1CC90016D6A0 /* UIImage+Extension.swift in Sources */,
 				56689E841FDE1CC90016D6A0 /* CGPoint+Extension.swift in Sources */,
+				569AED83205FC159009AFE1A /* CIMicroPaintView.swift in Sources */,
 				56689E5A1FDE1C750016D6A0 /* AppDelegate.swift in Sources */,
+				569AED80205FC077009AFE1A /* MicroPaintViewController.swift in Sources */,
 				E958AFDD1FF7A65700A435CA /* AVCaptureDevice+Extension.swift in Sources */,
 				E958AFDB1FF7A61600A435CA /* CaptureVideoPreviewView.swift in Sources */,
 				E958AFDF1FF7A68700A435CA /* CaptureDevice.swift in Sources */,
@@ -472,6 +491,7 @@
 				566977EE202422F20098B7B7 /* BitmapImage.swift in Sources */,
 				E958AFD91FF7A5D300A435CA /* AVCaptureVideoOrientation+Extension.swift in Sources */,
 				E99BB2541FFE81C3006043F3 /* DrawGestureRecognizer.swift in Sources */,
+				569AED85205FC1C0009AFE1A /* SampleCIView.swift in Sources */,
 				56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */,
 				56689E861FDE1CC90016D6A0 /* Comparable+Extension.swift in Sources */,
 				56689E871FDE1CC90016D6A0 /* UIBezierPath+Extension.swift in Sources */,
