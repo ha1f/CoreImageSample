@@ -128,6 +128,7 @@ extension CIFilter {
         printer.print("import CoreImage")
         printer.print("import AVFoundation")
         printer.print("")
+        // TODO: 生成したiPhone simulator等を記述しておく
         printer.print("extension CIFilter {")
         printer.shiftRight()
         CIFilter.filterNames(inCategory: kCICategoryBuiltIn)
@@ -158,7 +159,7 @@ extension CIFilter {
                     printer.print("/// \(filterDisplayName)")
                 }
                 if let categories = filter.categories {
-                    printer.print("/// categories: \(categories))")
+                    printer.print("/// Categories: \(categories))")
                 }
                 printer.print("/// ")
                 filter.inputKeys.forEach { inputKey in

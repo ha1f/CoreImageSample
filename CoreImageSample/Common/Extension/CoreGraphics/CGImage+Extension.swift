@@ -132,5 +132,5 @@ extension CGImage {
             return .zero
         }
         return CGRect(minX: currentMinX, minY: currentMinY, maxX: currentMaxX, maxY: currentMaxY)
-      }
+    }
 }
