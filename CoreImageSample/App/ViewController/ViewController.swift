@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("present")
+        // print("present")
         // self.present(MicroPaintViewController(), animated: true, completion: nil)
     }
 }

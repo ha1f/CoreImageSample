@@ -122,6 +122,7 @@ extension CIFilter {
         kCIInputSaturationKey: "kCIInputSaturationKey",
         kCIInputScaleKey: "kCIInputScaleKey",
         kCIInputSharpnessKey: "kCIInputSharpnessKey",
+        kCIInputTargetImageKey: "kCIInputTargetImageKey",
         kCIInputTimeKey: "kCIInputTimeKey",
         kCIInputTransformKey: "kCIInputTransformKey",
         kCIInputVersionKey: "kCIInputVersionKey",
@@ -157,6 +158,8 @@ extension CIFilter {
                         return "\(inputKey): \(typeString) = NSValue(cgAffineTransform: \(value.initializerString()))"
                     } else if let value = defaultValue as? InitializerStringConvertible {
                         return "\(inputKey): \(typeString) = \(value.initializerString())"
+                    } else if let value = defaultValue as? CIColor, value.colorSpace == CGColorSpaceCreateDeviceRGB() {
+                        return "\(inputKey): \(typeString) = CIColor(red: \(value.red), green: \(value.green), blue: \(value.blue), alpha: \(value.alpha))"
                     } else {
                         return "\(inputKey): \(typeString)"
                     }

@@ -12,17 +12,19 @@ import UIKit
 class MicroPaintViewController: UIViewController {
     let imageView = UIImageView()
     
-    let hsb = CIFilter(name: "CIColorControls", withInputParameters: [kCIInputBrightnessKey: 0.05])!
-    let gaussianBlur = CIFilter(name: "CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: 1])!
+    let hsb = CIFilter.colorControls(inputBrightness: 0.05)!
+    let gaussianBlur = CIFilter.gaussianBlur(inputRadius: 1)!
+    
     let compositeFilter = CIFilter(name: "CISourceOverCompositing")!
-    var imageAccumulator: CIImageAccumulator!
+    lazy var imageAccumulator = CIImageAccumulator(extent: view.bounds, format: kCIFormatARGB8)!
+    let brushFilter = CIFilter.radialGradient(inputColor0: CIColor.black, inputColor1: UIColor.black.ciColor)
+    let color = UIColor.black.ciColor
+    // let brushSize
     
     var previousTouchLocation: CGPoint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        imageAccumulator = CIImageAccumulator(extent: view.bounds, format: kCIFormatARGB8)
         
         view.addSubview(imageView)
         
@@ -32,14 +34,13 @@ class MicroPaintViewController: UIViewController {
     
     @objc
     func step() {
-        if previousTouchLocation == nil {
-            hsb.setValue(imageAccumulator.image(), forKey: kCIInputImageKey)
-            gaussianBlur.setValue(hsb.outputImage!, forKey: kCIInputImageKey)
-            
-            imageAccumulator.setImage(gaussianBlur.outputImage!)
-            
-            imageView.image = imageAccumulator.image().asUIImage()
+        guard previousTouchLocation == nil else {
+            return
         }
+        
+        // let filteredImage = gaussianBlur.apply(to: hsb.apply(to: imageAccumulator.image())!)!
+        // imageAccumulator.setImage(filteredImage)
+        imageView.image = imageAccumulator.image().asUIImage()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -53,6 +54,11 @@ class MicroPaintViewController: UIViewController {
             return
         }
         
+        if previousTouchLocation == nil {
+            previousTouchLocation = touch.location(in: view)
+            return
+        }
+        
         UIGraphicsBeginImageContext(view.frame.size)
         
         guard let cgContext = UIGraphicsGetCurrentContext() else {
@@ -62,7 +68,9 @@ class MicroPaintViewController: UIViewController {
         cgContext.setLineCap(.round)
         
         for coalescedTouch in coalescedTouches {
-            let lineWidth = coalescedTouch.force != 0 ? (coalescedTouch.force / coalescedTouch.maximumPossibleForce) * 20 : 10
+            let lineWidth = coalescedTouch.force != 0
+                ? (coalescedTouch.force / coalescedTouch.maximumPossibleForce) * 20
+                : 10
             
             let lineColor = coalescedTouch.force != 0
                 ? UIColor(hue: coalescedTouch.force / coalescedTouch.maximumPossibleForce, saturation: 1, brightness: 1, alpha: 1).cgColor
@@ -80,10 +88,9 @@ class MicroPaintViewController: UIViewController {
         
         UIGraphicsEndImageContext()
         
-        compositeFilter.setValue(CIImage(image: drawnImage), forKey: kCIInputImageKey)
         compositeFilter.setValue(imageAccumulator.image(), forKey: kCIInputBackgroundImageKey)
         
-        imageAccumulator.setImage(compositeFilter.outputImage!)
+        imageAccumulator.setImage(compositeFilter.apply(to: CIImage.extractOrGenerate(from: drawnImage)!)!)
         
         imageView.image = imageAccumulator.image().asUIImage()
     }

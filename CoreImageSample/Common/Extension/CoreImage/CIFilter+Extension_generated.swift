@@ -26,7 +26,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputBottomHeight, forKey: "inputBottomHeight")
         filter.setValue(inputNumberOfFolds, forKey: "inputNumberOfFolds")
         filter.setValue(inputFoldShadowAmount, forKey: "inputFoldShadowAmount")
@@ -298,7 +298,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputAngle, forKey: kCIInputAngleKey)
         filter.setValue(inputWidth, forKey: kCIInputWidthKey)
         filter.setValue(inputBarOffset, forKey: "inputBarOffset")
@@ -512,14 +512,14 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The center of the effect as x and y coordinates., defaultValue = [150 150].
-    /// - parameter inputColor0: A color to use for the first set of squares., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: A color to use for the second set of squares., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: A color to use for the first set of squares., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: A color to use for the second set of squares., defaultValue = (0 0 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputWidth: The width of the squares in the pattern., defaultValue = 80.
     /// - parameter inputSharpness: The sharpness of the edges in pattern. The smaller the value, the more blurry the pattern. Values range from 0.0 to 1.0., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func checkerboardGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> CIFilter? {
+    static func checkerboardGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), inputColor1: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0), inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CICheckerboardGenerator") else {
             return nil
         }
@@ -916,12 +916,12 @@ extension CIFilter {
     /// Categories: ["CICategoryColorEffect", "CICategoryVideo", "CICategoryInterlaced", "CICategoryNonSquarePixels", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor: The monochrome color to apply to the image., defaultValue = (0.6 0.45 0.3 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The monochrome color to apply to the image., defaultValue = (0.6 0.45 0.3 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputIntensity: The intensity of the monochrome effect. A value of 1.0 creates a monochrome image using the supplied color. A value of 0.0 has no effect on the image., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func colorMonochrome(inputColor: CIColor, inputIntensity: NSNumber = 1) -> CIFilter? {
+    static func colorMonochrome(inputColor: CIColor = CIColor(red: 0.6, green: 0.45, blue: 0.3, alpha: 1.0), inputIntensity: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorMonochrome") else {
             return nil
         }
@@ -1006,11 +1006,11 @@ extension CIFilter {
     /// [CIConstantColorGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConstantColorGenerator)
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
-    /// - parameter inputColor: The color to generate., defaultValue = (1 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color to generate., defaultValue = (1 0 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func constantColorGenerator(inputColor: CIColor) -> CIFilter? {
+    static func constantColorGenerator(inputColor: CIColor = CIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIConstantColorGenerator") else {
             return nil
         }
@@ -1120,7 +1120,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputExtent: A rectangle that defines the extent of the effect., defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the copier light., defaultValue = (0.6 1 0.8 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the copier light., defaultValue = (0.6 1 0.8 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     /// - parameter inputAngle: The angle of the copier light., defaultValue = 0.
     /// - parameter inputWidth: The width of the copier light. , defaultValue = 200.
@@ -1128,12 +1128,12 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, OSX 10.4, *)
-    static func copyMachineTransition(inputTargetImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 200, inputOpacity: NSNumber = 1.3) -> CIFilter? {
+    static func copyMachineTransition(inputTargetImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor = CIColor(red: 0.6, green: 1.0, blue: 0.8, alpha: 1.0), inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 200, inputOpacity: NSNumber = 1.3) -> CIFilter? {
         guard let filter = CIFilter(name: "CICopyMachineTransition") else {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputExtent, forKey: kCIInputExtentKey)
         filter.setValue(inputColor, forKey: kCIInputColorKey)
         filter.setValue(inputTime, forKey: kCIInputTimeKey)
@@ -1327,7 +1327,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputMaskImage, forKey: kCIInputMaskImageKey)
         filter.setValue(inputTime, forKey: kCIInputTimeKey)
         filter.setValue(inputShadowRadius, forKey: "inputShadowRadius")
@@ -1384,7 +1384,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputTime, forKey: kCIInputTimeKey)
         return filter
     }
@@ -1570,12 +1570,12 @@ extension CIFilter {
     /// Categories: ["CICategoryColorEffect", "CICategoryVideo", "CICategoryInterlaced", "CICategoryNonSquarePixels", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor0: The first color to use for the color ramp., defaultValue = (0.3 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use for the color ramp., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use for the color ramp., defaultValue = (0.3 0 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use for the color ramp., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func falseColor(inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
+    static func falseColor(inputColor0: CIColor = CIColor(red: 0.3, green: 0.0, blue: 0.0, alpha: 1.0), inputColor1: CIColor = CIColor(red: 1.0, green: 0.9, blue: 0.8, alpha: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIFalseColor") else {
             return nil
         }
@@ -1592,7 +1592,7 @@ extension CIFilter {
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputCenter: The x and y position to use as the center of the effect, defaultValue = [150 150].
     /// - parameter inputExtent: The extent of the flash., defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the light rays emanating from the flash., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the light rays emanating from the flash., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     /// - parameter inputMaxStriationRadius: The radius of the light rays emanating from the flash., defaultValue = 2.58.
     /// - parameter inputStriationStrength: The strength of the light rays emanating from the flash., defaultValue = 0.5.
@@ -1601,12 +1601,12 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, OSX 10.4, *)
-    static func flashTransition(inputTargetImage: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputFadeThreshold: NSNumber = 0.85) -> CIFilter? {
+    static func flashTransition(inputTargetImage: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor = CIColor(red: 1.0, green: 0.8, blue: 0.6, alpha: 1.0), inputTime: NSNumber = 0, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputFadeThreshold: NSNumber = 0.85) -> CIFilter? {
         guard let filter = CIFilter(name: "CIFlashTransition") else {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputCenter, forKey: kCIInputCenterKey)
         filter.setValue(inputExtent, forKey: kCIInputExtentKey)
         filter.setValue(inputColor, forKey: kCIInputColorKey)
@@ -1723,13 +1723,13 @@ extension CIFilter {
     /// Categories: ["CICategoryGradient", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The center of the effect as x and y coordinates., defaultValue = [150 150].
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 0) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 0) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputRadius: The radius of the Gaussian distribution., defaultValue = 300.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func gaussianGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputRadius: NSNumber = 300) -> CIFilter? {
+    static func gaussianGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), inputColor1: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0), inputRadius: NSNumber = 300) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGaussianGradient") else {
             return nil
         }
@@ -2003,7 +2003,7 @@ extension CIFilter {
     /// - parameter inputRadius: The distance from the center of the effect., defaultValue = 300.
     /// - parameter inputSoftness: , defaultValue = 1.
     /// - parameter inputDither: , defaultValue = 1.
-    /// - parameter inputColorSpace: The CGColorSpaceRef that the color wheel should be generated in., defaultValue = <CGColorSpace 0x6080000bab80> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1).
+    /// - parameter inputColorSpace: The CGColorSpaceRef that the color wheel should be generated in., defaultValue = <CGColorSpace 0x6000000a79e0> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 10, OSX 10.12, *)
@@ -2081,7 +2081,7 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the halo., defaultValue = [150 150].
-    /// - parameter inputColor: A color., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: A color., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputHaloRadius: The radius of the halo., defaultValue = 70.
     /// - parameter inputHaloWidth: The width of the halo, from its inner radius to its outer radius., defaultValue = 87.
     /// - parameter inputHaloOverlap: , defaultValue = 0.77.
@@ -2091,7 +2091,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 9, OSX 10.4, *)
-    static func lenticularHaloGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputHaloRadius: NSNumber = 70, inputHaloWidth: NSNumber = 87, inputHaloOverlap: NSNumber = 0.77, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1, inputTime: NSNumber = 0) -> CIFilter? {
+    static func lenticularHaloGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor = CIColor(red: 1.0, green: 0.9, blue: 0.8, alpha: 1.0), inputHaloRadius: NSNumber = 70, inputHaloWidth: NSNumber = 87, inputHaloOverlap: NSNumber = 0.77, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1, inputTime: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CILenticularHaloGenerator") else {
             return nil
         }
@@ -2184,12 +2184,12 @@ extension CIFilter {
     ///
     /// - parameter inputPoint0: The starting position of the gradient -- where the first color begins., defaultValue = [0 0].
     /// - parameter inputPoint1: The ending position of the gradient -- where the second color begins., defaultValue = [200 200].
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func linearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
+    static func linearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), inputColor1: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CILinearGradient") else {
             return nil
         }
@@ -2412,7 +2412,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputCenter, forKey: kCIInputCenterKey)
         filter.setValue(inputTime, forKey: kCIInputTimeKey)
         filter.setValue(inputAngle, forKey: kCIInputAngleKey)
@@ -2647,7 +2647,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputBacksideImage, forKey: "inputBacksideImage")
         filter.setValue(inputShadingImage, forKey: "inputShadingImage")
         filter.setValue(inputExtent, forKey: kCIInputExtentKey)
@@ -2678,7 +2678,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputBacksideImage, forKey: "inputBacksideImage")
         filter.setValue(inputExtent, forKey: kCIInputExtentKey)
         filter.setValue(inputTime, forKey: kCIInputTimeKey)
@@ -3067,12 +3067,12 @@ extension CIFilter {
     /// - parameter inputCenter: The center of the effect as x and y coordinates., defaultValue = [150 150].
     /// - parameter inputRadius0: The radius of the starting circle to use in the gradient., defaultValue = 5.
     /// - parameter inputRadius1: The radius of the ending circle to use in the gradient., defaultValue = 100.
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func radialGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius0: NSNumber = 5, inputRadius1: NSNumber = 100, inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
+    static func radialGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius0: NSNumber = 5, inputRadius1: NSNumber = 100, inputColor0: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), inputColor1: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIRadialGradient") else {
             return nil
         }
@@ -3118,7 +3118,7 @@ extension CIFilter {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputShadingImage, forKey: "inputShadingImage")
         filter.setValue(inputCenter, forKey: kCIInputCenterKey)
         filter.setValue(inputExtent, forKey: kCIInputExtentKey)
@@ -3281,12 +3281,12 @@ extension CIFilter {
     ///
     /// - parameter inputPoint0: The starting position of the gradient -- where the first color begins., defaultValue = [0 0].
     /// - parameter inputPoint1: The ending position of the gradient -- where the second color begins., defaultValue = [200 200].
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, OSX 10.10, *)
-    static func smoothLinearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
+    static func smoothLinearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), inputColor1: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CISmoothLinearGradient") else {
             return nil
         }
@@ -3387,22 +3387,22 @@ extension CIFilter {
     /// Categories: ["CICategoryBuiltIn", "CICategoryStillImage", "CICategoryVideo", "CICategoryStylize"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputCenterColor1: The center value of the first color range to replace., defaultValue = (0.0784 0.0627 0.0706 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor1: A replacement color for the first color range., defaultValue = (0.4392 0.1922 0.1961 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor1: The center value of the first color range to replace., defaultValue = (0.0784 0.0627 0.0706 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor1: A replacement color for the first color range., defaultValue = (0.4392 0.1922 0.1961 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness1: A value that indicates how close the first color must match before it is replaced., defaultValue = 0.22.
     /// - parameter inputContrast1: The contrast of the first replacement color., defaultValue = 0.98.
-    /// - parameter inputCenterColor2: The center value of the second color range to replace., defaultValue = (0.5255 0.3059 0.3451 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor2: A replacement color for the second color range., defaultValue = (0.9137 0.5608 0.5059 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor2: The center value of the second color range to replace., defaultValue = (0.5255 0.3059 0.3451 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor2: A replacement color for the second color range., defaultValue = (0.9137 0.5608 0.5059 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness2: A value that indicates how close the second color must match before it is replaced., defaultValue = 0.15.
     /// - parameter inputContrast2: The contrast of the second replacement color., defaultValue = 0.98.
-    /// - parameter inputCenterColor3: The center value of the third color range to replace., defaultValue = (0.9216 0.4549 0.3333 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor3: A replacement color for the third color range., defaultValue = (0.9098 0.7529 0.6078 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor3: The center value of the third color range to replace., defaultValue = (0.9216 0.4549 0.3333 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor3: A replacement color for the third color range., defaultValue = (0.9098 0.7529 0.6078 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness3: A value that indicates how close the third color must match before it is replaced., defaultValue = 0.5.
     /// - parameter inputContrast3: The contrast of the third replacement color., defaultValue = 0.99.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 9, OSX 10.5, *)
-    static func spotColor(inputCenterColor1: CIColor, inputReplacementColor1: CIColor, inputCloseness1: NSNumber = 0.22, inputContrast1: NSNumber = 0.98, inputCenterColor2: CIColor, inputReplacementColor2: CIColor, inputCloseness2: NSNumber = 0.15, inputContrast2: NSNumber = 0.98, inputCenterColor3: CIColor, inputReplacementColor3: CIColor, inputCloseness3: NSNumber = 0.5, inputContrast3: NSNumber = 0.99) -> CIFilter? {
+    static func spotColor(inputCenterColor1: CIColor = CIColor(red: 0.0784, green: 0.0627, blue: 0.0706, alpha: 1.0), inputReplacementColor1: CIColor = CIColor(red: 0.4392, green: 0.1922, blue: 0.1961, alpha: 1.0), inputCloseness1: NSNumber = 0.22, inputContrast1: NSNumber = 0.98, inputCenterColor2: CIColor = CIColor(red: 0.5255, green: 0.3059, blue: 0.3451, alpha: 1.0), inputReplacementColor2: CIColor = CIColor(red: 0.9137, green: 0.5608, blue: 0.5059, alpha: 1.0), inputCloseness2: NSNumber = 0.15, inputContrast2: NSNumber = 0.98, inputCenterColor3: CIColor = CIColor(red: 0.9216, green: 0.4549, blue: 0.3333, alpha: 1.0), inputReplacementColor3: CIColor = CIColor(red: 0.9098, green: 0.7529, blue: 0.6078, alpha: 1.0), inputCloseness3: NSNumber = 0.5, inputContrast3: NSNumber = 0.99) -> CIFilter? {
         guard let filter = CIFilter(name: "CISpotColor") else {
             return nil
         }
@@ -3430,11 +3430,11 @@ extension CIFilter {
     /// - parameter inputLightPointsAt: The x and y position that the spotlight points at., defaultValue = [200 200 0].
     /// - parameter inputBrightness: The brightness of the spotlight., defaultValue = 3.
     /// - parameter inputConcentration: The spotlight size. The smaller the value, the more tightly focused the light beam., defaultValue = 0.1.
-    /// - parameter inputColor: The color of the spotlight., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the spotlight., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 9, OSX 10.4, *)
-    static func spotLight(inputLightPosition: CIVector = CIVector(x: 400.0, y: 600.0, z: 150.0), inputLightPointsAt: CIVector = CIVector(x: 200.0, y: 200.0, z: 0.0), inputBrightness: NSNumber = 3, inputConcentration: NSNumber = 0.1, inputColor: CIColor) -> CIFilter? {
+    static func spotLight(inputLightPosition: CIVector = CIVector(x: 400.0, y: 600.0, z: 150.0), inputLightPointsAt: CIVector = CIVector(x: 200.0, y: 200.0, z: 0.0), inputBrightness: NSNumber = 3, inputConcentration: NSNumber = 0.1, inputColor: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CISpotLight") else {
             return nil
         }
@@ -3466,7 +3466,7 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the star., defaultValue = [150 150].
-    /// - parameter inputColor: The color to use for the outer shell of the circular star., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color to use for the outer shell of the circular star., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputRadius: The radius of the star., defaultValue = 50.
     /// - parameter inputCrossScale: The size of the cross pattern., defaultValue = 15.
     /// - parameter inputCrossAngle: The angle of the cross pattern., defaultValue = 0.6.
@@ -3476,7 +3476,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, OSX 10.4, *)
-    static func starShineGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputRadius: NSNumber = 50, inputCrossScale: NSNumber = 15, inputCrossAngle: NSNumber = 0.6, inputCrossOpacity: NSNumber = -2, inputCrossWidth: NSNumber = 2.5, inputEpsilon: NSNumber = -2) -> CIFilter? {
+    static func starShineGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor = CIColor(red: 1.0, green: 0.8, blue: 0.6, alpha: 1.0), inputRadius: NSNumber = 50, inputCrossScale: NSNumber = 15, inputCrossAngle: NSNumber = 0.6, inputCrossOpacity: NSNumber = -2, inputCrossWidth: NSNumber = 2.5, inputEpsilon: NSNumber = -2) -> CIFilter? {
         guard let filter = CIFilter(name: "CIStarShineGenerator") else {
             return nil
         }
@@ -3534,14 +3534,14 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the stripe pattern., defaultValue = [150 150].
-    /// - parameter inputColor0: A color to use for the odd stripes., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: A color to use for the even stripes., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: A color to use for the odd stripes., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: A color to use for the even stripes., defaultValue = (0 0 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputWidth: The width of a stripe., defaultValue = 80.
     /// - parameter inputSharpness: The sharpness of the stripe pattern. The smaller the value, the more blurry the pattern. Values range from 0.0 to 1.0., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func stripesGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> CIFilter? {
+    static func stripesGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), inputColor1: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0), inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIStripesGenerator") else {
             return nil
         }
@@ -3575,7 +3575,7 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the sunbeam pattern, defaultValue = [150 150].
-    /// - parameter inputColor: The color of the sun., defaultValue = (1 0.5 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the sun., defaultValue = (1 0.5 0 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputSunRadius: The radius of the sun., defaultValue = 40.
     /// - parameter inputMaxStriationRadius: The radius of the sunbeams., defaultValue = 2.58.
     /// - parameter inputStriationStrength: The intensity of the sunbeams. Higher values result in more intensity., defaultValue = 0.5.
@@ -3584,7 +3584,7 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 9, OSX 10.4, *)
-    static func sunbeamsGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputSunRadius: NSNumber = 40, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputTime: NSNumber = 0) -> CIFilter? {
+    static func sunbeamsGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor = CIColor(red: 1.0, green: 0.5, blue: 0.0, alpha: 1.0), inputSunRadius: NSNumber = 40, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputTime: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CISunbeamsGenerator") else {
             return nil
         }
@@ -3605,7 +3605,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputExtent: The extent of the effect., defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the swipe., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the swipe., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     /// - parameter inputAngle: The angle of the swipe., defaultValue = 0.
     /// - parameter inputWidth: The width of the swipe, defaultValue = 300.
@@ -3613,12 +3613,12 @@ extension CIFilter {
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 6, OSX 10.4, *)
-    static func swipeTransition(inputTargetImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 300, inputOpacity: NSNumber = 0) -> CIFilter? {
+    static func swipeTransition(inputTargetImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 300, inputOpacity: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CISwipeTransition") else {
             return nil
         }
         filter.setDefaults()
-        filter.setValue(inputTargetImage, forKey: "inputTargetImage")
+        filter.setValue(inputTargetImage, forKey: kCIInputTargetImageKey)
         filter.setValue(inputExtent, forKey: kCIInputExtentKey)
         filter.setValue(inputColor, forKey: kCIInputColorKey)
         filter.setValue(inputTime, forKey: kCIInputTimeKey)
@@ -3921,11 +3921,11 @@ extension CIFilter {
     /// Categories: ["CICategoryColorAdjustment", "CICategoryVideo", "CICategoryStillImage", "CICategoryInterlaced", "CICategoryNonSquarePixels", "CICategoryBuiltIn"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor: A color to use as the white point., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: A color to use as the white point., defaultValue = (1 1 1 1) <CGColorSpace 0x6000000a7b00> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
     @available(iOS 5, OSX 10.4, *)
-    static func whitePointAdjust(inputColor: CIColor) -> CIFilter? {
+    static func whitePointAdjust(inputColor: CIColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIWhitePointAdjust") else {
             return nil
         }
