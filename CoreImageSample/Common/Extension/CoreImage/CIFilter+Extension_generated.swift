@@ -20,7 +20,7 @@ extension CIFilter {
     /// - parameter inputTime: The duration of the effect., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func accordionFoldTransition(inputTargetImage: CIImage, inputBottomHeight: NSNumber = 0, inputNumberOfFolds: NSNumber = 3, inputFoldShadowAmount: NSNumber = 0.1, inputTime: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAccordionFoldTransition") else {
             return nil
@@ -41,7 +41,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func additionCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAdditionCompositing") else {
             return nil
@@ -58,7 +58,7 @@ extension CIFilter {
     /// - parameter inputTransform: The transform to apply to the image., defaultValue = CGAffineTransform: {{1, 0, 0, 1}, {0, 0}}.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func affineClamp(inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAffineClamp") else {
             return nil
@@ -75,7 +75,7 @@ extension CIFilter {
     /// - parameter inputTransform: The transform to apply to the image., defaultValue = CGAffineTransform: {{1, 0, 0, 1}, {0, 0}}.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func affineTile(inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAffineTile") else {
             return nil
@@ -92,7 +92,7 @@ extension CIFilter {
     /// - parameter inputTransform: A transform to apply to the image., defaultValue = CGAffineTransform: {{1, 0, 0, 1}, {0, 0}}.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func affineTransform(inputTransform: NSValue = NSValue(cgAffineTransform: CGAffineTransform(a: 1.0, b: 0.0, c: 0.0, d: 1.0, tx: 0.0, ty: 0.0))) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAffineTransform") else {
             return nil
@@ -109,7 +109,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func areaAverage(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAreaAverage") else {
             return nil
@@ -128,7 +128,7 @@ extension CIFilter {
     /// - parameter inputCount: The number of bins for the histogram. This value will determine the width of the output image., defaultValue = 64.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputData"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.5, *)
     static func areaHistogram(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0), inputScale: NSNumber = 1, inputCount: NSNumber = 64) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAreaHistogram") else {
             return nil
@@ -147,7 +147,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func areaMaximum(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAreaMaximum") else {
             return nil
@@ -164,7 +164,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func areaMaximumAlpha(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAreaMaximumAlpha") else {
             return nil
@@ -181,7 +181,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func areaMinimum(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAreaMinimum") else {
             return nil
@@ -198,7 +198,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func areaMinimumAlpha(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAreaMinimumAlpha") else {
             return nil
@@ -215,7 +215,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func areaMinMaxRed(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAreaMinMaxRed") else {
             return nil
@@ -232,7 +232,7 @@ extension CIFilter {
     /// - parameter inputScaleFactor: , defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func attributedTextImageGenerator(inputText: NSAttributedString, inputScaleFactor: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAttributedTextImageGenerator") else {
             return nil
@@ -252,7 +252,7 @@ extension CIFilter {
     /// - parameter inputCompactStyle: Aztec force compact style @YES or @NO. Set to nil for automatic.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func aztecCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSNumber = 23, inputLayers: NSNumber, inputCompactStyle: NSNumber) -> CIFilter? {
         guard let filter = CIFilter(name: "CIAztecCodeGenerator") else {
             return nil
@@ -271,7 +271,7 @@ extension CIFilter {
     /// - parameter inputBarcodeDescriptor:
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImageForQRCodeDescriptor", "outputCGImageForAztecCodeDescriptor", "outputCGImageForPDF417CodeDescriptor", "outputCGImageForDataMatrixCodeDescriptor", "outputCGImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func barcodeGenerator(inputBarcodeDescriptor: CIBarcodeDescriptor) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBarcodeGenerator") else {
             return nil
@@ -292,7 +292,7 @@ extension CIFilter {
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func barsSwipeTransition(inputTargetImage: CIImage, inputAngle: NSNumber = 3.141592653589793, inputWidth: NSNumber = 30, inputBarOffset: NSNumber = 10, inputTime: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBarsSwipeTransition") else {
             return nil
@@ -316,7 +316,7 @@ extension CIFilter {
     /// - parameter inputC: Specifies the value of C to use for the cubic resampling function., defaultValue = 0.75.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func bicubicScaleTransform(inputScale: NSNumber = 1, inputAspectRatio: NSNumber = 1, inputB: NSNumber = 0, inputC: NSNumber = 0.75) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBicubicScaleTransform") else {
             return nil
@@ -337,7 +337,7 @@ extension CIFilter {
     /// - parameter inputMaskImage: A masking image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func blendWithAlphaMask(inputBackgroundImage: CIImage, inputMaskImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBlendWithAlphaMask") else {
             return nil
@@ -356,7 +356,7 @@ extension CIFilter {
     /// - parameter inputMaskImage: A masking image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func blendWithBlueMask(inputBackgroundImage: CIImage, inputMaskImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBlendWithBlueMask") else {
             return nil
@@ -375,7 +375,7 @@ extension CIFilter {
     /// - parameter inputMaskImage: A grayscale mask. When a mask value is 0.0, the result is the background. When the mask value is 1.0, the result is the image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func blendWithMask(inputBackgroundImage: CIImage, inputMaskImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBlendWithMask") else {
             return nil
@@ -394,7 +394,7 @@ extension CIFilter {
     /// - parameter inputMaskImage: A masking image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func blendWithRedMask(inputBackgroundImage: CIImage, inputMaskImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBlendWithRedMask") else {
             return nil
@@ -413,7 +413,7 @@ extension CIFilter {
     /// - parameter inputIntensity: The intensity of the effect. A value of 0.0 is no effect. A value of 1.0 is the maximum effect., defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func bloom(inputRadius: NSNumber = 10, inputIntensity: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBloom") else {
             return nil
@@ -434,7 +434,7 @@ extension CIFilter {
     /// - parameter inputSoftness: , defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func bokehBlur(inputRadius: NSNumber = 20, inputRingAmount: NSNumber = 0, inputRingSize: NSNumber = 0.1, inputSoftness: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBokehBlur") else {
             return nil
@@ -454,7 +454,7 @@ extension CIFilter {
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result., defaultValue = 10.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func boxBlur(inputRadius: NSNumber = 10) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBoxBlur") else {
             return nil
@@ -473,7 +473,7 @@ extension CIFilter {
     /// - parameter inputScale: The scale of the effect determines the curvature of the bump. A value of 0.0 has no effect. Positive values create an outward bump; negative values create an inward bump., defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func bumpDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 300, inputScale: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBumpDistortion") else {
             return nil
@@ -495,7 +495,7 @@ extension CIFilter {
     /// - parameter inputScale: The scale of the effect., defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func bumpDistortionLinear(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 300, inputAngle: NSNumber = 0, inputScale: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIBumpDistortionLinear") else {
             return nil
@@ -512,13 +512,13 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The center of the effect as x and y coordinates., defaultValue = [150 150].
-    /// - parameter inputColor0: A color to use for the first set of squares., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: A color to use for the second set of squares., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: A color to use for the first set of squares., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: A color to use for the second set of squares., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputWidth: The width of the squares in the pattern., defaultValue = 80.
     /// - parameter inputSharpness: The sharpness of the edges in pattern. The smaller the value, the more blurry the pattern. Values range from 0.0 to 1.0., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func checkerboardGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CICheckerboardGenerator") else {
             return nil
@@ -540,7 +540,7 @@ extension CIFilter {
     /// - parameter inputRadius: The radius determines how many pixels are used to create the distortion. The larger the radius, the wider the extent of the distortion., defaultValue = 150.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func circleSplashDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 150) -> CIFilter? {
         guard let filter = CIFilter(name: "CICircleSplashDistortion") else {
             return nil
@@ -560,7 +560,7 @@ extension CIFilter {
     /// - parameter inputSharpness: The sharpness of the circles. The larger the value, the sharper the circles., defaultValue = 0.7.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func circularScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputWidth: NSNumber = 6, inputSharpness: NSNumber = 0.7) -> CIFilter? {
         guard let filter = CIFilter(name: "CICircularScreen") else {
             return nil
@@ -581,7 +581,7 @@ extension CIFilter {
     /// - parameter inputAngle: The angle of the effect., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func circularWrap(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 150, inputAngle: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CICircularWrap") else {
             return nil
@@ -600,7 +600,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that defines the extent of the effect., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 10, *)
+    @available(iOS 10, OSX 10.12, *)
     static func clamp(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIClamp") else {
             return nil
@@ -622,7 +622,7 @@ extension CIFilter {
     /// - parameter inputUCR: The under color removal value. The value can vary from 0.0 to 1.0. , defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func cMYKHalftone(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputWidth: NSNumber = 6, inputAngle: NSNumber = 0, inputSharpness: NSNumber = 0.7, inputGCR: NSNumber = 1, inputUCR: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CICMYKHalftone") else {
             return nil
@@ -645,7 +645,7 @@ extension CIFilter {
     /// - parameter inputBarcodeHeight: , defaultValue = 32.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func code128BarcodeGenerator(inputMessage: NSData, inputQuietSpace: NSNumber = 7, inputBarcodeHeight: NSNumber = 32) -> CIFilter? {
         guard let filter = CIFilter(name: "CICode128BarcodeGenerator") else {
             return nil
@@ -664,7 +664,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorBlendMode") else {
             return nil
@@ -681,7 +681,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorBurnBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorBurnBlendMode") else {
             return nil
@@ -699,7 +699,7 @@ extension CIFilter {
     /// - parameter inputMaxComponents: Higher clamping values, defaultValue = [1 1 1 1].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func colorClamp(inputMinComponents: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0), inputMaxComponents: CIVector = CIVector(x: 1.0, y: 1.0, z: 1.0, w: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorClamp") else {
             return nil
@@ -719,7 +719,7 @@ extension CIFilter {
     /// - parameter inputContrast: The amount of contrast to apply. The larger the value, the more contrast in the resulting image., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorControls(inputSaturation: NSNumber = 1, inputBrightness: NSNumber = 0, inputContrast: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorControls") else {
             return nil
@@ -740,7 +740,7 @@ extension CIFilter {
     /// - parameter inputBlueCoefficients: Polynomial coefficients for blue channel, defaultValue = [0 0 1 0 0 0 0 0 0 0].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func colorCrossPolynomial(inputRedCoefficients: CIVector = CIVector(), inputGreenCoefficients: CIVector = CIVector(), inputBlueCoefficients: CIVector = CIVector()) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCrossPolynomial") else {
             return nil
@@ -760,7 +760,7 @@ extension CIFilter {
     /// - parameter inputCubeData: This is a color table of floating-point RGBA cells that use premultiplied alpha. The cells are organized in a standard ordering. The columns and rows of the data are indexed by red and green, respectively. Each data plane is followed by the next higher plane in the data, with planes indexed by blue., defaultValue = <00000000 00000000 00000000 0000803f 0000803f 00000000 00000000 0000803f 00000000 0000803f 00000000 0000803f 0000803f 0000803f 00000000 0000803f 00000000 00000000 0000803f 0000803f 0000803f 00000000 0000803f 0000803f 00000000 0000803f 0000803f 0000803f 0000803f 0000803f 0000803f 0000803f>.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorCube(inputCubeDimension: NSNumber = 2, inputCubeData: NSData) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCube") else {
             return nil
@@ -782,7 +782,7 @@ extension CIFilter {
     /// - parameter inputColorSpace:
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func colorCubesMixedWithMask(inputMaskImage: CIImage, inputCubeDimension: NSNumber = 2, inputCube0Data: NSData, inputCube1Data: NSData, inputColorSpace: NSObject) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCubesMixedWithMask") else {
             return nil
@@ -805,7 +805,7 @@ extension CIFilter {
     /// - parameter inputColorSpace:
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func colorCubeWithColorSpace(inputCubeDimension: NSNumber = 2, inputCubeData: NSData, inputColorSpace: NSObject) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCubeWithColorSpace") else {
             return nil
@@ -826,7 +826,7 @@ extension CIFilter {
     /// - parameter inputColorSpace:
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func colorCurves(inputCurvesData: NSData, inputCurvesDomain: CIVector = CIVector(x: 0.0, y: 1.0), inputColorSpace: NSObject) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorCurves") else {
             return nil
@@ -845,7 +845,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorDodgeBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorDodgeBlendMode") else {
             return nil
@@ -861,7 +861,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorInvert() -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorInvert") else {
             return nil
@@ -877,7 +877,7 @@ extension CIFilter {
     /// - parameter inputGradientImage: The image data from this image transforms the source image values.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func colorMap(inputGradientImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorMap") else {
             return nil
@@ -898,7 +898,7 @@ extension CIFilter {
     /// - parameter inputBiasVector: A vector that’s added to each color component., defaultValue = [0 0 0 0].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorMatrix(inputRVector: CIVector = CIVector(x: 1.0, y: 0.0, z: 0.0, w: 0.0), inputGVector: CIVector = CIVector(x: 0.0, y: 1.0, z: 0.0, w: 0.0), inputBVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 1.0, w: 0.0), inputAVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 1.0), inputBiasVector: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorMatrix") else {
             return nil
@@ -916,11 +916,11 @@ extension CIFilter {
     /// Categories: ["CICategoryColorEffect", "CICategoryVideo", "CICategoryInterlaced", "CICategoryNonSquarePixels", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor: The monochrome color to apply to the image., defaultValue = (0.6 0.45 0.3 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The monochrome color to apply to the image., defaultValue = (0.6 0.45 0.3 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputIntensity: The intensity of the monochrome effect. A value of 1.0 creates a monochrome image using the supplied color. A value of 0.0 has no effect on the image., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func colorMonochrome(inputColor: CIColor, inputIntensity: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorMonochrome") else {
             return nil
@@ -941,7 +941,7 @@ extension CIFilter {
     /// - parameter inputAlphaCoefficients: Polynomial coefficients for alpha channel, defaultValue = [0 1 0 0].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func colorPolynomial(inputRedCoefficients: CIVector = CIVector(x: 0.0, y: 1.0, z: 0.0, w: 0.0), inputGreenCoefficients: CIVector = CIVector(x: 0.0, y: 1.0, z: 0.0, w: 0.0), inputBlueCoefficients: CIVector = CIVector(x: 0.0, y: 1.0, z: 0.0, w: 0.0), inputAlphaCoefficients: CIVector = CIVector(x: 0.0, y: 1.0, z: 0.0, w: 0.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorPolynomial") else {
             return nil
@@ -961,7 +961,7 @@ extension CIFilter {
     /// - parameter inputLevels: The number of brightness levels to use for each color component. Lower values result in a more extreme poster effect., defaultValue = 6.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func colorPosterize(inputLevels: NSNumber = 6) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColorPosterize") else {
             return nil
@@ -978,7 +978,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func columnAverage(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIColumnAverage") else {
             return nil
@@ -994,7 +994,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func comicEffect() -> CIFilter? {
         guard let filter = CIFilter(name: "CIComicEffect") else {
             return nil
@@ -1006,10 +1006,10 @@ extension CIFilter {
     /// [CIConstantColorGenerator](http://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIConstantColorGenerator)
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
-    /// - parameter inputColor: The color to generate., defaultValue = (1 0 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color to generate., defaultValue = (1 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func constantColorGenerator(inputColor: CIColor) -> CIFilter? {
         guard let filter = CIFilter(name: "CIConstantColorGenerator") else {
             return nil
@@ -1027,7 +1027,7 @@ extension CIFilter {
     /// - parameter inputBias: , defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func convolution3X3(inputWeights: CIVector = CIVector(), inputBias: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIConvolution3X3") else {
             return nil
@@ -1046,7 +1046,7 @@ extension CIFilter {
     /// - parameter inputBias: , defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func convolution5X5(inputWeights: CIVector = CIVector(), inputBias: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIConvolution5X5") else {
             return nil
@@ -1065,7 +1065,7 @@ extension CIFilter {
     /// - parameter inputBias: , defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.9, *)
     static func convolution7X7(inputWeights: CIVector = CIVector(), inputBias: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIConvolution7X7") else {
             return nil
@@ -1084,7 +1084,7 @@ extension CIFilter {
     /// - parameter inputBias: , defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func convolution9Horizontal(inputWeights: CIVector = CIVector(), inputBias: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIConvolution9Horizontal") else {
             return nil
@@ -1103,7 +1103,7 @@ extension CIFilter {
     /// - parameter inputBias: , defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func convolution9Vertical(inputWeights: CIVector = CIVector(), inputBias: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIConvolution9Vertical") else {
             return nil
@@ -1120,14 +1120,14 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputExtent: A rectangle that defines the extent of the effect., defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the copier light., defaultValue = (0.6 1 0.8 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the copier light., defaultValue = (0.6 1 0.8 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     /// - parameter inputAngle: The angle of the copier light., defaultValue = 0.
     /// - parameter inputWidth: The width of the copier light. , defaultValue = 200.
     /// - parameter inputOpacity: The opacity of the copier light. A value of 0.0 is transparent. A value of 1.0 is opaque., defaultValue = 1.3.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func copyMachineTransition(inputTargetImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 200, inputOpacity: NSNumber = 1.3) -> CIFilter? {
         guard let filter = CIFilter(name: "CICopyMachineTransition") else {
             return nil
@@ -1150,7 +1150,7 @@ extension CIFilter {
     /// - parameter inputRectangle: The rectangle that specifies the crop to apply to the image., defaultValue = [-8.98847e+307 -8.98847e+307 1.79769e+308 1.79769e+308].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func crop(inputRectangle: CIVector = CIVector(x: -8.98846567431158e+307, y: -8.98846567431158e+307, z: 1.79769313486232e+308, w: 1.79769313486232e+308)) -> CIFilter? {
         guard let filter = CIFilter(name: "CICrop") else {
             return nil
@@ -1168,7 +1168,7 @@ extension CIFilter {
     /// - parameter inputCenter: The center of the effect as x and y coordinates., defaultValue = [150 150].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func crystallize(inputRadius: NSNumber = 20, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CICrystallize") else {
             return nil
@@ -1186,7 +1186,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func darkenBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDarkenBlendMode") else {
             return nil
@@ -1213,7 +1213,7 @@ extension CIFilter {
     /// - parameter inputAuxDataMetadata:
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func depthBlurEffect(inputDisparityImage: CIImage, inputAperture: NSNumber = 0, inputLeftEyePositions: CIVector, inputRightEyePositions: CIVector, inputChinPositions: CIVector, inputNosePositions: CIVector, inputFocusRect: CIVector, inputLumaNoiseScale: NSNumber = 0, inputScaleFactor: NSNumber = 1, inputCalibrationData: AVCameraCalibrationData, inputAuxDataMetadata: NSDictionary) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDepthBlurEffect") else {
             return nil
@@ -1245,7 +1245,7 @@ extension CIFilter {
     /// - parameter inputRadius: The distance from the center of the effect., defaultValue = 6.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.6, *)
     static func depthOfField(inputPoint0: CIVector = CIVector(x: 0.0, y: 300.0), inputPoint1: CIVector = CIVector(x: 300.0, y: 300.0), inputSaturation: NSNumber = 1.5, inputUnsharpMaskRadius: NSNumber = 2.5, inputUnsharpMaskIntensity: NSNumber = 0.5, inputRadius: NSNumber = 6) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDepthOfField") else {
             return nil
@@ -1266,7 +1266,7 @@ extension CIFilter {
     /// - parameter inputImage: The input depth data image to convert to disparity data.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func depthToDisparity() -> CIFilter? {
         guard let filter = CIFilter(name: "CIDepthToDisparity") else {
             return nil
@@ -1282,7 +1282,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func differenceBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDifferenceBlendMode") else {
             return nil
@@ -1299,7 +1299,7 @@ extension CIFilter {
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result., defaultValue = 8.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func discBlur(inputRadius: NSNumber = 8) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDiscBlur") else {
             return nil
@@ -1321,7 +1321,7 @@ extension CIFilter {
     /// - parameter inputShadowOffset: The offset of the shadow created by the mask., defaultValue = [0 -10].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func disintegrateWithMaskTransition(inputTargetImage: CIImage, inputMaskImage: CIImage, inputTime: NSNumber = 0, inputShadowRadius: NSNumber = 8, inputShadowDensity: NSNumber = 0.65, inputShadowOffset: CIVector = CIVector(x: 0.0, y: -10.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDisintegrateWithMaskTransition") else {
             return nil
@@ -1342,7 +1342,7 @@ extension CIFilter {
     /// - parameter inputImage: The input disparity data image to convert to depth data.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func disparityToDepth() -> CIFilter? {
         guard let filter = CIFilter(name: "CIDisparityToDepth") else {
             return nil
@@ -1359,7 +1359,7 @@ extension CIFilter {
     /// - parameter inputScale: The amount of texturing of the resulting image. The larger the value, the greater the texturing., defaultValue = 50.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func displacementDistortion(inputDisplacementImage: CIImage, inputScale: NSNumber = 50) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDisplacementDistortion") else {
             return nil
@@ -1378,7 +1378,7 @@ extension CIFilter {
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func dissolveTransition(inputTargetImage: CIImage, inputTime: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDissolveTransition") else {
             return nil
@@ -1396,7 +1396,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func divideBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDivideBlendMode") else {
             return nil
@@ -1416,7 +1416,7 @@ extension CIFilter {
     /// - parameter inputSharpness: The sharpness of the pattern. The larger the value, the sharper the pattern., defaultValue = 0.7.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func dotScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 6, inputSharpness: NSNumber = 0.7) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDotScreen") else {
             return nil
@@ -1441,7 +1441,7 @@ extension CIFilter {
     /// - parameter inputZoom: , defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.6, *)
     static func droste(inputInsetPoint0: CIVector = CIVector(x: 200.0, y: 200.0), inputInsetPoint1: CIVector = CIVector(x: 400.0, y: 400.0), inputStrands: NSNumber = 1, inputPeriodicity: NSNumber = 1, inputRotation: NSNumber = 0, inputZoom: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIDroste") else {
             return nil
@@ -1465,7 +1465,7 @@ extension CIFilter {
     /// - parameter inputLumaSigma: , defaultValue = 0.15.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 10, *)
+    @available(iOS 10, OSX 10.12, *)
     static func edgePreserveUpsampleFilter(inputSmallImage: CIImage, inputSpatialSigma: NSNumber = 3, inputLumaSigma: NSNumber = 0.15) -> CIFilter? {
         guard let filter = CIFilter(name: "CIEdgePreserveUpsampleFilter") else {
             return nil
@@ -1484,7 +1484,7 @@ extension CIFilter {
     /// - parameter inputIntensity: The intensity of the edges. The larger the value, the higher the intensity., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func edges(inputIntensity: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIEdges") else {
             return nil
@@ -1501,7 +1501,7 @@ extension CIFilter {
     /// - parameter inputRadius: The thickness of the edges. The larger the value, the thicker the edges., defaultValue = 3.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func edgeWork(inputRadius: NSNumber = 3) -> CIFilter? {
         guard let filter = CIFilter(name: "CIEdgeWork") else {
             return nil
@@ -1520,7 +1520,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func eightfoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CIEightfoldReflectedTile") else {
             return nil
@@ -1539,7 +1539,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func exclusionBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIExclusionBlendMode") else {
             return nil
@@ -1556,7 +1556,7 @@ extension CIFilter {
     /// - parameter inputEV: The amount to adjust the exposure of the image by. The larger the value, the brighter the exposure., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func exposureAdjust(inputEV: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIExposureAdjust") else {
             return nil
@@ -1570,11 +1570,11 @@ extension CIFilter {
     /// Categories: ["CICategoryColorEffect", "CICategoryVideo", "CICategoryInterlaced", "CICategoryNonSquarePixels", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor0: The first color to use for the color ramp., defaultValue = (0.3 0 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use for the color ramp., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use for the color ramp., defaultValue = (0.3 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use for the color ramp., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func falseColor(inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
         guard let filter = CIFilter(name: "CIFalseColor") else {
             return nil
@@ -1592,7 +1592,7 @@ extension CIFilter {
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputCenter: The x and y position to use as the center of the effect, defaultValue = [150 150].
     /// - parameter inputExtent: The extent of the flash., defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the light rays emanating from the flash., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the light rays emanating from the flash., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     /// - parameter inputMaxStriationRadius: The radius of the light rays emanating from the flash., defaultValue = 2.58.
     /// - parameter inputStriationStrength: The strength of the light rays emanating from the flash., defaultValue = 0.5.
@@ -1600,7 +1600,7 @@ extension CIFilter {
     /// - parameter inputFadeThreshold: The amount of fade between the flash and the target image. The higher the value, the more flash time and the less fade time., defaultValue = 0.85.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func flashTransition(inputTargetImage: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputFadeThreshold: NSNumber = 0.85) -> CIFilter? {
         guard let filter = CIFilter(name: "CIFlashTransition") else {
             return nil
@@ -1628,7 +1628,7 @@ extension CIFilter {
     /// - parameter inputAcuteAngle: The primary angle for the repeating reflected tile. Small values create thin diamond tiles, and higher values create fatter reflected tiles., defaultValue = 1.570796326794897.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func fourfoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100, inputAcuteAngle: NSNumber = 1.570796326794897) -> CIFilter? {
         guard let filter = CIFilter(name: "CIFourfoldReflectedTile") else {
             return nil
@@ -1650,7 +1650,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func fourfoldRotatedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CIFourfoldRotatedTile") else {
             return nil
@@ -1672,7 +1672,7 @@ extension CIFilter {
     /// - parameter inputAcuteAngle: The primary angle for the repeating translated tile. Small values create thin diamond tiles, and higher values create fatter translated tiles., defaultValue = 1.570796326794897.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func fourfoldTranslatedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100, inputAcuteAngle: NSNumber = 1.570796326794897) -> CIFilter? {
         guard let filter = CIFilter(name: "CIFourfoldTranslatedTile") else {
             return nil
@@ -1692,7 +1692,7 @@ extension CIFilter {
     /// - parameter inputPower: A gamma value to use to correct image brightness. The larger the value, the darker the result., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func gammaAdjust(inputPower: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGammaAdjust") else {
             return nil
@@ -1709,7 +1709,7 @@ extension CIFilter {
     /// - parameter inputRadius: The radius determines how many pixels are used to create the blur. The larger the radius, the blurrier the result., defaultValue = 10.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func gaussianBlur(inputRadius: NSNumber = 10) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGaussianBlur") else {
             return nil
@@ -1723,12 +1723,12 @@ extension CIFilter {
     /// Categories: ["CICategoryGradient", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The center of the effect as x and y coordinates., defaultValue = [150 150].
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 0) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 0) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputRadius: The radius of the Gaussian distribution., defaultValue = 300.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func gaussianGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputRadius: NSNumber = 300) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGaussianGradient") else {
             return nil
@@ -1750,7 +1750,7 @@ extension CIFilter {
     /// - parameter inputScale: The amount of texturing of the resulting image. The larger the value, the greater the texturing., defaultValue = 200.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.4, *)
     static func glassDistortion(inputTexture: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: NSNumber = 200) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGlassDistortion") else {
             return nil
@@ -1772,7 +1772,7 @@ extension CIFilter {
     /// - parameter inputRefraction: The refraction of the glass., defaultValue = 1.7.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func glassLozenge(inputPoint0: CIVector = CIVector(x: 150.0, y: 150.0), inputPoint1: CIVector = CIVector(x: 350.0, y: 150.0), inputRadius: NSNumber = 100, inputRefraction: NSNumber = 1.7) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGlassLozenge") else {
             return nil
@@ -1794,7 +1794,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func glideReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGlideReflectedTile") else {
             return nil
@@ -1814,7 +1814,7 @@ extension CIFilter {
     /// - parameter inputIntensity: The intensity of the effect. A value of 0.0 is no effect. A value of 1.0 is the maximum effect., defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func gloom(inputRadius: NSNumber = 10, inputIntensity: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIGloom") else {
             return nil
@@ -1832,7 +1832,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func hardLightBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHardLightBlendMode") else {
             return nil
@@ -1852,7 +1852,7 @@ extension CIFilter {
     /// - parameter inputSharpness: The amount of sharpening to apply., defaultValue = 0.7.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func hatchedScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 6, inputSharpness: NSNumber = 0.7) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHatchedScreen") else {
             return nil
@@ -1872,7 +1872,7 @@ extension CIFilter {
     /// - parameter inputRadius: The distance from the edge of the mask for the smooth transition is proportional to the input radius. Larger values make the transition smoother and more pronounced. Smaller values make the transition approximate a fillet radius., defaultValue = 10.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func heightFieldFromMask(inputRadius: NSNumber = 10) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHeightFieldFromMask") else {
             return nil
@@ -1890,7 +1890,7 @@ extension CIFilter {
     /// - parameter inputScale: The scale determines the size of the hexagons. Larger values result in larger hexagons., defaultValue = 8.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func hexagonalPixellate(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: NSNumber = 8) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHexagonalPixellate") else {
             return nil
@@ -1910,7 +1910,7 @@ extension CIFilter {
     /// - parameter inputHighlightAmount: The amount of adjustment to the highlights of the image., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.7, *)
     static func highlightShadowAdjust(inputRadius: NSNumber = 0, inputShadowAmount: NSNumber = 0, inputHighlightAmount: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHighlightShadowAdjust") else {
             return nil
@@ -1931,7 +1931,7 @@ extension CIFilter {
     /// - parameter inputLowLimit: The fraction of the left portion of the histogram image to make darker, defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.9, *)
     static func histogramDisplayFilter(inputHeight: NSNumber = 100, inputHighLimit: NSNumber = 1, inputLowLimit: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHistogramDisplayFilter") else {
             return nil
@@ -1951,7 +1951,7 @@ extension CIFilter {
     /// - parameter inputRadius: The radius determines how many pixels are used to create the distortion. The larger the radius, the wider the extent of the distortion., defaultValue = 150.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func holeDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 150) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHoleDistortion") else {
             return nil
@@ -1969,7 +1969,7 @@ extension CIFilter {
     /// - parameter inputAngle: An angle (in radians) to use to correct the hue of an image., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func hueAdjust(inputAngle: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHueAdjust") else {
             return nil
@@ -1986,7 +1986,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func hueBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHueBlendMode") else {
             return nil
@@ -2003,10 +2003,10 @@ extension CIFilter {
     /// - parameter inputRadius: The distance from the center of the effect., defaultValue = 300.
     /// - parameter inputSoftness: , defaultValue = 1.
     /// - parameter inputDither: , defaultValue = 1.
-    /// - parameter inputColorSpace: The CGColorSpaceRef that the color wheel should be generated in., defaultValue = <CGColorSpace 0x60c0000b2ea0> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1).
+    /// - parameter inputColorSpace: The CGColorSpaceRef that the color wheel should be generated in., defaultValue = <CGColorSpace 0x6080000bab80> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 10, *)
+    @available(iOS 10, OSX 10.12, *)
     static func hueSaturationValueGradient(inputValue: NSNumber = 1, inputRadius: NSNumber = 300, inputSoftness: NSNumber = 1, inputDither: NSNumber = 1, inputColorSpace: NSObject) -> CIFilter? {
         guard let filter = CIFilter(name: "CIHueSaturationValueGradient") else {
             return nil
@@ -2029,7 +2029,7 @@ extension CIFilter {
     /// - parameter inputAngle: The angle of reflection., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func kaleidoscope(inputCount: NSNumber = 6, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIKaleidoscope") else {
             return nil
@@ -2048,7 +2048,7 @@ extension CIFilter {
     /// - parameter inputImage2:
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func labDeltaE(inputImage2: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CILabDeltaE") else {
             return nil
@@ -2066,7 +2066,7 @@ extension CIFilter {
     /// - parameter inputAspectRatio: The additional horizontal scaling factor to use on the image., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func lanczosScaleTransform(inputScale: NSNumber = 1, inputAspectRatio: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CILanczosScaleTransform") else {
             return nil
@@ -2081,7 +2081,7 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the halo., defaultValue = [150 150].
-    /// - parameter inputColor: A color., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: A color., defaultValue = (1 0.9 0.8 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputHaloRadius: The radius of the halo., defaultValue = 70.
     /// - parameter inputHaloWidth: The width of the halo, from its inner radius to its outer radius., defaultValue = 87.
     /// - parameter inputHaloOverlap: , defaultValue = 0.77.
@@ -2090,7 +2090,7 @@ extension CIFilter {
     /// - parameter inputTime: The duration of the effect., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func lenticularHaloGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputHaloRadius: NSNumber = 70, inputHaloWidth: NSNumber = 87, inputHaloOverlap: NSNumber = 0.77, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1, inputTime: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CILenticularHaloGenerator") else {
             return nil
@@ -2114,7 +2114,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func lightenBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CILightenBlendMode") else {
             return nil
@@ -2133,7 +2133,7 @@ extension CIFilter {
     /// - parameter inputRadius: Center radius of the light tunnel., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.10, *)
     static func lightTunnel(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRotation: NSNumber = 0, inputRadius: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CILightTunnel") else {
             return nil
@@ -2152,7 +2152,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func linearBurnBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CILinearBurnBlendMode") else {
             return nil
@@ -2169,7 +2169,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func linearDodgeBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CILinearDodgeBlendMode") else {
             return nil
@@ -2184,11 +2184,11 @@ extension CIFilter {
     ///
     /// - parameter inputPoint0: The starting position of the gradient -- where the first color begins., defaultValue = [0 0].
     /// - parameter inputPoint1: The ending position of the gradient -- where the second color begins., defaultValue = [200 200].
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func linearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
         guard let filter = CIFilter(name: "CILinearGradient") else {
             return nil
@@ -2207,7 +2207,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.10, *)
     static func linearToSRGBToneCurve() -> CIFilter? {
         guard let filter = CIFilter(name: "CILinearToSRGBToneCurve") else {
             return nil
@@ -2227,7 +2227,7 @@ extension CIFilter {
     /// - parameter inputContrast: The amount of anti-aliasing to use on the edges produced by this filter. Higher values produce higher contrast edges (they are less anti-aliased)., defaultValue = 50.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func lineOverlay(inputNRNoiseLevel: NSNumber = 0.07000000000000001, inputNRSharpness: NSNumber = 0.71, inputEdgeIntensity: NSNumber = 1, inputThreshold: NSNumber = 0.1, inputContrast: NSNumber = 50) -> CIFilter? {
         guard let filter = CIFilter(name: "CILineOverlay") else {
             return nil
@@ -2251,7 +2251,7 @@ extension CIFilter {
     /// - parameter inputSharpness: The sharpness of the pattern. The larger the value, the sharper the pattern., defaultValue = 0.7.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func lineScreen(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 6, inputSharpness: NSNumber = 0.7) -> CIFilter? {
         guard let filter = CIFilter(name: "CILineScreen") else {
             return nil
@@ -2271,7 +2271,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func luminosityBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CILuminosityBlendMode") else {
             return nil
@@ -2289,7 +2289,7 @@ extension CIFilter {
     /// - parameter inputRadius: The distance from the center of the effect., defaultValue = 5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func maskedVariableBlur(inputMask: CIImage, inputRadius: NSNumber = 5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMaskedVariableBlur") else {
             return nil
@@ -2306,7 +2306,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func maskToAlpha() -> CIFilter? {
         guard let filter = CIFilter(name: "CIMaskToAlpha") else {
             return nil
@@ -2321,7 +2321,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to process.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func maximumComponent() -> CIFilter? {
         guard let filter = CIFilter(name: "CIMaximumComponent") else {
             return nil
@@ -2337,7 +2337,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func maximumCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMaximumCompositing") else {
             return nil
@@ -2353,7 +2353,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func medianFilter() -> CIFilter? {
         guard let filter = CIFilter(name: "CIMedianFilter") else {
             return nil
@@ -2368,7 +2368,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to process.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func minimumComponent() -> CIFilter? {
         guard let filter = CIFilter(name: "CIMinimumComponent") else {
             return nil
@@ -2384,7 +2384,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func minimumCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMinimumCompositing") else {
             return nil
@@ -2406,7 +2406,7 @@ extension CIFilter {
     /// - parameter inputCompression: The amount of stretching applied to the mod hole pattern. Holes in the center are not distorted as much as those at the edge of the image., defaultValue = 300.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func modTransition(inputTargetImage: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputTime: NSNumber = 0, inputAngle: NSNumber = 2, inputRadius: NSNumber = 150, inputCompression: NSNumber = 300) -> CIFilter? {
         guard let filter = CIFilter(name: "CIModTransition") else {
             return nil
@@ -2428,7 +2428,7 @@ extension CIFilter {
     /// - parameter inputRadius: The desired radius of the circular morphological operation to the image., defaultValue = 5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func morphologyGradient(inputRadius: NSNumber = 5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMorphologyGradient") else {
             return nil
@@ -2445,7 +2445,7 @@ extension CIFilter {
     /// - parameter inputRadius: The desired radius of the circular morphological operation to the image., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func morphologyMaximum(inputRadius: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMorphologyMaximum") else {
             return nil
@@ -2462,7 +2462,7 @@ extension CIFilter {
     /// - parameter inputRadius: The desired radius of the circular morphological operation to the image., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func morphologyMinimum(inputRadius: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMorphologyMinimum") else {
             return nil
@@ -2480,7 +2480,7 @@ extension CIFilter {
     /// - parameter inputAngle: The angle of the motion determines which direction the blur smears., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8.3, *)
+    @available(iOS 8.3, OSX 10.4, *)
     static func motionBlur(inputRadius: NSNumber = 20, inputAngle: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMotionBlur") else {
             return nil
@@ -2498,7 +2498,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func multiplyBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMultiplyBlendMode") else {
             return nil
@@ -2515,7 +2515,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func multiplyCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIMultiplyCompositing") else {
             return nil
@@ -2534,7 +2534,7 @@ extension CIFilter {
     /// - parameter inputGrowAmount: , defaultValue = [100 100].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 10, *)
+    @available(iOS 10, OSX 10.12, *)
     static func ninePartStretched(inputBreakpoint0: CIVector = CIVector(x: 50.0, y: 50.0), inputBreakpoint1: CIVector = CIVector(x: 150.0, y: 150.0), inputGrowAmount: CIVector = CIVector(x: 100.0, y: 100.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CINinePartStretched") else {
             return nil
@@ -2556,7 +2556,7 @@ extension CIFilter {
     /// - parameter inputFlipYTiles: Indicates that Y-Axis flip should occur., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 10, *)
+    @available(iOS 10, OSX 10.12, *)
     static func ninePartTiled(inputBreakpoint0: CIVector = CIVector(x: 50.0, y: 50.0), inputBreakpoint1: CIVector = CIVector(x: 150.0, y: 150.0), inputGrowAmount: CIVector = CIVector(x: 100.0, y: 100.0), inputFlipYTiles: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CINinePartTiled") else {
             return nil
@@ -2577,7 +2577,7 @@ extension CIFilter {
     /// - parameter inputSharpness: The sharpness of the final image. The larger the value, the sharper the result., defaultValue = 0.4.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func noiseReduction(inputNoiseLevel: NSNumber = 0.02, inputSharpness: NSNumber = 0.4) -> CIFilter? {
         guard let filter = CIFilter(name: "CINoiseReduction") else {
             return nil
@@ -2598,7 +2598,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 65.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func opTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: NSNumber = 2.8, inputAngle: NSNumber = 0, inputWidth: NSNumber = 65) -> CIFilter? {
         guard let filter = CIFilter(name: "CIOpTile") else {
             return nil
@@ -2618,7 +2618,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func overlayBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIOverlayBlendMode") else {
             return nil
@@ -2641,7 +2641,7 @@ extension CIFilter {
     /// - parameter inputRadius: The radius of the curl., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func pageCurlTransition(inputTargetImage: CIImage, inputBacksideImage: CIImage, inputShadingImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputRadius: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPageCurlTransition") else {
             return nil
@@ -2672,7 +2672,7 @@ extension CIFilter {
     /// - parameter inputShadowExtent: , defaultValue = [0 0 0 0].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.9, *)
     static func pageCurlWithShadowTransition(inputTargetImage: CIImage, inputBacksideImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0), inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputRadius: NSNumber = 100, inputShadowSize: NSNumber = 0.5, inputShadowAmount: NSNumber = 0.7, inputShadowExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 0.0, w: 0.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPageCurlWithShadowTransition") else {
             return nil
@@ -2700,7 +2700,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func parallelogramTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputAcuteAngle: NSNumber = 1.570796326794897, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CIParallelogramTile") else {
             return nil
@@ -2730,7 +2730,7 @@ extension CIFilter {
     /// - parameter inputAlwaysSpecifyCompaction:
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.11, *)
     static func pDF417BarcodeGenerator(inputMessage: NSData, inputMinWidth: NSNumber, inputMaxWidth: NSNumber, inputMinHeight: NSNumber, inputMaxHeight: NSNumber, inputDataColumns: NSNumber, inputRows: NSNumber, inputPreferredAspectRatio: NSNumber, inputCompactionMode: NSNumber, inputCompactStyle: NSNumber, inputCorrectionLevel: NSNumber, inputAlwaysSpecifyCompaction: NSNumber) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPDF417BarcodeGenerator") else {
             return nil
@@ -2762,7 +2762,7 @@ extension CIFilter {
     /// - parameter inputCrop: , defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func perspectiveCorrection(inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0), inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0), inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0), inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0), inputCrop: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPerspectiveCorrection") else {
             return nil
@@ -2786,7 +2786,7 @@ extension CIFilter {
     /// - parameter inputBottomLeft: The bottom left coordinate of a tile., defaultValue = [155 153].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func perspectiveTile(inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0), inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0), inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0), inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPerspectiveTile") else {
             return nil
@@ -2809,7 +2809,7 @@ extension CIFilter {
     /// - parameter inputBottomLeft: The bottom left coordinate to map the image to., defaultValue = [155 153].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func perspectiveTransform(inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0), inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0), inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0), inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPerspectiveTransform") else {
             return nil
@@ -2833,7 +2833,7 @@ extension CIFilter {
     /// - parameter inputBottomLeft: , defaultValue = [155 153].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func perspectiveTransformWithExtent(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputTopLeft: CIVector = CIVector(x: 118.0, y: 484.0), inputTopRight: CIVector = CIVector(x: 646.0, y: 507.0), inputBottomRight: CIVector = CIVector(x: 548.0, y: 140.0), inputBottomLeft: CIVector = CIVector(x: 155.0, y: 153.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPerspectiveTransformWithExtent") else {
             return nil
@@ -2853,7 +2853,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectChrome() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectChrome") else {
             return nil
@@ -2868,7 +2868,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectFade() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectFade") else {
             return nil
@@ -2883,7 +2883,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectInstant() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectInstant") else {
             return nil
@@ -2898,7 +2898,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectMono() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectMono") else {
             return nil
@@ -2913,7 +2913,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectNoir() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectNoir") else {
             return nil
@@ -2928,7 +2928,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectProcess() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectProcess") else {
             return nil
@@ -2943,7 +2943,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectTonal() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectTonal") else {
             return nil
@@ -2958,7 +2958,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func photoEffectTransfer() -> CIFilter? {
         guard let filter = CIFilter(name: "CIPhotoEffectTransfer") else {
             return nil
@@ -2976,7 +2976,7 @@ extension CIFilter {
     /// - parameter inputScale: The amount of pinching. A value of 0.0 has no effect. A value of 1.0 is the maximum pinch., defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func pinchDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 300, inputScale: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPinchDistortion") else {
             return nil
@@ -2995,7 +2995,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func pinLightBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPinLightBlendMode") else {
             return nil
@@ -3013,7 +3013,7 @@ extension CIFilter {
     /// - parameter inputScale: The scale determines the size of the squares. Larger values result in larger squares., defaultValue = 8.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func pixellate(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputScale: NSNumber = 8) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPixellate") else {
             return nil
@@ -3032,7 +3032,7 @@ extension CIFilter {
     /// - parameter inputCenter: The x and y position to use as the center of the effect, defaultValue = [150 150].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func pointillize(inputRadius: NSNumber = 20, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIPointillize") else {
             return nil
@@ -3050,7 +3050,7 @@ extension CIFilter {
     /// - parameter inputCorrectionLevel: QRCode correction level L, M, Q, or H., defaultValue = M.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage", "outputCGImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func qRCodeGenerator(inputMessage: NSData, inputCorrectionLevel: NSString = "M") -> CIFilter? {
         guard let filter = CIFilter(name: "CIQRCodeGenerator") else {
             return nil
@@ -3067,11 +3067,11 @@ extension CIFilter {
     /// - parameter inputCenter: The center of the effect as x and y coordinates., defaultValue = [150 150].
     /// - parameter inputRadius0: The radius of the starting circle to use in the gradient., defaultValue = 5.
     /// - parameter inputRadius1: The radius of the ending circle to use in the gradient., defaultValue = 100.
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func radialGradient(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius0: NSNumber = 5, inputRadius1: NSNumber = 100, inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
         guard let filter = CIFilter(name: "CIRadialGradient") else {
             return nil
@@ -3090,7 +3090,7 @@ extension CIFilter {
     ///
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func randomGenerator() -> CIFilter? {
         guard let filter = CIFilter(name: "CIRandomGenerator") else {
             return nil
@@ -3112,7 +3112,7 @@ extension CIFilter {
     /// - parameter inputScale: A value that determines whether the ripple starts as a bulge (higher value) or a dimple (lower value)., defaultValue = 50.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func rippleTransition(inputTargetImage: CIImage, inputShadingImage: CIImage, inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputTime: NSNumber = 0, inputWidth: NSNumber = 100, inputScale: NSNumber = 50) -> CIFilter? {
         guard let filter = CIFilter(name: "CIRippleTransition") else {
             return nil
@@ -3135,7 +3135,7 @@ extension CIFilter {
     /// - parameter inputExtent: A rectangle that specifies the subregion of the image that you want to process., defaultValue = [0 0 640 80].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func rowAverage(inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 640.0, w: 80.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIRowAverage") else {
             return nil
@@ -3152,7 +3152,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func saturationBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISaturationBlendMode") else {
             return nil
@@ -3169,7 +3169,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func screenBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CIScreenBlendMode") else {
             return nil
@@ -3186,7 +3186,7 @@ extension CIFilter {
     /// - parameter inputIntensity: The intensity of the sepia effect. A value of 1.0 creates a monochrome sepia image. A value of 0.0 has no effect on the image., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func sepiaTone(inputIntensity: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CISepiaTone") else {
             return nil
@@ -3204,7 +3204,7 @@ extension CIFilter {
     /// - parameter inputScale: The scale of the effect. The higher the value, the more dramatic the effect., defaultValue = 10.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func shadedMaterial(inputShadingImage: CIImage, inputScale: NSNumber = 10) -> CIFilter? {
         guard let filter = CIFilter(name: "CIShadedMaterial") else {
             return nil
@@ -3223,7 +3223,7 @@ extension CIFilter {
     /// - parameter inputRadius: The distance from the center of the effect., defaultValue = 1.69.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func sharpenLuminance(inputSharpness: NSNumber = 0.4, inputRadius: NSNumber = 1.69) -> CIFilter? {
         guard let filter = CIFilter(name: "CISharpenLuminance") else {
             return nil
@@ -3243,7 +3243,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func sixfoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CISixfoldReflectedTile") else {
             return nil
@@ -3264,7 +3264,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func sixfoldRotatedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CISixfoldRotatedTile") else {
             return nil
@@ -3281,11 +3281,11 @@ extension CIFilter {
     ///
     /// - parameter inputPoint0: The starting position of the gradient -- where the first color begins., defaultValue = [0 0].
     /// - parameter inputPoint1: The ending position of the gradient -- where the second color begins., defaultValue = [200 200].
-    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: The first color to use in the gradient., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: The second color to use in the gradient., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.10, *)
     static func smoothLinearGradient(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 200.0, y: 200.0), inputColor0: CIColor, inputColor1: CIColor) -> CIFilter? {
         guard let filter = CIFilter(name: "CISmoothLinearGradient") else {
             return nil
@@ -3305,7 +3305,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func softLightBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISoftLightBlendMode") else {
             return nil
@@ -3322,7 +3322,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func sourceAtopCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISourceAtopCompositing") else {
             return nil
@@ -3339,7 +3339,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func sourceInCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISourceInCompositing") else {
             return nil
@@ -3356,7 +3356,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func sourceOutCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISourceOutCompositing") else {
             return nil
@@ -3373,7 +3373,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func sourceOverCompositing(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISourceOverCompositing") else {
             return nil
@@ -3387,21 +3387,21 @@ extension CIFilter {
     /// Categories: ["CICategoryBuiltIn", "CICategoryStillImage", "CICategoryVideo", "CICategoryStylize"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputCenterColor1: The center value of the first color range to replace., defaultValue = (0.0784 0.0627 0.0706 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor1: A replacement color for the first color range., defaultValue = (0.4392 0.1922 0.1961 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor1: The center value of the first color range to replace., defaultValue = (0.0784 0.0627 0.0706 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor1: A replacement color for the first color range., defaultValue = (0.4392 0.1922 0.1961 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness1: A value that indicates how close the first color must match before it is replaced., defaultValue = 0.22.
     /// - parameter inputContrast1: The contrast of the first replacement color., defaultValue = 0.98.
-    /// - parameter inputCenterColor2: The center value of the second color range to replace., defaultValue = (0.5255 0.3059 0.3451 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor2: A replacement color for the second color range., defaultValue = (0.9137 0.5608 0.5059 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor2: The center value of the second color range to replace., defaultValue = (0.5255 0.3059 0.3451 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor2: A replacement color for the second color range., defaultValue = (0.9137 0.5608 0.5059 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness2: A value that indicates how close the second color must match before it is replaced., defaultValue = 0.15.
     /// - parameter inputContrast2: The contrast of the second replacement color., defaultValue = 0.98.
-    /// - parameter inputCenterColor3: The center value of the third color range to replace., defaultValue = (0.9216 0.4549 0.3333 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputReplacementColor3: A replacement color for the third color range., defaultValue = (0.9098 0.7529 0.6078 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputCenterColor3: The center value of the third color range to replace., defaultValue = (0.9216 0.4549 0.3333 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputReplacementColor3: A replacement color for the third color range., defaultValue = (0.9098 0.7529 0.6078 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputCloseness3: A value that indicates how close the third color must match before it is replaced., defaultValue = 0.5.
     /// - parameter inputContrast3: The contrast of the third replacement color., defaultValue = 0.99.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.5, *)
     static func spotColor(inputCenterColor1: CIColor, inputReplacementColor1: CIColor, inputCloseness1: NSNumber = 0.22, inputContrast1: NSNumber = 0.98, inputCenterColor2: CIColor, inputReplacementColor2: CIColor, inputCloseness2: NSNumber = 0.15, inputContrast2: NSNumber = 0.98, inputCenterColor3: CIColor, inputReplacementColor3: CIColor, inputCloseness3: NSNumber = 0.5, inputContrast3: NSNumber = 0.99) -> CIFilter? {
         guard let filter = CIFilter(name: "CISpotColor") else {
             return nil
@@ -3430,10 +3430,10 @@ extension CIFilter {
     /// - parameter inputLightPointsAt: The x and y position that the spotlight points at., defaultValue = [200 200 0].
     /// - parameter inputBrightness: The brightness of the spotlight., defaultValue = 3.
     /// - parameter inputConcentration: The spotlight size. The smaller the value, the more tightly focused the light beam., defaultValue = 0.1.
-    /// - parameter inputColor: The color of the spotlight., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the spotlight., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func spotLight(inputLightPosition: CIVector = CIVector(x: 400.0, y: 600.0, z: 150.0), inputLightPointsAt: CIVector = CIVector(x: 200.0, y: 200.0, z: 0.0), inputBrightness: NSNumber = 3, inputConcentration: NSNumber = 0.1, inputColor: CIColor) -> CIFilter? {
         guard let filter = CIFilter(name: "CISpotLight") else {
             return nil
@@ -3453,7 +3453,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.10, *)
     static func sRGBToneCurveToLinear() -> CIFilter? {
         guard let filter = CIFilter(name: "CISRGBToneCurveToLinear") else {
             return nil
@@ -3466,7 +3466,7 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the star., defaultValue = [150 150].
-    /// - parameter inputColor: The color to use for the outer shell of the circular star., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color to use for the outer shell of the circular star., defaultValue = (1 0.8 0.6 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputRadius: The radius of the star., defaultValue = 50.
     /// - parameter inputCrossScale: The size of the cross pattern., defaultValue = 15.
     /// - parameter inputCrossAngle: The angle of the cross pattern., defaultValue = 0.6.
@@ -3475,7 +3475,7 @@ extension CIFilter {
     /// - parameter inputEpsilon: The length of the cross spikes., defaultValue = -2.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func starShineGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputRadius: NSNumber = 50, inputCrossScale: NSNumber = 15, inputCrossAngle: NSNumber = 0.6, inputCrossOpacity: NSNumber = -2, inputCrossWidth: NSNumber = 2.5, inputEpsilon: NSNumber = -2) -> CIFilter? {
         guard let filter = CIFilter(name: "CIStarShineGenerator") else {
             return nil
@@ -3499,7 +3499,7 @@ extension CIFilter {
     /// - parameter inputAngle: An angle in radians., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.7, *)
     static func straightenFilter(inputAngle: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIStraightenFilter") else {
             return nil
@@ -3518,7 +3518,7 @@ extension CIFilter {
     /// - parameter inputCenterStretchAmount: Determine how much the center of the image is stretched if stretching is used. If value is 0 then the center of the image maintains the original aspect ratio. If 1 then the image is stretched uniformly., defaultValue = 0.25.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.6, *)
     static func stretchCrop(inputSize: CIVector = CIVector(x: 1280.0, y: 720.0), inputCropAmount: NSNumber = 0.25, inputCenterStretchAmount: NSNumber = 0.25) -> CIFilter? {
         guard let filter = CIFilter(name: "CIStretchCrop") else {
             return nil
@@ -3534,13 +3534,13 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the stripe pattern., defaultValue = [150 150].
-    /// - parameter inputColor0: A color to use for the odd stripes., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
-    /// - parameter inputColor1: A color to use for the even stripes., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor0: A color to use for the odd stripes., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor1: A color to use for the even stripes., defaultValue = (0 0 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputWidth: The width of a stripe., defaultValue = 80.
     /// - parameter inputSharpness: The sharpness of the stripe pattern. The smaller the value, the more blurry the pattern. Values range from 0.0 to 1.0., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func stripesGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor0: CIColor, inputColor1: CIColor, inputWidth: NSNumber = 80, inputSharpness: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIStripesGenerator") else {
             return nil
@@ -3561,7 +3561,7 @@ extension CIFilter {
     /// - parameter inputBackgroundImage: The image to use as a background image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8, *)
+    @available(iOS 8, OSX 10.10, *)
     static func subtractBlendMode(inputBackgroundImage: CIImage) -> CIFilter? {
         guard let filter = CIFilter(name: "CISubtractBlendMode") else {
             return nil
@@ -3575,7 +3575,7 @@ extension CIFilter {
     /// Categories: ["CICategoryGenerator", "CICategoryVideo", "CICategoryStillImage", "CICategoryBuiltIn"])
     ///
     /// - parameter inputCenter: The x and y position to use as the center of the sunbeam pattern, defaultValue = [150 150].
-    /// - parameter inputColor: The color of the sun., defaultValue = (1 0.5 0 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the sun., defaultValue = (1 0.5 0 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputSunRadius: The radius of the sun., defaultValue = 40.
     /// - parameter inputMaxStriationRadius: The radius of the sunbeams., defaultValue = 2.58.
     /// - parameter inputStriationStrength: The intensity of the sunbeams. Higher values result in more intensity., defaultValue = 0.5.
@@ -3583,7 +3583,7 @@ extension CIFilter {
     /// - parameter inputTime: The duration of the effect., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func sunbeamsGenerator(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputColor: CIColor, inputSunRadius: NSNumber = 40, inputMaxStriationRadius: NSNumber = 2.58, inputStriationStrength: NSNumber = 0.5, inputStriationContrast: NSNumber = 1.375, inputTime: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CISunbeamsGenerator") else {
             return nil
@@ -3605,14 +3605,14 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     /// - parameter inputTargetImage: The target image for a transition.
     /// - parameter inputExtent: The extent of the effect., defaultValue = [0 0 300 300].
-    /// - parameter inputColor: The color of the swipe., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: The color of the swipe., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     /// - parameter inputTime: The parametric time of the transition. This value drives the transition from start (at time 0) to end (at time 1)., defaultValue = 0.
     /// - parameter inputAngle: The angle of the swipe., defaultValue = 0.
     /// - parameter inputWidth: The width of the swipe, defaultValue = 300.
     /// - parameter inputOpacity: The opacity of the swipe., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func swipeTransition(inputTargetImage: CIImage, inputExtent: CIVector = CIVector(x: 0.0, y: 0.0, z: 300.0, w: 300.0), inputColor: CIColor, inputTime: NSNumber = 0, inputAngle: NSNumber = 0, inputWidth: NSNumber = 300, inputOpacity: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CISwipeTransition") else {
             return nil
@@ -3636,7 +3636,7 @@ extension CIFilter {
     /// - parameter inputTargetNeutral: , defaultValue = [6500 0].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.7, *)
     static func temperatureAndTint(inputNeutral: CIVector = CIVector(x: 6500.0, y: 0.0), inputTargetNeutral: CIVector = CIVector(x: 6500.0, y: 0.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CITemperatureAndTint") else {
             return nil
@@ -3656,7 +3656,7 @@ extension CIFilter {
     /// - parameter inputScaleFactor: , defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 11, *)
+    @available(iOS 11, OSX 10.13, *)
     static func textImageGenerator(inputText: NSString, inputFontName: NSString = "HelveticaNeue", inputFontSize: NSNumber = 12, inputScaleFactor: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CITextImageGenerator") else {
             return nil
@@ -3675,7 +3675,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 10, *)
+    @available(iOS 10, OSX 10.11, *)
     static func thermal() -> CIFilter? {
         guard let filter = CIFilter(name: "CIThermal") else {
             return nil
@@ -3695,7 +3695,7 @@ extension CIFilter {
     /// - parameter inputPoint4: , defaultValue = [1 1].
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.7, *)
     static func toneCurve(inputPoint0: CIVector = CIVector(x: 0.0, y: 0.0), inputPoint1: CIVector = CIVector(x: 0.25, y: 0.25), inputPoint2: CIVector = CIVector(x: 0.5, y: 0.5), inputPoint3: CIVector = CIVector(x: 0.75, y: 0.75), inputPoint4: CIVector = CIVector(x: 1.0, y: 1.0)) -> CIFilter? {
         guard let filter = CIFilter(name: "CIToneCurve") else {
             return nil
@@ -3719,7 +3719,7 @@ extension CIFilter {
     /// - parameter inputRefraction: The refraction of the glass., defaultValue = 1.7.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func torusLensDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 160, inputWidth: NSNumber = 80, inputRefraction: NSNumber = 1.7) -> CIFilter? {
         guard let filter = CIFilter(name: "CITorusLensDistortion") else {
             return nil
@@ -3742,7 +3742,7 @@ extension CIFilter {
     /// - parameter inputDecay: The decay determines how fast the color fades from the center triangle., defaultValue = 0.85.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.10, *)
     static func triangleKaleidoscope(inputPoint: CIVector = CIVector(x: 150.0, y: 150.0), inputSize: NSNumber = 700, inputRotation: NSNumber = 5.924285296593801, inputDecay: NSNumber = 0.85) -> CIFilter? {
         guard let filter = CIFilter(name: "CITriangleKaleidoscope") else {
             return nil
@@ -3764,7 +3764,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 9, *)
+    @available(iOS 9, OSX 10.4, *)
     static func triangleTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CITriangleTile") else {
             return nil
@@ -3785,7 +3785,7 @@ extension CIFilter {
     /// - parameter inputWidth: The width of a tile., defaultValue = 100.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.5, *)
     static func twelvefoldReflectedTile(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAngle: NSNumber = 0, inputWidth: NSNumber = 100) -> CIFilter? {
         guard let filter = CIFilter(name: "CITwelvefoldReflectedTile") else {
             return nil
@@ -3806,7 +3806,7 @@ extension CIFilter {
     /// - parameter inputAngle: The angle (in radians) of the twirl. Values can be positive or negative., defaultValue = 3.141592653589793.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func twirlDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 300, inputAngle: NSNumber = 3.141592653589793) -> CIFilter? {
         guard let filter = CIFilter(name: "CITwirlDistortion") else {
             return nil
@@ -3826,7 +3826,7 @@ extension CIFilter {
     /// - parameter inputIntensity: The intensity of the effect. The larger the value, the more contrast in the affected area., defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func unsharpMask(inputRadius: NSNumber = 2.5, inputIntensity: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIUnsharpMask") else {
             return nil
@@ -3844,7 +3844,7 @@ extension CIFilter {
     /// - parameter inputAmount: The amount to adjust the saturation., defaultValue = 0.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.7, *)
     static func vibrance(inputAmount: NSNumber = 0) -> CIFilter? {
         guard let filter = CIFilter(name: "CIVibrance") else {
             return nil
@@ -3862,7 +3862,7 @@ extension CIFilter {
     /// - parameter inputRadius: The distance from the center of the effect., defaultValue = 1.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.9, *)
     static func vignette(inputIntensity: NSNumber = 0, inputRadius: NSNumber = 1) -> CIFilter? {
         guard let filter = CIFilter(name: "CIVignette") else {
             return nil
@@ -3883,7 +3883,7 @@ extension CIFilter {
     /// - parameter inputFalloff: , defaultValue = 0.5.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 7, *)
+    @available(iOS 7, OSX 10.9, *)
     static func vignetteEffect(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 150, inputIntensity: NSNumber = 1, inputFalloff: NSNumber = 0.5) -> CIFilter? {
         guard let filter = CIFilter(name: "CIVignetteEffect") else {
             return nil
@@ -3905,7 +3905,7 @@ extension CIFilter {
     /// - parameter inputAngle: The angle (in radians) of the vortex., defaultValue = 56.54866776461628.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 6, *)
+    @available(iOS 6, OSX 10.4, *)
     static func vortexDistortion(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputRadius: NSNumber = 300, inputAngle: NSNumber = 56.54866776461628) -> CIFilter? {
         guard let filter = CIFilter(name: "CIVortexDistortion") else {
             return nil
@@ -3921,10 +3921,10 @@ extension CIFilter {
     /// Categories: ["CICategoryColorAdjustment", "CICategoryVideo", "CICategoryStillImage", "CICategoryInterlaced", "CICategoryNonSquarePixels", "CICategoryBuiltIn"])
     ///
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
-    /// - parameter inputColor: A color to use as the white point., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000b2f60> (kCGColorSpaceDeviceRGB).
+    /// - parameter inputColor: A color to use as the white point., defaultValue = (1 1 1 1) <CGColorSpace 0x6080000baac0> (kCGColorSpaceDeviceRGB).
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 5, *)
+    @available(iOS 5, OSX 10.4, *)
     static func whitePointAdjust(inputColor: CIColor) -> CIFilter? {
         guard let filter = CIFilter(name: "CIWhitePointAdjust") else {
             return nil
@@ -3940,7 +3940,7 @@ extension CIFilter {
     /// - parameter inputImage: The image to use as an input image. For filters that also use a background image, this is the foreground image.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 10, *)
+    @available(iOS 10, OSX 10.11, *)
     static func xRay() -> CIFilter? {
         guard let filter = CIFilter(name: "CIXRay") else {
             return nil
@@ -3957,7 +3957,7 @@ extension CIFilter {
     /// - parameter inputAmount: The zoom-in amount. Larger values result in more zooming in., defaultValue = 20.
     ///
     /// - returns: Generated CIFilter (you can get result with ["outputImage"])
-    @available(iOS 8.3, *)
+    @available(iOS 8.3, OSX 10.4, *)
     static func zoomBlur(inputCenter: CIVector = CIVector(x: 150.0, y: 150.0), inputAmount: NSNumber = 20) -> CIFilter? {
         guard let filter = CIFilter(name: "CIZoomBlur") else {
             return nil

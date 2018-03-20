@@ -66,6 +66,10 @@ extension CIFilter {
         return self.attributes[kCIAttributeFilterAvailable_iOS] as? String
     }
     
+    var availableOsx: String? {
+        return self.attributes[kCIAttributeFilterAvailable_Mac] as? String
+    }
+    
     var categories: [String]? {
         return self.attributes[kCIAttributeFilterCategories] as? [String]
     }
@@ -182,8 +186,11 @@ extension CIFilter {
                 }
                 printer.print("/// ")
                 printer.print("/// - returns: Generated CIFilter (you can get result with \(filter.outputKeys))")
-                if let availableIos = filter.availableIos {
-                    printer.print("@available(iOS \(availableIos), *)")
+
+                // For "CIHistogramDisplayFilter", it returns OSX 10.? but actual value is 10.9
+                let availables = [filter.availableIos.map { "iOS \($0)" }, filter.availableOsx.map { "OSX \($0.replacingOccurrences(of: "?", with: "9"))" }].flatMap { $0 }
+                if !availables.isEmpty {
+                    printer.print("@available(\(availables.joined(separator: ", ")), *)")
                 }
                 
                 // 関数名はfilterNameからCIを除いて、lowerCamelCaseにしたもの
