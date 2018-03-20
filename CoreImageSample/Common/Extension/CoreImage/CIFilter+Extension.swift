@@ -74,6 +74,14 @@ extension CIFilter {
         return (self.attributes[inputKey] as? [String: Any]) ?? [:]
     }
     
+    func apply(to image: CIImage) -> CIImage? {
+        guard inputKeys.contains(kCIInputImageKey) else {
+            return nil
+        }
+        self.setValue(image, forKey: kCIInputImageKey)
+        return outputImage
+    }
+    
     // not complete dictionary
     // kCIInputDepthImageKey: "kCIInputDepthImageKey" is available on iOS 11+
     private static let inputKeyConstantDict: [String: String] = [
@@ -136,7 +144,8 @@ extension CIFilter {
                 guard let filter = CIFilter(name: filterName) else {
                     return
                 }
-                let inputs: [String] = filter.inputKeys.map { inputKey in
+                let inputKeysExceptInputImage = filter.inputKeys.filter { $0 != kCIInputImageKey }
+                let inputParametersString = inputKeysExceptInputImage.map { inputKey in
                     let information = filter.parameterInformation(forInputKey: inputKey)
                     let typeString = (information[kCIAttributeClass].map { "\($0)" } ?? "")
                     let defaultValue = information[kCIAttributeDefault]
@@ -147,7 +156,7 @@ extension CIFilter {
                     } else {
                         return "\(inputKey): \(typeString)"
                     }
-                }
+                }.joined(separator: ", ")
                 let filterDisplayName = filter.displayName ?? filterName
                 printer.print("")
                 if let url = filter.referenceDocumentationUrl {
@@ -182,7 +191,7 @@ extension CIFilter {
                 let initialString = methodName.removeFirst()
                 let functionName =  String(initialString).lowercased() + methodName
                 
-                printer.print("static func \(functionName)(\(inputs.joined(separator: ", "))) -> CIFilter? {")
+                printer.print("static func \(functionName)(\(inputParametersString)) -> CIFilter? {")
                 printer.withShiftedRight {
                     let filterVariableName = "filter"
                     printer.print("guard let \(filterVariableName) = CIFilter(name: \"\(filterName)\") else {")
@@ -191,7 +200,7 @@ extension CIFilter {
                     }
                     printer.print("}")
                     printer.print("\(filterVariableName).setDefaults()")
-                    filter.inputKeys.forEach { inputKey in
+                    inputKeysExceptInputImage.forEach { inputKey in
                         printer.print("\(filterVariableName).setValue(\(inputKey), forKey: \(inputKeyStringString(for: inputKey)))")
                     }
                     printer.print("return \(filterVariableName)")

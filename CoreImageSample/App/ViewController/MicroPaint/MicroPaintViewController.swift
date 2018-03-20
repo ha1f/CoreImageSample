@@ -12,10 +12,8 @@ import UIKit
 class MicroPaintViewController: UIViewController {
     let imageView = UIImageView()
     
-    let hsb = CIFilter(name: "CIColorControls",
-                       withInputParameters: [kCIInputBrightnessKey: 0.05])!
-    let gaussianBlur = CIFilter(name: "CIGaussianBlur",
-                                withInputParameters: [kCIInputRadiusKey: 1])!
+    let hsb = CIFilter(name: "CIColorControls", withInputParameters: [kCIInputBrightnessKey: 0.05])!
+    let gaussianBlur = CIFilter(name: "CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: 1])!
     let compositeFilter = CIFilter(name: "CISourceOverCompositing")!
     var imageAccumulator: CIImageAccumulator!
     
@@ -24,7 +22,7 @@ class MicroPaintViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageAccumulator = CIImageAccumulator(extent: view.frame, format: kCIFormatARGB8)
+        imageAccumulator = CIImageAccumulator(extent: view.bounds, format: kCIFormatARGB8)
         
         view.addSubview(imageView)
         
@@ -36,7 +34,7 @@ class MicroPaintViewController: UIViewController {
     func step() {
         if previousTouchLocation == nil {
             hsb.setValue(imageAccumulator.image(), forKey: kCIInputImageKey)
-            gaussianBlur.setValue(hsb.value(forKey: kCIOutputImageKey) as! CIImage, forKey: kCIInputImageKey)
+            gaussianBlur.setValue(hsb.outputImage!, forKey: kCIInputImageKey)
             
             imageAccumulator.setImage(gaussianBlur.outputImage!)
             
@@ -64,13 +62,11 @@ class MicroPaintViewController: UIViewController {
         cgContext.setLineCap(.round)
         
         for coalescedTouch in coalescedTouches {
-            let lineWidth = coalescedTouch.force != 0 ?
-                (coalescedTouch.force / coalescedTouch.maximumPossibleForce) * 20 :
-            10
+            let lineWidth = coalescedTouch.force != 0 ? (coalescedTouch.force / coalescedTouch.maximumPossibleForce) * 20 : 10
             
-            let lineColor = coalescedTouch.force != 0 ?
-                UIColor(hue: coalescedTouch.force / coalescedTouch.maximumPossibleForce, saturation: 1, brightness: 1, alpha: 1).cgColor :
-                UIColor.gray.cgColor
+            let lineColor = coalescedTouch.force != 0
+                ? UIColor(hue: coalescedTouch.force / coalescedTouch.maximumPossibleForce, saturation: 1, brightness: 1, alpha: 1).cgColor
+                : UIColor.gray.cgColor
             
             cgContext.setLineWidth(lineWidth)
             cgContext.setStrokeColor(lineColor)
@@ -84,10 +80,8 @@ class MicroPaintViewController: UIViewController {
         
         UIGraphicsEndImageContext()
         
-        compositeFilter.setValue(CIImage(image: drawnImage),
-                                 forKey: kCIInputImageKey)
-        compositeFilter.setValue(imageAccumulator.image(),
-                                 forKey: kCIInputBackgroundImageKey)
+        compositeFilter.setValue(CIImage(image: drawnImage), forKey: kCIInputImageKey)
+        compositeFilter.setValue(imageAccumulator.image(), forKey: kCIInputBackgroundImageKey)
         
         imageAccumulator.setImage(compositeFilter.outputImage!)
         
