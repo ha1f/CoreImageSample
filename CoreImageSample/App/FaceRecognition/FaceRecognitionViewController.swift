@@ -23,7 +23,10 @@ class FaceRecognitionViewController: UIViewController {
     }
     
     private func pixellated(_ image: CIImage, pixelSize: Double) -> CIImage? {
-        return CIFilter.pixellate(inputScale: NSNumber(value: pixelSize))?.apply(to: image)
+        guard let filter = CIFilter.pixellate(inputScale: NSNumber(value: pixelSize)) else {
+            return nil
+        }
+        return image.applying(filter)
     }
     
     private func buildMaskImage(image: CIImage, rects: [CGRect]) -> CIImage? {
@@ -37,7 +40,8 @@ class FaceRecognitionViewController: UIViewController {
             }
             
             if let currentMaskImage = maskImage {
-                maskImage = CIFilter.sourceOverCompositing(inputBackgroundImage: currentMaskImage)?.apply(to: circleImage) ?? currentMaskImage
+                let filter = CIFilter.sourceOverCompositing(inputBackgroundImage: currentMaskImage)
+                maskImage = filter.map { circleImage.applying($0) } ?? currentMaskImage
             } else {
                 maskImage = circleImage
             }
@@ -60,7 +64,8 @@ class FaceRecognitionViewController: UIViewController {
             return nil
         }
         
-        guard let result = CIFilter.blendWithMask(inputBackgroundImage: image, inputMaskImage: maskImage)?.apply(to: pixellated) else {
+        let filter = CIFilter.blendWithMask(inputBackgroundImage: image, inputMaskImage: maskImage)
+        guard let result = filter.flatMap({ pixellated.applying($0) }) else {
             return nil
         }
         

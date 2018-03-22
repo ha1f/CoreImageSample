@@ -46,7 +46,7 @@ class MicroPaintViewController: UIViewController {
         
         if let oldAccumulator = self.imageAccumulator {
             let filter = CIFilter.sourceOverCompositing(inputBackgroundImage: newAccumulator.image())!
-            newAccumulator.setImage(filter.apply(to: oldAccumulator.image())!)
+            newAccumulator.setImage(oldAccumulator.image().applying(filter)!)
         }
         
         self.imageAccumulator = newAccumulator
@@ -122,7 +122,7 @@ class MicroPaintViewController: UIViewController {
 
         compositeFilter.setValue(imageAccumulator!.image(), forKey: kCIInputBackgroundImageKey)
 
-        imageAccumulator?.setImage(compositeFilter.apply(to: CIImage.extractOrGenerate(from: drawnImage)!)!)
+        imageAccumulator?.setImage(CIImage.extractOrGenerate(from: drawnImage)!.applying(compositeFilter)!)
 
         imageView.image = imageAccumulator!.image().asUIImage()
     }

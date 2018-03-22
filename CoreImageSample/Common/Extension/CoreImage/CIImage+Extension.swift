@@ -36,6 +36,14 @@ extension CIImage {
         return transformed(by: CGAffineTransform(scaleX: xScale, y: yScale))
     }
     
+    func applying(_ filter: CIFilter) -> CIImage? {
+        guard filter.inputKeys.contains(kCIInputImageKey) else {
+            return nil
+        }
+        filter.setValue(self, forKey: kCIInputImageKey)
+        return filter.outputImage
+    }
+    
     /// Convert to UIImage
     func asUIImage(useCgImage: Bool = false, scale: CGFloat = UIScreen.main.scale, orientation: UIImageOrientation = .up) -> UIImage {
         if useCgImage, let cgImage = CGImage.extractOrGenerate(from: self) {

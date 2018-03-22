@@ -78,14 +78,6 @@ extension CIFilter {
         return (self.attributes[inputKey] as? [String: Any]) ?? [:]
     }
     
-    func apply(to image: CIImage) -> CIImage? {
-        guard inputKeys.contains(kCIInputImageKey) else {
-            return nil
-        }
-        self.setValue(image, forKey: kCIInputImageKey)
-        return outputImage
-    }
-    
     // not complete dictionary
     // kCIInputDepthImageKey: "kCIInputDepthImageKey" is available on iOS 11+
     private static let inputKeyConstantDict: [String: String] = [
