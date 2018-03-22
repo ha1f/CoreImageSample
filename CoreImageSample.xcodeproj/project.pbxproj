@@ -30,6 +30,7 @@
 		569AED80205FC077009AFE1A /* MicroPaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED7F205FC077009AFE1A /* MicroPaintViewController.swift */; };
 		569AED83205FC159009AFE1A /* CIMicroPaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED82205FC159009AFE1A /* CIMicroPaintView.swift */; };
 		569AED85205FC1C0009AFE1A /* SampleCIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED84205FC1C0009AFE1A /* SampleCIView.swift */; };
+		569AED8720635C35009AFE1A /* FaceRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED8620635C35009AFE1A /* FaceRecognitionViewController.swift */; };
 		56CCFF431FE2152500A2FDEE /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CCFF421FE2152500A2FDEE /* EasyImagy.framework */; };
 		56CCFF461FE216B700A2FDEE /* sample.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 56CCFF451FE216B700A2FDEE /* sample.PNG */; };
 		56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9171FDE97800028344C /* CGImage+Extension.swift */; };
@@ -84,6 +85,7 @@
 		569AED7F205FC077009AFE1A /* MicroPaintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroPaintViewController.swift; sourceTree = "<group>"; };
 		569AED82205FC159009AFE1A /* CIMicroPaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIMicroPaintView.swift; sourceTree = "<group>"; };
 		569AED84205FC1C0009AFE1A /* SampleCIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCIView.swift; sourceTree = "<group>"; };
+		569AED8620635C35009AFE1A /* FaceRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecognitionViewController.swift; sourceTree = "<group>"; };
 		56CCFF421FE2152500A2FDEE /* EasyImagy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EasyImagy.framework; path = Carthage/Build/iOS/EasyImagy.framework; sourceTree = "<group>"; };
 		56CCFF451FE216B700A2FDEE /* sample.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample.PNG; sourceTree = "<group>"; };
 		56D3F9171FDE97800028344C /* CGImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		56689E7B1FDE1C9C0016D6A0 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				569AED8820635C3B009AFE1A /* FaceRecognition */,
 				E99BB2592000A4DA006043F3 /* Model */,
 				E99BB24F1FFE575F006043F3 /* Canvas */,
 				E958AFD71FF7A5AC00A435CA /* Camera */,
@@ -238,6 +241,14 @@
 				569AED84205FC1C0009AFE1A /* SampleCIView.swift */,
 			);
 			path = MicroPaint;
+			sourceTree = "<group>";
+		};
+		569AED8820635C3B009AFE1A /* FaceRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				569AED8620635C35009AFE1A /* FaceRecognitionViewController.swift */,
+			);
+			path = FaceRecognition;
 			sourceTree = "<group>";
 		};
 		56CCFF411FE2152500A2FDEE /* Frameworks */ = {
@@ -490,6 +501,7 @@
 				56D3F9221FE101DC0028344C /* CameraViewController.swift in Sources */,
 				566977EE202422F20098B7B7 /* BitmapImage.swift in Sources */,
 				E958AFD91FF7A5D300A435CA /* AVCaptureVideoOrientation+Extension.swift in Sources */,
+				569AED8720635C35009AFE1A /* FaceRecognitionViewController.swift in Sources */,
 				E99BB2541FFE81C3006043F3 /* DrawGestureRecognizer.swift in Sources */,
 				569AED85205FC1C0009AFE1A /* SampleCIView.swift in Sources */,
 				56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */,
