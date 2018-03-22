@@ -49,12 +49,7 @@ class FaceRecognitionViewController: UIViewController {
         return maskImage
     }
     
-    private func facesPixellated(_ image: CIImage) -> CIImage? {
-        guard let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil) else {
-            return nil
-        }
-        let rects = detector.features(in: image).map { $0.bounds }
-        
+    private func rectsPixellated(_ image: CIImage, rects: [CGRect]) -> CIImage? {
         guard let maskImage = buildMaskImage(image: image, rects: rects) else {
             return nil
         }
@@ -70,6 +65,15 @@ class FaceRecognitionViewController: UIViewController {
         }
         
         return result
+    }
+    
+    private func facesPixellated(_ image: CIImage) -> CIImage? {
+        guard let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil) else {
+            return nil
+        }
+        let rects = detector.features(in: image).map { $0.bounds }
+        
+        return rectsPixellated(image, rects: rects)
     }
     
     func updateImage(image: CIImage) {
