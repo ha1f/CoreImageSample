@@ -37,7 +37,11 @@ extension CIImage {
     }
     
     /// Convert to UIImage
-    func asUIImage(scale: CGFloat = UIScreen.main.scale, orientation: UIImageOrientation = .up) -> UIImage {
-        return UIImage(ciImage: self, scale: scale, orientation: orientation)
+    func asUIImage(useCgImage: Bool = false, scale: CGFloat = UIScreen.main.scale, orientation: UIImageOrientation = .up) -> UIImage {
+        if useCgImage, let cgImage = CGImage.extractOrGenerate(from: self) {
+            return UIImage(cgImage: cgImage, scale: scale, orientation: orientation)
+        } else {
+            return UIImage(ciImage: self, scale: scale, orientation: orientation)
+        }
     }
 }

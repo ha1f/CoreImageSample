@@ -15,8 +15,9 @@ class FaceRecognitionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageView.contentMode = .scaleAspectFit
         view.addSubview(imageView)
-        imageView.constraintTo(centerOf: view, width: 256, height: 256)
+        imageView.constraintTo(frameOf: view)
         
         updateImage(image: CIImage.extractOrGenerate(from: #imageLiteral(resourceName: "Lenna.png"))!)
     }
@@ -44,25 +45,29 @@ class FaceRecognitionViewController: UIViewController {
         return maskImage
     }
     
-    func updateImage(image: CIImage) {
+    private func facesPixellated(_ image: CIImage) -> CIImage? {
         guard let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil) else {
-            return
+            return nil
         }
         let rects = detector.features(in: image).map { $0.bounds }
         
         guard let maskImage = buildMaskImage(image: image, rects: rects) else {
-            return
+            return nil
         }
         
         let pixelSize = Double(max(image.extent.width, image.extent.height)/50)
         guard let pixellated = pixellated(image, pixelSize: pixelSize) else {
-            return
+            return nil
         }
         
         guard let result = CIFilter.blendWithMask(inputBackgroundImage: image, inputMaskImage: maskImage)?.apply(to: pixellated) else {
-            return
+            return nil
         }
         
-        imageView.image = result.asUIImage()
+        return result
+    }
+    
+    func updateImage(image: CIImage) {
+        imageView.image = (facesPixellated(image) ?? image).asUIImage(useCgImage: true)
     }
 }
