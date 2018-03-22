@@ -21,19 +21,20 @@ class FaceRecognitionViewController: UIViewController {
         updateImage(image: CIImage.extractOrGenerate(from: #imageLiteral(resourceName: "Lenna.png"))!)
     }
     
-    private func buildMaskImage(image: CIImage) -> CIImage? {
-        guard let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil) else {
-            return nil
-        }
-        
+    private func pixellated(_ image: CIImage, pixelSize: Double) -> CIImage? {
+        return CIFilter.pixellate(inputScale: NSNumber(value: pixelSize))?.apply(to: image)
+    }
+    
+    private func buildMaskImage(image: CIImage, rects: [CGRect]) -> CIImage? {
         var maskImage: CIImage? = nil
-        detector.features(in: image).forEach { feature in
+        rects.forEach { rect in
             // 要検討
-            let radius = Double(min(feature.bounds.width, feature.bounds.height) / 1.5)
-            guard let radialGradient = CIFilter.radialGradient(inputCenter: CIVector(cgPoint: feature.bounds.center), inputRadius0: NSNumber(value: radius), inputRadius1: NSNumber(value: radius + 1), inputColor0: CIColor(red: 0, green: 1, blue: 0, alpha: 1), inputColor1: CIColor(red: 0, green: 0, blue: 0, alpha: 0)) else {
+            let radius = Double(min(rect.width, rect.height) / 1.5)
+            let radialGradient = CIFilter.radialGradient(inputCenter: CIVector(cgPoint: rect.center), inputRadius0: NSNumber(value: radius), inputRadius1: NSNumber(value: radius + 1), inputColor0: CIColor(red: 0, green: 1, blue: 0, alpha: 1), inputColor1: CIColor.clear)
+            guard let circleImage = radialGradient?.outputImage else {
                 return
             }
-            let circleImage = radialGradient.outputImage!
+            
             if let currentMaskImage = maskImage {
                 maskImage = CIFilter.sourceOverCompositing(inputBackgroundImage: currentMaskImage)?.apply(to: circleImage) ?? currentMaskImage
             } else {
@@ -44,15 +45,24 @@ class FaceRecognitionViewController: UIViewController {
     }
     
     func updateImage(image: CIImage) {
-        if let maskImage = buildMaskImage(image: image) {
-            if let pixellated = CIFilter.pixellate(inputScale: NSNumber(value: Double(max(image.extent.width, image.extent.height)/60)))?.apply(to: image) {
-                if let result = CIFilter.blendWithMask(inputBackgroundImage: image, inputMaskImage: maskImage)?.apply(to: pixellated) {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.imageView.image = UIImage(ciImage: result)
-                    }
-                }
-            }
-            
+        guard let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: nil) else {
+            return
         }
+        let rects = detector.features(in: image).map { $0.bounds }
+        
+        guard let maskImage = buildMaskImage(image: image, rects: rects) else {
+            return
+        }
+        
+        let pixelSize = Double(max(image.extent.width, image.extent.height)/50)
+        guard let pixellated = pixellated(image, pixelSize: pixelSize) else {
+            return
+        }
+        
+        guard let result = CIFilter.blendWithMask(inputBackgroundImage: image, inputMaskImage: maskImage)?.apply(to: pixellated) else {
+            return
+        }
+        
+        imageView.image = result.asUIImage()
     }
 }
