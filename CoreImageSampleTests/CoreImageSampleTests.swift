@@ -33,12 +33,44 @@ class CoreImageSampleTests: XCTestCase {
         }
     }
     
-    // 0.013 sec
-    func testPerformanceCI3() {
+    /// 0.057 sec
+    func testScaleAndCrop() {
+        let originalImage = #imageLiteral(resourceName: "Lenna.png")
         self.measure {
-            let ciImage = CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!
-            for _ in 0..<1000 {
-                XCTAssertEqual(UIImage(ciImage: CIFilter.lanczosScaleTransform(inputImage: ciImage, inputScale: 5, inputAspectRatio: 1)!.outputImage!).size, scaledSize)
+            for _ in 0..<100 {
+                UIGraphicsBeginImageContext(originalImage.size)
+                defer {
+                    UIGraphicsEndImageContext()
+                }
+                let drawRect = CGRect(origin: .zero, size: originalImage.size.uniformlyScaled(by: 5))
+                originalImage.draw(in: drawRect)
+                let image = UIGraphicsGetImageFromCurrentImageContext()
+                // let image = UIImage(cgImage: UIGraphicsGetCurrentContext()!.makeImage()!)
+            }
+        }
+    }
+    
+    func testCreateCIContext() {
+        self.measure {
+            for _ in 0..<100 {
+                _ = CIContext()
+            }
+        }
+    }
+    
+    /// 0.001 sec
+    /// 0.207
+    func testScaleAndCrop2() {
+        let originalImage = #imageLiteral(resourceName: "Lenna.png")
+        let context = CIContext()
+        self.measure {
+            for _ in 0..<100 {
+                let ciImage = CIImage(image: originalImage)!
+                let transform = CGAffineTransform(scaleX: 5, y: 5)
+                let scaled = ciImage.transformed(by: transform)
+                let targetRect = CGRect(origin: .zero, size: originalImage.size)
+                let cropped = scaled.cropped(to: targetRect)
+                let image = UIImage(cgImage: context.createCGImage(cropped, from: cropped.extent)!)
             }
         }
     }

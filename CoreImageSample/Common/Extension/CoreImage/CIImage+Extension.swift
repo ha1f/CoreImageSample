@@ -27,13 +27,32 @@ extension CIImage {
     ///
     /// - returns: Generated CIImage. Nil on error.
     func resized(to size: CGSize) -> CIImage? {
-        guard extent.width != 0 && extent.height != 0 else {
+        guard extent.width > 0 && extent.height > 0 else {
             debugPrint("extent.width or extent.height is 0 so you cannot resize this CIImage to the size: \(size)")
             return nil
         }
         let xScale = size.width / extent.width
         let yScale = size.height / extent.height
         return transformed(by: CGAffineTransform(scaleX: xScale, y: yScale))
+    }
+    
+    /// Resize image to given size with `aspect fit` manner
+    /// Note: trailing / bottom edge is not correct (Size of extent will not match)
+    ///
+    /// - parameter size: size to fit
+    ///
+    /// - returns: Generated CIImage. Nil on error.
+    func aspectFit(to size: CGSize) -> CIImage? {
+        guard extent.width > 0 && extent.height > 0 else {
+            debugPrint("extent.width or extent.height is 0 so you cannot resize this CIImage to the size: \(size)")
+            return nil
+        }
+        let scale = min(size.width / extent.width, size.height / extent.height)
+        let xTranslation = (size.width - extent.width * scale) / 2
+        let yTranslation = (size.height - extent.height * scale) / 2
+        let transform = CGAffineTransform(translationX: xTranslation, y: yTranslation)
+            .scaledBy(x: scale, y: scale)
+        return transformed(by: transform)
     }
     
     func applying(_ filter: CIFilter) -> CIImage? {
