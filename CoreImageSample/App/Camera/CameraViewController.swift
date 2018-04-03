@@ -12,6 +12,8 @@ import AVFoundation
 // https://developer.apple.com/library/content/samplecode/AVCam/Listings/Swift_AVCam_CameraViewController_swift.html#//apple_ref/doc/uid/DTS40010112-Swift_AVCam_CameraViewController_swift-DontLinkElementID_15
 class CameraViewController: UIViewController {
     
+    // MARK: - UI Elements
+    
     private lazy var toggleCameraButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(self.onToggleCameraButtonTapped), for: .touchUpInside)
@@ -30,13 +32,25 @@ class CameraViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Properties
+    
     /// Communicate with the session and other session objects on this queue.
     private let sessionQueue = DispatchQueue(label: "camera session queue")
     
     let captureSession = AVCaptureSession()
     let photoOutput = AVCapturePhotoOutput()
     
+    let photoCaptureDelegateObject: AVCapturePhotoCaptureDelegate = {
+        if #available(iOS 11, *) {
+            return PhotoCaptureDelegateObject11()
+        } else {
+            return PhotoCaptureDelegateObject10()
+        }
+    }()
+    
     var currentVideoDeviceInput: AVCaptureDeviceInput?
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +83,20 @@ class CameraViewController: UIViewController {
         _stopSessionIfNeeded()
     }
     
+    // MARK: - Event handlers
+    
+    @objc
+    private func onToggleCameraButtonTapped() {
+        toggleCamera()
+    }
+    
+    @objc
+    private func onShutterButtonTapped() {
+        takePhoto()
+    }
+    
+    // MARK: - Functions
+    
     private func _startSessionIfNeeded() {
         sessionQueue.async { [weak session = self.captureSession] in
             if let session = session, !session.isRunning {
@@ -83,16 +111,6 @@ class CameraViewController: UIViewController {
                 session.stopRunning()
             }
         }
-    }
-    
-    @objc
-    private func onToggleCameraButtonTapped() {
-        toggleCamera()
-    }
-    
-    @objc
-    private func onShutterButtonTapped() {
-        takePhoto()
     }
     
     /// Call this on the session queue.
@@ -204,7 +222,7 @@ class CameraViewController: UIViewController {
         } else {
             photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecJPEG])
         }
-        self.photoOutput.capturePhoto(with: photoSettings, delegate: self)
+        self.photoOutput.capturePhoto(with: photoSettings, delegate: photoCaptureDelegateObject)
     }
     
     func takePhoto() {
@@ -218,5 +236,21 @@ class CameraViewController: UIViewController {
     }
 }
 
-extension CameraViewController: AVCapturePhotoCaptureDelegate {
+class PhotoCaptureDelegateObjectBase: NSObject {
+    // TODO: ちゃんと治す
+    var didFinishProcessingPhoto: (() -> ())? = nil
+}
+
+@available(iOS, introduced: 10.0, deprecated: 11.0)
+final class PhotoCaptureDelegateObject10: PhotoCaptureDelegateObjectBase, AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+        didFinishProcessingPhoto?()
+    }
+}
+
+@available(iOS 11.0, *)
+final class PhotoCaptureDelegateObject11: PhotoCaptureDelegateObjectBase, AVCapturePhotoCaptureDelegate {
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        didFinishProcessingPhoto?()
+    }
 }
