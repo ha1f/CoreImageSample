@@ -24,7 +24,11 @@ class CameraViewController: UIViewController {
         return button
     }()
     
-    private lazy var previewView = CaptureVideoPreviewView()
+    private lazy var previewView: CaptureVideoPreviewView = {
+        let view = CaptureVideoPreviewView()
+        view.videoPreviewLayer.videoGravity = .resizeAspect
+        return view
+    }()
     
     /// Communicate with the session and other session objects on this queue.
     private let sessionQueue = DispatchQueue(label: "camera session queue")
@@ -45,13 +49,11 @@ class CameraViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             previewView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuideCompatible.topAnchor, constant: 50),
-            previewView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuideCompatible.leftAnchor, constant: 0),
-            previewView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuideCompatible.rightAnchor, constant: 0),
+            previewView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuideCompatible.leadingAnchor, constant: 0),
+            previewView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuideCompatible.trailingAnchor, constant: 0),
             previewView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuideCompatible.bottomAnchor, constant: 100)
             ])
         
-        // preview
-        previewView.videoPreviewLayer.videoGravity = .resizeAspect
         previewView.session = captureSession
         
         configureSession()
@@ -140,7 +142,7 @@ class CameraViewController: UIViewController {
     
     func configureSession() {
         sessionQueue.async { [weak self] in
-            self?.configureSession()
+            self?._configureSession()
         }
     }
     
@@ -182,14 +184,17 @@ class CameraViewController: UIViewController {
     }
     
     func toggleCamera() {
-        // TODO: ここでボタンをdisableする
+        toggleCameraButton.isEnabled = false
         sessionQueue.async { [weak self] in
             self?._toggleCamera(completion: {
-                // TODO: ここでボタンをenable
+                DispatchQueue.main.async {
+                    self?.toggleCameraButton.isEnabled = true
+                }
             })
         }
     }
     
+    /// Call this on the session queue.
     private func _takePhoto() {
         var photoSettings: AVCapturePhotoSettings = AVCapturePhotoSettings()
         if #available(iOS 11.0, *) {
@@ -203,8 +208,12 @@ class CameraViewController: UIViewController {
     }
     
     func takePhoto() {
+        shutterButton.isEnabled = false
         sessionQueue.async { [weak self] in
             self?._takePhoto()
+            DispatchQueue.main.async {
+                self?.shutterButton.isEnabled = true
+            }
         }
     }
 }

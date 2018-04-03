@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         view.addSubview(imageView)
         imageView.constraintTo(centerOf: view, width: 256, height: 256)
         
-        imageView.backgroundColor = UIColor.green
+        // imageView.backgroundColor = UIColor.green
         
 //        let maskImage = CIImage(image: #imageLiteral(resourceName: "frame_01_mask.png"))!
 //        let maskFilter = CIFilter.sourceInCompositing(inputBackgroundImage: maskImage)!
@@ -30,15 +30,7 @@ class ViewController: UIViewController {
 //        let overFilter = CIFilter.sourceOverCompositing(inputBackgroundImage: maskedLenna)!
 //        let result = CIImage(image: #imageLiteral(resourceName: "frame_01.png"))!.applying(overFilter)!
 //        imageView.image = result.asUIImage(useCgImage: true)
-        
-        let originalImage = #imageLiteral(resourceName: "Lenna.png")
-        UIGraphicsBeginImageContext(originalImage.size)
-        let drawRect = CGRect(origin: .zero, size: originalImage.size.uniformlyScaled(by: 5))
-        originalImage.draw(in: drawRect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        imageView.image = image
+        imageView.image = CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!.applying(CIFilter.columnAverage()!)?.asUIImage(useCgImage: true)
         
         
         // #imageLiteral(resourceName: "Lenna.png").masked(with: #imageLiteral(resourceName: "frame_01_mask.png"))
