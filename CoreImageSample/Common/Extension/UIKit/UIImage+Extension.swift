@@ -246,7 +246,7 @@ extension UIImage {
     ///
     /// - returns: The created image. Nil on error.
     static func emptyUsingCoreGraphics(size: CGSize, color: UIColor = .clear, scale: CGFloat = UIScreen.main.scale) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, true, scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer {
             UIGraphicsEndImageContext()
         }

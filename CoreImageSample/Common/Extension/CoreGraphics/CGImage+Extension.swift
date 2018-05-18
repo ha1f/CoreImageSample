@@ -71,15 +71,14 @@ extension CGImage {
                        shouldInterpolate: false)
     }
     
-    /// Calculate the rect of opaque pixels
-    func opaqueRect() -> CGRect? {
+    private func _alphaOnlyArray() -> [UInt8]? {
         let bitsPerComponent = MemoryLayout<UInt8>.size * 8
         let bytesPerComponent = MemoryLayout<UInt8>.stride
-
+        
         let colorSpace = CGColorSpaceCreateDeviceGray()
         let componentsPerPixel = 1 // alpha only
         let componentsPerRow = componentsPerPixel * width
-
+        
         // draw alpha only
         var pixelData = [UInt8](repeating: 0, count: width * height * componentsPerPixel)
         guard let context = CGContext(
@@ -94,6 +93,23 @@ extension CGImage {
                 return nil
         }
         context.draw(self, in: CGRect(x: 0, y: 0, width: width, height: height))
+        return pixelData
+    }
+    
+    func countOpaquePixels() -> Int? {
+        return _alphaOnlyArray()?.filter { $0 > 0 }.count
+    }
+    
+    /// Calculate the rect of opaque pixels
+    func opaqueRect() -> CGRect? {
+        
+        let componentsPerPixel = 1 // alpha only
+        let componentsPerRow = componentsPerPixel * width
+
+        // draw alpha only
+        guard let pixelData = _alphaOnlyArray() else {
+            return nil
+        }
 
         // initial value
         var currentMinX = width, currentMaxX = 0, currentMinY = height, currentMaxY = 0
