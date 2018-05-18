@@ -30,7 +30,25 @@ class ViewController: UIViewController {
 //        let overFilter = CIFilter.sourceOverCompositing(inputBackgroundImage: maskedLenna)!
 //        let result = CIImage(image: #imageLiteral(resourceName: "frame_01.png"))!.applying(overFilter)!
 //        imageView.image = result.asUIImage(useCgImage: true)
-        imageView.image = CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!.applying(CIFilter.columnAverage()!)?.asUIImage(useCgImage: true)
+        // imageView.image = CIImage(image: #imageLiteral(resourceName: "Lenna.png"))!.applying(CIFilter.columnAverage()!)?.asUIImage(useCgImage: true)
+        let path1 = UIBezierPath()
+        path1.move(to: CGPoint(x: 0, y: 50))
+        path1.addLine(to: CGPoint(x: 50, y: 0))
+        path1.addLine(to: CGPoint(x: 100, y: 50))
+        
+        let path2 = UIBezierPath()
+        path2.move(to: CGPoint(x: 0, y: 50))
+        path2.addLine(to: CGPoint(x: 50, y: 10))
+        path2.addLine(to: CGPoint(x: 100, y: 50))
+        
+        let path3 = UIBezierPath()
+        path3.move(to: CGPoint(x: 0, y: 50))
+        path3.addLine(to: CGPoint(x: 0, y: 100))
+        path3.addLine(to: CGPoint(x: 100, y: 50))
+        
+        print(UIBezierPath.difference(path1, path1))
+        print(UIBezierPath.difference(path1, path2))
+        print(UIBezierPath.difference(path1, path3))
         
         
         // #imageLiteral(resourceName: "Lenna.png").masked(with: #imageLiteral(resourceName: "frame_01_mask.png"))
