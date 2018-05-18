@@ -31,7 +31,6 @@
 		569AED83205FC159009AFE1A /* CIMicroPaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED82205FC159009AFE1A /* CIMicroPaintView.swift */; };
 		569AED85205FC1C0009AFE1A /* SampleCIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED84205FC1C0009AFE1A /* SampleCIView.swift */; };
 		569AED8720635C35009AFE1A /* FaceRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569AED8620635C35009AFE1A /* FaceRecognitionViewController.swift */; };
-		56CCFF431FE2152500A2FDEE /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CCFF421FE2152500A2FDEE /* EasyImagy.framework */; };
 		56CCFF461FE216B700A2FDEE /* sample.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 56CCFF451FE216B700A2FDEE /* sample.PNG */; };
 		56D3F9181FDE97800028344C /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F9171FDE97800028344C /* CGImage+Extension.swift */; };
 		56D3F91F1FE0BDD00028344C /* CodePrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D3F91E1FE0BDD00028344C /* CodePrinter.swift */; };
@@ -107,7 +106,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56CCFF431FE2152500A2FDEE /* EasyImagy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +459,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/EasyImagy.framework",
 			);
 			outputPaths = (
 			);
